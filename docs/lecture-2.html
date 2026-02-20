@@ -117,10 +117,10 @@ Let $\varphi: \mathbb{R}^2 \to \mathbb{R}$, i.e., $z = f(x,y)$.
 </ul>
 <strong>Definition</strong>:
 $$
-\left.\frac{\partial f}{\partial x}\right|<em>{(x</em>0,y<em>0)} = \lim</em>{h\to 0}\frac{f(x<em>0+h,y</em>0)-f(x<em>0,y</em>0)}{h}
+\left.\frac{\partial f}{\partial x}\right|_{(x_0,y_0)} = \lim_{h\to 0}\frac{f(x_0+h,y_0)-f(x_0,y_0)}{h}
 $$
 $$
-\left.\frac{\partial f}{\partial y}\right|<em>{(x</em>0,y<em>0)} = \lim</em>{h\to 0}\frac{f(x<em>0,y</em>0+h)-f(x<em>0,y</em>0)}{h}
+\left.\frac{\partial f}{\partial y}\right|_{(x_0,y_0)} = \lim_{h\to 0}\frac{f(x_0,y_0+h)-f(x_0,y_0)}{h}
 $$
 
 <strong>Higher-order & mixed partials</strong> (notation table):
@@ -130,17 +130,17 @@ $$
 <tr><th>Notation 1</th><th>Notation 2</th><th>Spoken as</th></tr>
 </thead>
 <tbody>
-<tr><td>$\frac{\partial^2 f}{\partial x^2}$</td><td>$f<em>{xx}$</td><td>f double-x</td></tr>
-<tr><td>$\frac{\partial^2 f}{\partial y^2}$</td><td>$f</em>{yy}$</td><td>f double-y</td></tr>
-<tr><td>$\frac{\partial^2 f}{\partial x\partial y}$</td><td>$f<em>{yx}$</td><td>f y-then-x</td></tr>
-<tr><td>$\frac{\partial^2 f}{\partial y\partial x}$</td><td>$f</em>{xy}$</td><td>f x-then-y</td></tr>
+<tr><td>$\frac{\partial^2 f}{\partial x^2}$</td><td>$f_{xx}$</td><td>f double-x</td></tr>
+<tr><td>$\frac{\partial^2 f}{\partial y^2}$</td><td>$f_{yy}$</td><td>f double-y</td></tr>
+<tr><td>$\frac{\partial^2 f}{\partial x\partial y}$</td><td>$f_{yx}$</td><td>f y-then-x</td></tr>
+<tr><td>$\frac{\partial^2 f}{\partial y\partial x}$</td><td>$f_{xy}$</td><td>f x-then-y</td></tr>
 </tbody>
 </table>
 
 <strong>Clairaut’s / Mixed Derivative Theorem</strong>  
-If $f$, $f<em>x$, $f</em>y$, $f<em>{xy}$, $f</em>{yx}$ are continuous in an open region containing $(a,b)$, then
+If $f$, $f_x$, $f_y$, $f_{xy}$, $f_{yx}$ are continuous in an open region containing $(a,b)$, then
 $$
-f<em>{xy}(a,b) = f</em>{yx}(a,b)
+f_{xy}(a,b) = f_{yx}(a,b)
 $$
 
 <hr>
@@ -171,7 +171,7 @@ $$
 
 <strong>Linear approximation</strong> (tangent line in 1D):
 $$
-f'(a) = \lim<em>{x\to a}\frac{f(x)-f(a)}{x-a}
+f'(a) = \lim_{x\to a}\frac{f(x)-f(a)}{x-a}
 $$
 
 <strong>Total differential</strong> (best linear approximation in 2D):
@@ -228,7 +228,7 @@ $$
 \frac{\partial u}{\partial y} = 3x + h'(y) = N = 3x + \cos y \implies h'(y) = \cos y
 $$
 $$
-h(y) = \sin y + C</em>1
+h(y) = \sin y + C_1
 $$
 <strong>Implicit solution</strong>:
 $$
@@ -304,7 +304,7 @@ Find the precise condition (homework!).
 <li>No. If $\mu$ works, so does $c\mu$ ($c\neq 0$).</li>
 <li>Sometimes completely different $\mu$ exist.</li>
 </ul><strong>Example</strong>: $-y\,dx + x\,dy = 0$  
-Both $\mu<em>1 = 1/x^2$ and $\mu</em>2 = 1/y^2$ work (give different but equivalent forms).
+Both $\mu_1 = 1/x^2$ and $\mu_2 = 1/y^2$ work (give different but equivalent forms).
 
 <hr>
 

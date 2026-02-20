@@ -88,6 +88,8 @@ def convert_markdown_to_html(content: str) -> str:
     """Convert markdown to HTML."""
     # Store code blocks temporarily
     code_blocks = []
+    # Store math blocks temporarily
+    math_blocks = []
     
     def store_code_block(match):
         lang = match.group(1) or 'text'
@@ -95,8 +97,19 @@ def convert_markdown_to_html(content: str) -> str:
         code_blocks.append((lang, code))
         return f"{{{{CODE_BLOCK_{len(code_blocks)-1}}}}}"
     
-    # Extract code blocks
+    def store_math_block(match):
+        math = match.group(0)
+        math_blocks.append(math)
+        return f"{{«MATHBLOCK{len(math_blocks)-1}}}}}"
+    
+    # Extract code blocks first (before math, to avoid conflicts)
     content = re.sub(r'```(\w+)?\n(.*?)```', store_code_block, content, flags=re.DOTALL)
+    
+    # Extract display math ($$...$$) - must be before inline math
+    content = re.sub(r'\$\$(.*?)\$\$', store_math_block, content, flags=re.DOTALL)
+    
+    # Extract inline math ($...$) - be careful to not match escaped dollars
+    content = re.sub(r'(?<!\$)\$([^\$\n]+?)\$(?!\$)', store_math_block, content)
     
     # Headers
     content = re.sub(r'^######\s+(.+)$', r'<h6>\1</h6>', content, flags=re.MULTILINE)
@@ -198,6 +211,11 @@ def convert_markdown_to_html(content: str) -> str:
         content = content.replace(f'{{{{CODE_BLOCK_{i}}}}}', 
             f'<pre><code class="language-{lang}">{escaped_code}</code></pre>')
     
+
+    # Restore math blocks (keep raw $...$ for MathJax)
+    for i, math in enumerate(math_blocks):
+        content = content.replace(f'{{«MATHBLOCK{i}}}}}',
+            math)
     # Paragraphs (wrap remaining text)
     paragraphs = []
     for block in content.split('\n\n'):

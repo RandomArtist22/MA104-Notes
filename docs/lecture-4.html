@@ -100,20 +100,20 @@
 
 <strong>Standard IVP</strong>:
 $$
-y' = f(x,y), \quad y(x<em>0) = y</em>0 \tag{1}
+y' = f(x,y), \quad y(x_0) = y_0 \tag{1}
 $$
 
 <strong>Coordinate Shift</strong> (to simplify proof):
-Let $\tilde{x} = x - x<em>0$, $\tilde{y} = y - y</em>0$.  
+Let $\tilde{x} = x - x_0$, $\tilde{y} = y - y_0$.  
 New IVP (at origin):
 $$
-\tilde{y}' = f(\tilde{x} + x<em>0, \tilde{y} + y</em>0), \quad \tilde{y}(0) = 0 \tag{2}
+\tilde{y}' = f(\tilde{x} + x_0, \tilde{y} + y_0), \quad \tilde{y}(0) = 0 \tag{2}
 $$
 
 <strong>Theorem</strong> (Picard–Lindelöf):
 If $f(x,y)$ and $\partial f/\partial y$ are <strong>continuous</strong> in rectangle  
 $D: |x| < a$, $|y| < b$,  
-then there exists $\alpha = \min\{a, b/K\}$ (where $|f| \leq K$ in $D$) such that (1) has a <strong>unique</strong> solution $y = \phi(x)$ on $|x - x<em>0| < \alpha$.
+then there exists $\alpha = \min\{a, b/K\}$ (where $|f| \leq K$ in $D$) such that (1) has a <strong>unique</strong> solution $y = \phi(x)$ on $|x - x_0| < \alpha$.
 
 <strong>Geometric Interpretation</strong> (rectangle $D$):
 <ul>
@@ -142,7 +142,7 @@ $$
 $$
 Integrate:
 $$
-\phi(x) = \int</em>0^x f(t, \phi(t))\, dt \tag{3}
+\phi(x) = \int_0^x f(t, \phi(t))\, dt \tag{3}
 $$</p>
 
 <strong>Equivalence</strong>:
@@ -158,17 +158,17 @@ $$</p>
 
 <strong>Algorithm</strong> (for IVP with $y(0)=0$):
 <ol>
-<li>Start with $\phi<em>0(x) = 0$ (or any function with $\phi</em>0(0)=0$).</li>
+<li>Start with $\phi_0(x) = 0$ (or any function with $\phi_0(0)=0$).</li>
 <li>Define recursively:</li>
 </ol>   $$
-   \phi<em>{n+1}(x) = \int</em>0^x f(t, \phi<em>n(t))\, dt, \quad n = 0,1,2,\dots
+   \phi_{n+1}(x) = \int_0^x f(t, \phi_n(t))\, dt, \quad n = 0,1,2,\dots
    $$
 <ol>
-<li>Under the continuity/boundedness conditions, $\phi</em>n(x) \to \phi(x)$ (the unique solution).</li>
+<li>Under the continuity/boundedness conditions, $\phi_n(x) \to \phi(x)$ (the unique solution).</li>
 </ol>
 <strong>Key Property</strong>:
 <ul>
-<li>Each $\phi<em>n$ satisfies the initial condition.</li>
+<li>Each $\phi_n$ satisfies the initial condition.</li>
 <li>Sequence converges to the fixed point of the integral operator.</li>
 </ul>
 <hr>
@@ -178,18 +178,18 @@ $$</p>
 
 <p>$f(x,y) = 2x(1+y)$
 <ul>
-<li>$\phi</em>0(x) = 0$</li>
-<li>$\phi<em>1(x) = \int</em>0^x 2t(1+0)\,dt = x^2$</li>
-<li>$\phi<em>2(x) = \int</em>0^x 2t(1 + t^2)\,dt = x^2 + \frac{x^4}{2}$</li>
-<li>$\phi<em>3(x) = \int</em>0^x 2t(1 + t^2 + t^4/2)\,dt = x^2 + \frac{x^4}{2} + \frac{x^6}{6}$</li>
+<li>$\phi<em>0(x) = 0$</li>
+<li>$\phi</em>1(x) = \int<em>0^x 2t(1+0)\,dt = x^2$</li>
+<li>$\phi</em>2(x) = \int<em>0^x 2t(1 + t^2)\,dt = x^2 + \frac{x^4}{2}$</li>
+<li>$\phi</em>3(x) = \int<em>0^x 2t(1 + t^2 + t^4/2)\,dt = x^2 + \frac{x^4}{2} + \frac{x^6}{6}$</li>
 <li>In general (by induction):</li>
 </ul>  $$
-  \phi<em>n(x) = x^2 + \frac{x^4}{2!} + \frac{x^6}{3!} + \cdots + \frac{x^{2n}}{n!}
+  \phi</em>n(x) = x^2 + \frac{x^4}{2!} + \frac{x^6}{3!} + \cdots + \frac{x^{2n}}{n!}
   $$</p>
 
 <strong>Limit</strong>:
 $$
-\phi(x) = \lim</em>{n\to\infty} \phi<em>n(x) = \sum</em>{k=1}^\infty \frac{x^{2k}}{k!} = e^{x^2} - 1
+\phi(x) = \lim_{n\to\infty} \phi_n(x) = \sum_{k=1}^\infty \frac{x^{2k}}{k!} = e^{x^2} - 1
 $$
 
 <strong>Verification</strong>:
@@ -199,13 +199,13 @@ $$
 <li>Direct substitution confirms it solves both integral equation and original IVP.</li>
 </ul>
 <strong>Visualization</strong>:
-Successive iterates $\phi<em>k(x)$ approximate the solution better with increasing $k$, expanding the interval of good approximation.
+Successive iterates $\phi_k(x)$ approximate the solution better with increasing $k$, expanding the interval of good approximation.
 
 <hr>
 
 <h2>Proof Sketch: The Limit Solves the IVP</h2>
 <ul>
-<li>Convergence of $\{\phi</em>n\}$ shown via uniform convergence on compact intervals (under boundedness of $f$).</li>
+<li>Convergence of $\{\phi_n\}$ shown via uniform convergence on compact intervals (under boundedness of $f$).</li>
 <li>Limit $\phi$ satisfies integral equation (3) by taking limit inside integral (justified by uniform convergence).</li>
 <li>Hence $\phi$ solves the differential equation.</li>
 </ul>
@@ -216,7 +216,7 @@ Successive iterates $\phi<em>k(x)$ approximate the solution better with increasi
 <p>Suppose $\phi(x)$ and $\psi(x)$ both solve (3).  
 Then:
 $$
-|\phi(x) - \psi(x)| \leq \int<em>0^{|x|} |f(t,\phi(t)) - f(t,\psi(t))|\, dt
+|\phi(x) - \psi(x)| \leq \int_0^{|x|} |f(t,\phi(t)) - f(t,\psi(t))|\, dt
 $$</p>
 
 <p>By <strong>Lipschitz condition</strong> (from continuity of $\partial f/\partial y \leq M$ in $D$):
@@ -224,7 +224,7 @@ $$
 |f(t,\phi) - f(t,\psi)| \leq K |\phi(t) - \psi(t)|
 $$</p>
 
-<p>Define $u(x) = \int</em>0^x |\phi(t) - \psi(t)|\, dt$ ($\geq 0$, $u(0)=0$).  
+<p>Define $u(x) = \int_0^x |\phi(t) - \psi(t)|\, dt$ ($\geq 0$, $u(0)=0$).  
 Then $u'(x) \leq K u(x)$ on $[0, \alpha/2]$.</p>
 
 <p>Multiply by integrating factor $e^{-Kx}$:

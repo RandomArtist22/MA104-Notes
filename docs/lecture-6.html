@@ -102,24 +102,24 @@ y'' + P(x)y' + Q(x)y = 0 \tag{1}
 $$
 on interval $I$.
 <ul>
-<li>$y<em>1, y</em>2$ are <strong>linearly independent (L.I.)</strong> solutions on $I$.</li>
+<li>$y_1, y_2$ are <strong>linearly independent (L.I.)</strong> solutions on $I$.</li>
 <li>Any other solution $y$ on $I$ can be written as</li>
 </ul>  $$
-  y(x) = c<em>1 y</em>1(x) + c<em>2 y</em>2(x)
+  y(x) = c_1 y_1(x) + c_2 y_2(x)
   $$
-  for constants $c<em>1, c</em>2$.
+  for constants $c_1, c_2$.
 
 <p>At any point $x<em>0 \in I$:
 $$
 y(x</em>0) = c<em>1 y</em>1(x<em>0) + c</em>2 y<em>2(x</em>0)
 $$
 $$
-y'(x<em>0) = c</em>1 y<em>1'(x</em>0) + c<em>2 y</em>2'(x<em>0)
+y'(x<em>0) = c</em>1 y<em>1'(x</em>0) + c<em>2 y</em>2'(x_0)
 $$</p>
 
-<p>This linear system has unique solution $(c</em>1,c<em>2)$ <strong>if and only if</strong>
+<p>This linear system has unique solution $(c<em>1,c</em>2)$ <strong>if and only if</strong>
 $$
-W(y</em>1,y<em>2)(x</em>0) = y<em>1(x</em>0)y<em>2'(x</em>0) - y<em>1'(x</em>0)y<em>2(x</em>0) \neq 0
+W(y<em>1,y</em>2)(x<em>0) = y</em>1(x<em>0)y</em>2'(x<em>0) - y</em>1'(x<em>0)y</em>2(x_0) \neq 0
 $$</p>
 
 <hr>
@@ -127,19 +127,19 @@ $$</p>
 <h2>Wronskian</h2>
 
 <strong>Definition</strong>:
-For two twice-differentiable functions $y<em>1, y</em>2$ on $I$:
+For two twice-differentiable functions $y_1, y_2$ on $I$:
 $$
-W(y<em>1,y</em>2)(x) = \begin{vmatrix}
-y<em>1(x) & y</em>2(x) \\
-y<em>1'(x) & y</em>2'(x)
+W(y_1,y_2)(x) = \begin{vmatrix}
+y_1(x) & y_2(x) \\
+y_1'(x) & y_2'(x)
 \end{vmatrix}
-= y<em>1 y</em>2' - y<em>1' y</em>2
+= y_1 y_2' - y_1' y_2
 $$
 <ul>
 <li>$W: I \to \mathbb{R}$ is a function (or map).</li>
 </ul>
 <strong>Example</strong>:
-$y<em>1 = e^x$, $y</em>2 = e^{2x}$  
+$y_1 = e^x$, $y_2 = e^{2x}$  
 $W(e^x, e^{2x}) = e^x \cdot 2e^{2x} - e^{2x} \cdot e^x = e^{3x} \neq 0$ everywhere.
 
 <hr>
@@ -147,28 +147,28 @@ $W(e^x, e^{2x}) = e^x \cdot 2e^{2x} - e^{2x} \cdot e^x = e^{3x} \neq 0$ everywhe
 <h2>Wronskian and Linear Independence</h2>
 
 <strong>Theorem</strong>:  
-If $y<em>1, y</em>2$ are L.I. and differentiable on $I = (a,b)$, then
+If $y_1, y_2$ are L.I. and differentiable on $I = (a,b)$, then
 $$
-W(y<em>1,y</em>2)(x) = 0 \quad \forall x \in I
+W(y_1,y_2)(x) = 0 \quad \forall x \in I
 $$
 
 <strong>Proof</strong> (contrapositive style):  
-Assume $c<em>1 y</em>1 + c<em>2 y</em>2 \equiv 0$ with not both $c<em>i=0$. Differentiate → system
+Assume $c_1 y_1 + c_2 y_2 \equiv 0$ with not both $c_i=0$. Differentiate → system
 $$
 \begin{pmatrix}
-y</em>1 & y<em>2 \\
-y</em>1' & y<em>2'
+y_1 & y_2 \\
+y_1' & y_2'
 \end{pmatrix}
 \begin{pmatrix}
-c</em>1 \\ c<em>2
+c_1 \\ c_2
 \end{pmatrix}
 = \begin{pmatrix} 0 \\ 0 \end{pmatrix}
 $$
 Determinant $W=0$.
 
 <strong>Converse is NOT always true</strong> (counterexample):
-$y</em>1(x)=x^2$, $y<em>2(x)=x|x|$ on $\mathbb{R}$.  
-$W \equiv 0$ everywhere, but they are L.I. (no constants satisfy $c</em>1 x^2 + c<em>2 x|x| \equiv 0$).
+$y_1(x)=x^2$, $y_2(x)=x|x|$ on $\mathbb{R}$.  
+$W \equiv 0$ everywhere, but they are L.I. (no constants satisfy $c_1 x^2 + c_2 x|x| \equiv 0$).
 
 <strong>However</strong>: For solutions of the same linear homogeneous ODE (1) with continuous $P,Q$, the converse <strong>is true</strong>.
 
@@ -177,11 +177,11 @@ $W \equiv 0$ everywhere, but they are L.I. (no constants satisfy $c</em>1 x^2 + 
 <h2>Abel’s Theorem (Vanishing Property)</h2>
 
 <strong>Theorem</strong> (Abel):  
-If $y</em>1, y<em>2$ solve (1) and $P,Q$ continuous on $I$, then
+If $y_1, y_2$ solve (1) and $P,Q$ continuous on $I$, then
 $$
-W(y</em>1,y<em>2)(x) = c \exp\left( -\int P(x)\, dx \right)
+W(y_1,y_2)(x) = c \exp\left( -\int P(x)\, dx \right)
 $$
-where $c$ is constant (depends on choice of $y</em>1,y<em>2$, not on $x$).
+where $c$ is constant (depends on choice of $y_1,y_2$, not on $x$).
 
 <strong>Remark</strong>:  
 Either $W \equiv 0$ on $I$ or $W(x) \neq 0$ for all $x \in I$.
@@ -189,7 +189,7 @@ Either $W \equiv 0$ on $I$ or $W(x) \neq 0$ for all $x \in I$.
 <strong>Proof outline</strong>:
 Differentiate Wronskian:
 $$
-W' = y</em>1 y<em>2'' - y</em>1'' y<em>2 = -P(y</em>1 y<em>2' - y</em>1' y<em>2) = -P W
+W' = y_1 y_2'' - y_1'' y_2 = -P(y_1 y_2' - y_1' y_2) = -P W
 $$
 $$
 \frac{W'}{W} = -P \implies W(x) = c e^{-\int P\, dx}
@@ -197,12 +197,12 @@ $$
 
 <strong>Consequences</strong>:
 <ul>
-<li>To check L.I., evaluate $W$ at <strong>one convenient point</strong> $x</em>0 \in I$.</li>
-<li>If $\{y<em>1,y</em>2\}$ and $\{y<em>1^<em>,y</em>2^</em>\}$ are two fundamental sets, then $W(y<em>1,y</em>2) = k \cdot W(y<em>1^<em>,y</em>2^</em>)$ (multiplicative constant).</li>
+<li>To check L.I., evaluate $W$ at <strong>one convenient point</strong> $x_0 \in I$.</li>
+<li>If $\{y_1,y_2\}$ and $\{y_1^*,y_2^*\}$ are two fundamental sets, then $W(y_1,y_2) = k \cdot W(y_1^*,y_2^*)$ (multiplicative constant).</li>
 </ul>
 <strong>Example</strong>:
 $y'' - \frac{4}{x} y' + \frac{6}{x^2} y = 0$  
-$y<em>1=x^2$, $y</em>2=x^3$ are L.I. solutions.  
+$y_1=x^2$, $y_2=x^3$ are L.I. solutions.  
 $W(x^2,x^3) = x^2 \cdot 3x^2 - x^3 \cdot 2x = x^4 \neq 0$ for $x \neq 0$.  
 At $x=0$, $W(0)=0$, but solutions are still L.I. on $(0,\infty)$ or $(-\infty,0)$.
 
@@ -216,11 +216,11 @@ $$</p>
 
 <strong>General solution</strong> on interval $I$:
 $$
-y(x) = y<em>h(x) + y</em>p(x)
+y(x) = y_h(x) + y_p(x)
 $$
 <ul>
-<li>$y<em>h = c</em>1 y<em>1 + c</em>2 y<em>2$ = general solution of homogeneous (1).</li>
-<li>$y</em>p$ = <strong>any</strong> particular solution of (3) (no arbitrary constants).</li>
+<li>$y_h = c_1 y_1 + c_2 y_2$ = general solution of homogeneous (1).</li>
+<li>$y_p$ = <strong>any</strong> particular solution of (3) (no arbitrary constants).</li>
 </ul>
 <hr>
 
@@ -232,11 +232,11 @@ $$
 
 <table>
 <thead>
-<tr><th>Term in $R(x)$</th><th>Choice for $y<em>p(x)$</th></tr>
+<tr><th>Term in $R(x)$</th><th>Choice for $y_p(x)$</th></tr>
 </thead>
 <tbody>
 <tr><td>$k e^{\alpha x}$</td><td>$C e^{\alpha x}$</td></tr>
-<tr><td>$k x^n$ ($n=0,1,\dots$)</td><td>$K</em>n x^n + \dots + K<em>1 x + K</em>0$</td></tr>
+<tr><td>$k x^n$ ($n=0,1,\dots$)</td><td>$K_n x^n + \dots + K_1 x + K_0$</td></tr>
 <tr><td>$k \cos \omega x$ or $k \sin \omega x$</td><td>$K \cos \omega x + M \sin \omega x$</td></tr>
 <tr><td>$k e^{\alpha x} \cos \omega x$ or sin</td><td>$e^{\alpha x}(K \cos \omega x + M \sin \omega x)$</td></tr>
 </tbody>
@@ -250,10 +250,10 @@ $$
 </ul>
 <strong>Example</strong> (modification):
 $y'' + 3y' + 2.25y = -10 e^{-1.5x}$, $y(0)=1$, $y'(0)=0$  
-Homogeneous: roots $-1.5$ (double) → $y<em>h = (c</em>1 + c<em>2 x)e^{-1.5x}$  
-Guess $y</em>p = C x^2 e^{-1.5x}$ (multiply by $x^2$).  
+Homogeneous: roots $-1.5$ (double) → $y_h = (c_1 + c_2 x)e^{-1.5x}$  
+Guess $y_p = C x^2 e^{-1.5x}$ (multiply by $x^2$).  
 Substitute → $C = -5$.  
-Particular: $y<em>p = -5 x^2 e^{-1.5x}$.
+Particular: $y_p = -5 x^2 e^{-1.5x}$.
 
 <hr>
 
@@ -272,8 +272,8 @@ Particular: $y<em>p = -5 x^2 e^{-1.5x}$.
 <ol>
 <li>Find annihilator $A$ with $A[R]=0$.</li>
 <li>Solve higher-order homogeneous $(A L)[y] = 0$.</li>
-<li>General solution of $(A L)y=0$ = $y</em>h +$ extra terms.</li>
-<li>Take $y<em>p$ = linear combination of <strong>extra terms only</strong> (those not in kernel of $L$).</li>
+<li>General solution of $(A L)y=0$ = $y_h +$ extra terms.</li>
+<li>Take $y_p$ = linear combination of <strong>extra terms only</strong> (those not in kernel of $L$).</li>
 <li>Plug into original equation to find constants.</li>
 </ol>
 <strong>Example</strong>:
@@ -282,11 +282,11 @@ $L = D^2 + 1$
 $A = D^3$ (kills $x^2+x$)  
 $(D^3)(D^2+1)y = 0$ → characteristic $r^5 + r^3 = r^3(r^2+1)=0$  
 Roots: $0$ (multiplicity 3), $\pm i$  
-General: $y = c</em>1 + c<em>2 x + c</em>3 x^2 + c<em>4 \cos x + c</em>5 \sin x$  
-$y<em>h = d</em>1 \cos x + d<em>2 \sin x$  
-Thus $y</em>p = c<em>1 + c</em>2 x + c<em>3 x^2$  
-Substitute → $c</em>3=1$, $c<em>2=1$, $c</em>1=-2$  
-$y<em>p = x^2 + x - 2$
+General: $y = c_1 + c_2 x + c_3 x^2 + c_4 \cos x + c_5 \sin x$  
+$y_h = d_1 \cos x + d_2 \sin x$  
+Thus $y_p = c_1 + c_2 x + c_3 x^2$  
+Substitute → $c_3=1$, $c_2=1$, $c_1=-2$  
+$y_p = x^2 + x - 2$
 
 <hr>
 
@@ -294,9 +294,9 @@ $y<em>p = x^2 + x - 2$
 <ul>
 <li><strong>Wronskian</strong> detects linear independence for solutions of linear homogeneous ODEs.</li>
 <li><strong>Abel’s theorem</strong>: $W(x) = c \exp(-\int P\, dx)$ → either always zero or never zero.</li>
-<li>Nonhomogeneous general solution = $y</em>h + y<em>p$.</li>
+<li>Nonhomogeneous general solution = $y_h + y_p$.</li>
 <li><strong>Undetermined coefficients</strong>: Quick algebraic method for special $R(x)$.</li>
-<li><strong>Annihilator</strong>: Systematic way to guess form of $y</em>p$ by solving higher-order homogeneous equation.</li>
+<li><strong>Annihilator</strong>: Systematic way to guess form of $y_p$ by solving higher-order homogeneous equation.</li>
 </ul>
 <strong>Next lecture</strong>: Variation of parameters, higher-order equations, applications.
 

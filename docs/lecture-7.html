@@ -110,29 +110,29 @@ y'' + P(x)y' + Q(x)y = R(x) \tag{1}
 $$
 where $P,Q,R$ are continuous on open interval $I$.
 
-<strong>Assumption</strong>: Know two linearly independent solutions $y<em>1,y</em>2$ of the homogeneous equation  
+<strong>Assumption</strong>: Know two linearly independent solutions $y_1,y_2$ of the homogeneous equation  
 $$
 y'' + P(x)y' + Q(x)y = 0 \tag{2}
 $$
 
 <strong>Goal</strong>: Find particular solution of form  
 $$
-y<em>p(x) = v</em>1(x) y<em>1(x) + v</em>2(x) y<em>2(x) \tag{3}
+y_p(x) = v_1(x) y_1(x) + v_2(x) y_2(x) \tag{3}
 $$
-(vary the constants $c</em>1,c<em>2$ into functions $v</em>1,v<em>2$).
+(vary the constants $c_1,c_2$ into functions $v_1,v_2$).
 
 <h3>Derivation</h3>
 Differentiate (3):  
 $$
-y</em>p' = v<em>1' y</em>1 + v<em>1 y</em>1' + v<em>2' y</em>2 + v<em>2 y</em>2'
+y_p' = v_1' y_1 + v_1 y_1' + v_2' y_2 + v_2 y_2'
 $$
-Impose condition (avoids second derivatives of $v<em>i$):  
+Impose condition (avoids second derivatives of $v_i$):  
 $$
-v</em>1' y<em>1 + v</em>2' y<em>2 = 0 \tag{4}
+v_1' y_1 + v_2' y_2 = 0 \tag{4}
 $$
 Then  
 $$
-y</em>p'' = v<em>1' y</em>1' + v<em>1 y</em>1'' + v<em>2' y</em>2' + v<em>2 y</em>2''
+y_p'' = v_1' y_1' + v_1 y_1'' + v_2' y_2' + v_2 y_2''
 $$
 
 <p>Substitute into (1). Homogeneous parts cancel, leaving  
@@ -150,19 +150,19 @@ v<em>1 = -\int \frac{y</em>2 R}{W}\, dx, \quad v<em>2 = \int \frac{y</em>1 R}{W}
 $$
 <strong>Particular solution</strong>:  
 $$
-y<em>p = y</em>2 \int \frac{y<em>1 R}{W}\, dx - y</em>1 \int \frac{y<em>2 R}{W}\, dx
+y<em>p = y</em>2 \int \frac{y<em>1 R}{W}\, dx - y</em>1 \int \frac{y_2 R}{W}\, dx
 $$</p>
 
 <strong>General solution</strong> of (1):  
 $$
-y = c</em>1 y<em>1 + c</em>2 y<em>2 + y</em>p
+y = c_1 y_1 + c_2 y_2 + y_p
 $$
 
 <h3>Example</h3>
 $$
 y'' + y = \sec x
 $$
-Homogeneous: $y<em>1 = \cos x$, $y</em>2 = \sin x$, $W=1$
+Homogeneous: $y_1 = \cos x$, $y_2 = \sin x$, $W=1$
 
 <p>$$
 v<em>1' = -\sin x \sec x = -\tan x \implies v</em>1 = \ln|\cos x|
@@ -175,7 +175,7 @@ y<em>p = \cos x \ln|\cos x| + x \sin x
 $$
 <strong>General solution</strong>:  
 $$
-y = c</em>1 \cos x + c<em>2 \sin x + \cos x \ln|\cos x| + x \sin x
+y = c</em>1 \cos x + c_2 \sin x + \cos x \ln|\cos x| + x \sin x
 $$</p>
 
 <hr>
@@ -184,12 +184,12 @@ $$</p>
 
 <strong>General form</strong>:  
 $$
-P</em>n(x) y^{(n)} + P<em>{n-1}(x) y^{(n-1)} + \cdots + P</em>0(x) y = R(x)
+P_n(x) y^{(n)} + P_{n-1}(x) y^{(n-1)} + \cdots + P_0(x) y = R(x)
 $$
 
 <strong>Standard form</strong>:  
 $$
-y^{(n)} + p<em>{n-1}(x) y^{(n-1)} + \cdots + p</em>0(x) y = R(x)
+y^{(n)} + p_{n-1}(x) y^{(n-1)} + \cdots + p_0(x) y = R(x)
 $$
 <ul>
 <li><strong>Homogeneous</strong> if $R\equiv 0$.</li>
@@ -198,12 +198,12 @@ $$
 <strong>Linearity Principle</strong>: Linear combinations of homogeneous solutions are solutions.
 
 <strong>Linear Independence</strong> (n functions on $I$):  
-$c<em>1 y</em>1 + \cdots + c<em>n y</em>n \equiv 0 \implies$ all $c<em>i=0$.
+$c_1 y_1 + \cdots + c_n y_n \equiv 0 \implies$ all $c_i=0$.
 
 <strong>Basis (Fundamental set)</strong>: $n$ linearly independent solutions.
 
-<strong>General solution</strong> (homogeneous): $y</em>h = c<em>1 y</em>1 + \cdots + c<em>n y</em>n$.  
-<strong>General solution</strong> (nonhomogeneous): $y = y<em>p + y</em>h$.
+<strong>General solution</strong> (homogeneous): $y_h = c_1 y_1 + \cdots + c_n y_n$.  
+<strong>General solution</strong> (nonhomogeneous): $y = y_p + y_h$.
 
 <hr>
 
@@ -214,24 +214,24 @@ y(x<em>0)=y</em>0,\ y'(x<em>0)=y</em>1,\ \dots,\ y^{(n-1)}(x<em>0)=y</em>{n-1}
 $$</p>
 
 <strong>Existence & Uniqueness</strong>:  
-If coefficients $p<em>{n-1},\dots,p</em>0$ continuous on open $I\ni x<em>0$, then unique solution on entire $I$.
+If coefficients $p_{n-1},\dots,p_0$ continuous on open $I\ni x_0$, then unique solution on entire $I$.
 
 <hr>
 
 <h2>Wronskian for n Functions</h2>
 
 <p>$$
-W(y</em>1,\dots,y<em>n)(x) = \det\begin{vmatrix}
-y</em>1 & \cdots & y<em>n \\
-y</em>1' & \cdots & y<em>n' \\
+W(y<em>1,\dots,y</em>n)(x) = \det\begin{vmatrix}
+y<em>1 & \cdots & y</em>n \\
+y<em>1' & \cdots & y</em>n' \\
 \vdots & \ddots & \vdots \\
-y</em>1^{(n-1)} & \cdots & y<em>n^{(n-1)}
+y<em>1^{(n-1)} & \cdots & y</em>n^{(n-1)}
 \end{vmatrix}
 $$</p>
 
 <strong>Theorem</strong> (solutions of linear homogeneous ODE with continuous coefficients):  
 The $n$ solutions are linearly dependent on $I$ ⇔ $W\equiv 0$ on $I$.  
-If $W(x</em>0)\neq 0$, they form a basis on $I$.
+If $W(x_0)\neq 0$, they form a basis on $I$.
 
 <hr>
 
@@ -243,12 +243,12 @@ $$</p>
 
 <strong>Characteristic equation</strong>:  
 $$
-r^n + a<em>{n-1} r^{n-1} + \cdots + a</em>0 = 0
+r^n + a_{n-1} r^{n-1} + \cdots + a_0 = 0
 $$
 
 <strong>Basis</strong>:
 <ul>
-<li>Distinct real roots $r<em>k$: $\{e^{r</em>k x}\}$</li>
+<li>Distinct real roots $r_k$: $\{e^{r_k x}\}$</li>
 <li>Real root $r$ multiplicity $m$: $\{e^{rx}, x e^{rx}, \dots, x^{m-1} e^{rx}\}$</li>
 <li>Simple complex $\alpha\pm i\beta$: $\{e^{\alpha x}\cos\beta x, e^{\alpha x}\sin\beta x\}$</li>
 <li>Complex multiplicity $m$: Multiply by $x^k$ ($k=0,\dots,m-1$) for cos/sin terms.</li>
@@ -267,8 +267,8 @@ y''' + 3y'' + 3y' + y = 30 e^{-x}
 $$
 with $y(0)=3$, $y'(0)=-3$, $y''(0)=-47$.  
 Characteristic: $(r+1)^3=0$ (triple root $-1$).  
-$y<em>h = (c</em>1 + c<em>2 x + c</em>3 x^2)e^{-x}$  
-Guess $y<em>p = C x^3 e^{-x}$ (×$x^3$).  
+$y_h = (c_1 + c_2 x + c_3 x^2)e^{-x}$  
+Guess $y_p = C x^3 e^{-x}$ (×$x^3$).  
 Substitute into ODE → solve for $C$.
 
 <hr>
@@ -276,11 +276,11 @@ Substitute into ODE → solve for $C$.
 <h2>Summary of Lecture 7</h2>
 <ul>
 <li><strong>Variation of Parameters</strong>: General method using two homogeneous solutions and Wronskian.</li>
-</ul>  Formula: $y</em>p = y<em>2\int\frac{y</em>1 R}{W}\,dx - y<em>1\int\frac{y</em>2 R}{W}\,dx$.
+</ul>  Formula: $y_p = y_2\int\frac{y_1 R}{W}\,dx - y_1\int\frac{y_2 R}{W}\,dx$.
 <ul>
 <li><strong>Higher-order theory</strong>: Wronskian detects independence; existence/uniqueness when coefficients continuous.</li>
 <li><strong>Constant coefficients</strong>: Characteristic polynomial → basis according to root type (real/complex, multiplicity).</li>
-<li><strong>Nonhomogeneous</strong>: $y = y<em>h + y</em>p$; undetermined coefficients with modification for higher multiplicity.</li>
+<li><strong>Nonhomogeneous</strong>: $y = y_h + y_p$; undetermined coefficients with modification for higher multiplicity.</li>
 </ul>
 <strong>Next</strong>: More on higher-order (Cauchy-Euler, systems) and applications.
 

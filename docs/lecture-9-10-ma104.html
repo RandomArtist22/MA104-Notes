@@ -103,7 +103,7 @@ $$
 y(x) = \sum</em>{k=0}^\infty a<em>k (x - x</em>0)^k
 $$
 <ul>
-<li>Or shift variable $\tilde{x} = x - x<em>0$ and solve about $\tilde{x}=0$.</li>
+<li>Or shift variable $\tilde{x} = x - x_0$ and solve about $\tilde{x}=0$.</li>
 </ul>
 <hr></p>
 
@@ -119,47 +119,47 @@ $$
 $$
 
 <strong>Power series solution</strong> about $x=0$ (analytic coefficients):
-Assume $y(x) = \sum</em>{n=0}^\infty a<em>n x^n$.  
+Assume $y(x) = \sum_{n=0}^\infty a_n x^n$.  
 Recurrence:
 $$
-a</em>{n+2} = -\frac{(\alpha - n)(\alpha + n + 1)}{(n+1)(n+2)} a<em>n, \quad n=0,1,2,\dots
+a_{n+2} = -\frac{(\alpha - n)(\alpha + n + 1)}{(n+1)(n+2)} a_n, \quad n=0,1,2,\dots
 $$
 
 <strong>Two independent solutions</strong>:
 $$
-y</em>1(x) = 1 - \frac{\alpha(\alpha+1)}{2!}x^2 + \frac{(\alpha-2)\alpha(\alpha+1)(\alpha+3)}{4!}x^4 - \cdots
+y_1(x) = 1 - \frac{\alpha(\alpha+1)}{2!}x^2 + \frac{(\alpha-2)\alpha(\alpha+1)(\alpha+3)}{4!}x^4 - \cdots
 $$
 $$
-y<em>2(x) = x - \frac{(\alpha-1)(\alpha+2)}{3!}x^3 + \frac{(\alpha-1)(\alpha-3)(\alpha+2)(\alpha+4)}{5!}x^5 - \cdots
+y_2(x) = x - \frac{(\alpha-1)(\alpha+2)}{3!}x^3 + \frac{(\alpha-1)(\alpha-3)(\alpha+2)(\alpha+4)}{5!}x^5 - \cdots
 $$
 Both converge for $|x| < 1$.
 
-<strong>Legendre polynomials</strong> $P</em>\alpha(x)$:
+<strong>Legendre polynomials</strong> $P_\alpha(x)$:
 <ul>
-<li>When $\alpha = n \in \mathbb{N}<em>0$, one solution terminates → polynomial of degree $n$.</li>
-<li>Normalize so $P</em>n(1) = 1$.</li>
+<li>When $\alpha = n \in \mathbb{N}_0$, one solution terminates → polynomial of degree $n$.</li>
+<li>Normalize so $P_n(1) = 1$.</li>
 </ul>
 <strong>Rodrigues’ formula</strong>:
 $$
-P<em>n(x) = \frac{1}{2^n n!} \frac{d^n}{dx^n} (x^2 - 1)^n
+P_n(x) = \frac{1}{2^n n!} \frac{d^n}{dx^n} (x^2 - 1)^n
 $$
 
 <strong>Explicit forms</strong>:
 <ul>
-<li>$P</em>0(x) = 1$</li>
-<li>$P<em>1(x) = x$</li>
-<li>$P</em>2(x) = \frac12(3x^2 - 1)$</li>
-<li>$P<em>3(x) = \frac12(5x^3 - 3x)$</li>
+<li>$P_0(x) = 1$</li>
+<li>$P_1(x) = x$</li>
+<li>$P_2(x) = \frac12(3x^2 - 1)$</li>
+<li>$P_3(x) = \frac12(5x^3 - 3x)$</li>
 </ul>
 <strong>Orthogonality</strong> on $[-1,1]$:
 $$
-\int</em>{-1}^1 P<em>m(x) P</em>n(x)\, dx = 0 \quad (m \neq n), \quad \int<em>{-1}^1 [P</em>n(x)]^2\, dx = \frac{2}{2n+1}
+\int_{-1}^1 P_m(x) P_n(x)\, dx = 0 \quad (m \neq n), \quad \int_{-1}^1 [P_n(x)]^2\, dx = \frac{2}{2n+1}
 $$
-$\{P<em>n(x)\}</em>{n=0}^\infty$ forms an orthogonal basis for polynomials on $[-1,1]$.
+$\{P_n(x)\}_{n=0}^\infty$ forms an orthogonal basis for polynomials on $[-1,1]$.
 
 <strong>Expansion</strong>: Any polynomial $f(x)$ of degree $\leq n$:
 $$
-f(x) = \sum<em>{k=0}^n a</em>k P<em>k(x), \quad a</em>k = \frac{2k+1}{2} \int<em>{-1}^1 f(x) P</em>k(x)\, dx
+f(x) = \sum_{k=0}^n a_k P_k(x), \quad a_k = \frac{2k+1}{2} \int_{-1}^1 f(x) P_k(x)\, dx
 $$
 
 <hr>
@@ -174,41 +174,41 @@ where $b(x), c(x)$ analytic at $x=0$ (i.e., $b(x) = \sum b<em>m x^m$, $c(x) = \s
 
 <strong>Indicial equation</strong> (from lowest power $x^r$):
 $$
-I(r) = r(r-1) + b<em>0 r + c</em>0 = 0
+I(r) = r(r-1) + b_0 r + c_0 = 0
 $$
 
 <strong>Frobenius solution</strong>:
 $$
-y(x) = x^r \sum<em>{m=0}^\infty a</em>m x^m \quad (a<em>0 \neq 0)
+y(x) = x^r \sum_{m=0}^\infty a_m x^m \quad (a_0 \neq 0)
 $$
 
 <strong>Recurrence</strong> (for $n \geq 1$):
 $$
-I(r+n) a</em>n + \sum<em>{k=0}^{n-1} [ (r+k) b</em>{n-k} + c<em>{n-k} ] a</em>k = 0
+I(r+n) a_n + \sum_{k=0}^{n-1} [ (r+k) b_{n-k} + c_{n-k} ] a_k = 0
 $$
 
-<strong>Three cases</strong> (roots $r<em>1 \geq r</em>2$):
+<strong>Three cases</strong> (roots $r_1 \geq r_2$):
 
-<strong>Case 1</strong>: $r<em>1 - r</em>2 \notin \mathbb{Z}$ (distinct, not differing by integer)  
+<strong>Case 1</strong>: $r_1 - r_2 \notin \mathbb{Z}$ (distinct, not differing by integer)  
 Two independent solutions:
 $$
-y<em>1(x) = x^{r</em>1} \sum a<em>m(r</em>1) x^m, \quad y<em>2(x) = x^{r</em>2} \sum A<em>m(r</em>2) x^m
+y_1(x) = x^{r_1} \sum a_m(r_1) x^m, \quad y_2(x) = x^{r_2} \sum A_m(r_2) x^m
 $$
 
-<strong>Case 2</strong>: $r<em>1 = r</em>2 = r$ (repeated root)  
+<strong>Case 2</strong>: $r_1 = r_2 = r$ (repeated root)  
 $$
-y<em>1(x) = x^r \sum a</em>m x^m
+y_1(x) = x^r \sum a_m x^m
 $$
 $$
-y<em>2(x) = y</em>1(x) \ln x + x^r \sum A<em>m x^m \quad (x>0)
+y_2(x) = y_1(x) \ln x + x^r \sum A_m x^m \quad (x>0)
 $$
 
-<strong>Case 3</strong>: $r</em>1 - r<em>2 = N \in \mathbb{N}$ (differ by positive integer)  
+<strong>Case 3</strong>: $r_1 - r_2 = N \in \mathbb{N}$ (differ by positive integer)  
 $$
-y</em>1(x) = x^{r<em>1} \sum a</em>m x^m
+y_1(x) = x^{r_1} \sum a_m x^m
 $$
 $$
-y<em>2(x) = k y</em>1(x) \ln x + x^{r<em>2} \sum A</em>m x^m \quad (k \text{ may be } 0)
+y_2(x) = k y_1(x) \ln x + x^{r_2} \sum A_m x^m \quad (k \text{ may be } 0)
 $$
 
 <hr>
@@ -228,29 +228,29 @@ $$
 
 <strong>Bessel function of first kind</strong> (order $n$ integer):
 $$
-J<em>n(x) = \sum</em>{m=0}^\infty \frac{(-1)^m}{m! (n+m)!} \left(\frac{x}{2}\right)^{n+2m}
+J_n(x) = \sum_{m=0}^\infty \frac{(-1)^m}{m! (n+m)!} \left(\frac{x}{2}\right)^{n+2m}
 $$
 
 <strong>General solution</strong> (for integer $n$):
 $$
-y(x) = c<em>1 J</em>n(x) + c<em>2 Y</em>n(x)
+y(x) = c_1 J_n(x) + c_2 Y_n(x)
 $$
-where $Y<em>n(x)$ is the Bessel function of the second kind (involves $\ln x$).
+where $Y_n(x)$ is the Bessel function of the second kind (involves $\ln x$).
 
 <hr>
 
 <h2>Summary of Lectures 9 & 10</h2>
 <ul>
-<li><strong>Power series about arbitrary point</strong>: Shift variable or expand directly in $(x-x</em>0)$.</li>
-<li><strong>Legendre equation</strong>: Power series → Legendre polynomials $P<em>n(x)$ via termination; Rodrigues formula; orthogonal on $[-1,1]$.</li>
+<li><strong>Power series about arbitrary point</strong>: Shift variable or expand directly in $(x-x_0)$.</li>
+<li><strong>Legendre equation</strong>: Power series → Legendre polynomials $P_n(x)$ via termination; Rodrigues formula; orthogonal on $[-1,1]$.</li>
 <li><strong>Frobenius method</strong>: Handles regular singular points; indicial equation determines leading exponent $r$; three cases for second solution.</li>
-<li><strong>Bessel equation</strong>: Classic singular-point ODE; solutions $J</em>\nu(x)$ (first kind) and $Y<em>\nu(x)$ (second kind).</li>
+<li><strong>Bessel equation</strong>: Classic singular-point ODE; solutions $J_\nu(x)$ (first kind) and $Y_\nu(x)$ (second kind).</li>
 </ul>
 <strong>Key Formulas</strong>:
 <ul>
-<li>Legendre: $P</em>n(x) = \frac{1}{2^n n!} \frac{d^n}{dx^n}(x^2-1)^n$</li>
-<li>Frobenius recurrence: $I(r+n)a<em>n + \sum \dots = 0$</li>
-<li>Bessel $J</em>n(x)$ series as above.</li>
+<li>Legendre: $P_n(x) = \frac{1}{2^n n!} \frac{d^n}{dx^n}(x^2-1)^n$</li>
+<li>Frobenius recurrence: $I(r+n)a_n + \sum \dots = 0$</li>
+<li>Bessel $J_n(x)$ series as above.</li>
 </ul>
 <strong>Next</strong>: Applications of special functions, Sturm-Liouville theory, or systems of ODEs.
 

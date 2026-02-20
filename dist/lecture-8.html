@@ -116,16 +116,16 @@ converges (i.e., $\lim</em>{N\to\infty} S<em>N(x)$ exists).
 </ul>
 <strong>Absolute convergence</strong> at $x$:  
 $$
-\sum<em>{m=0}^\infty |a</em>m| |x-x<em>0|^m \quad \text{converges}
+\sum<em>{m=0}^\infty |a</em>m| |x-x_0|^m \quad \text{converges}
 $$
 → implies ordinary convergence.</p>
 
 <strong>Radius of Convergence $R$</strong>:
 <ul>
-<li>If the series converges at $x</em>1 \neq x<em>0$, it converges <strong>absolutely</strong> for $|x-x</em>0| < |x<em>1-x</em>0|$.</li>
-<li>If it diverges at $x<em>1$, it diverges for $|x-x</em>0| > |x<em>1-x</em>0|$.</li>
-<li>There exists $R \geq 0$ (or $\infty$) such that the series converges for $|x-x<em>0| < R$ and diverges for $|x-x</em>0| > R$.</li>
-<li>The interval $|x-x<em>0| < R$ is the <strong>interval of convergence</strong> (endpoints must be checked separately).</li>
+<li>If the series converges at $x_1 \neq x_0$, it converges <strong>absolutely</strong> for $|x-x_0| < |x_1-x_0|$.</li>
+<li>If it diverges at $x_1$, it diverges for $|x-x_0| > |x_1-x_0|$.</li>
+<li>There exists $R \geq 0$ (or $\infty$) such that the series converges for $|x-x_0| < R$ and diverges for $|x-x_0| > R$.</li>
+<li>The interval $|x-x_0| < R$ is the <strong>interval of convergence</strong> (endpoints must be checked separately).</li>
 </ul>
 <hr>
 
@@ -133,14 +133,14 @@ $$
 
 <strong>Root Test</strong>:
 $$
-c = \limsup</em>{n\to\infty} \sqrt[n]{|a<em>n|} \quad \Rightarrow \quad R = \frac{1}{c}
+c = \limsup_{n\to\infty} \sqrt[n]{|a_n|} \quad \Rightarrow \quad R = \frac{1}{c}
 $$
 <ul>
-<li>Converges if $c |x-x</em>0| < 1$, diverges if $>1$.</li>
+<li>Converges if $c |x-x_0| < 1$, diverges if $>1$.</li>
 </ul>
 <strong>Ratio Test</strong> (often easier):
 $$
-L = \lim<em>{n\to\infty} \left| \frac{a</em>{n+1}}{a<em>n} \right| \quad \Rightarrow \quad R = \frac{1}{L}
+L = \lim_{n\to\infty} \left| \frac{a_{n+1}}{a_n} \right| \quad \Rightarrow \quad R = \frac{1}{L}
 $$
 (if limit exists).
 
@@ -156,30 +156,30 @@ $$
 
 <h2>Differentiation & Integration of Power Series</h2>
 
-<p>If $\sum a</em>m (x-x<em>0)^m = f(x)$ for $|x-x</em>0| < R$ ($R>0$), then:
+<p>If $\sum a<em>m (x-x</em>0)^m = f(x)$ for $|x-x<em>0| < R$ ($R>0$), then:
 <ul>
-<li>$f$ is <strong>continuous</strong> and <strong>infinitely differentiable</strong> on $|x-x<em>0| < R$.</li>
+<li>$f$ is <strong>continuous</strong> and <strong>infinitely differentiable</strong> on $|x-x</em>0| < R$.</li>
 <li>Term-by-term differentiation/integration is valid inside the radius:</li>
 </ul>  $$
-  f'(x) = \sum</em>{n=1}^\infty n a<em>n (x-x</em>0)^{n-1}
+  f'(x) = \sum<em>{n=1}^\infty n a</em>n (x-x<em>0)^{n-1}
   $$
   $$
-  f''(x) = \sum<em>{n=2}^\infty n(n-1) a</em>n (x-x<em>0)^{n-2}
+  f''(x) = \sum</em>{n=2}^\infty n(n-1) a<em>n (x-x</em>0)^{n-2}
   $$
-  (both converge absolutely for $|x-x</em>0| < R$).</p>
+  (both converge absolutely for $|x-x_0| < R$).</p>
 
-<strong>Taylor Series</strong> of $f$ about $x<em>0$:
+<strong>Taylor Series</strong> of $f$ about $x_0$:
 $$
-f(x) = \sum</em>{n=0}^\infty \frac{f^{(n)}(x<em>0)}{n!} (x-x</em>0)^n
+f(x) = \sum_{n=0}^\infty \frac{f^{(n)}(x_0)}{n!} (x-x_0)^n
 $$
 <ul>
-<li>$a<em>n = f^{(n)}(x</em>0)/n!$.</li>
+<li>$a_n = f^{(n)}(x_0)/n!$.</li>
 </ul>
-<strong>Analytic function</strong> at $x<em>0$: Can be represented by a power series (Taylor series) with positive radius of convergence around $x</em>0$.
+<strong>Analytic function</strong> at $x_0$: Can be represented by a power series (Taylor series) with positive radius of convergence around $x_0$.
 
 <strong>Examples of analytic functions</strong>: $e^x$, $\sin x$, $\cos x$, polynomials, rational functions (except at poles).
 
-<strong>Vanishing coefficients</strong>: If $\sum a<em>m (x-x</em>0)^m = 0$ for all $x$ in some interval around $x<em>0$, then $a</em>m = 0$ for all $m$.
+<strong>Vanishing coefficients</strong>: If $\sum a_m (x-x_0)^m = 0$ for all $x$ in some interval around $x_0$, then $a_m = 0$ for all $m$.
 
 <hr>
 
@@ -189,7 +189,7 @@ $$
 
 <strong>Example</strong>:
 $$
-\sum<em>{n=2}^\infty a</em>n x^n = \sum<em>{m=0}^\infty a</em>{m+2} x^{m+2}
+\sum_{n=2}^\infty a_n x^n = \sum_{m=0}^\infty a_{m+2} x^{m+2}
 $$
 (Both contain exactly the same terms.)
 
@@ -202,7 +202,7 @@ Consider
 $$
 y'' + P(x)y' + Q(x)y = R(x)
 $$
-If $P(x)$, $Q(x)$, $R(x)$ are <strong>analytic</strong> at $x=x<em>0$, then <strong>every</strong> solution is analytic at $x</em>0$ and can be represented by a power series in powers of $(x-x<em>0)$ with positive radius of convergence.
+If $P(x)$, $Q(x)$, $R(x)$ are <strong>analytic</strong> at $x=x_0$, then <strong>every</strong> solution is analytic at $x_0$ and can be represented by a power series in powers of $(x-x_0)$ with positive radius of convergence.
 
 <hr>
 
@@ -210,36 +210,36 @@ If $P(x)$, $Q(x)$, $R(x)$ are <strong>analytic</strong> at $x=x<em>0$, then <str
 
 <p>Assume solution of form  
 $$
-y(x) = \sum</em>{n=0}^\infty a<em>n x^n \quad (\text{centered at } 0)
+y(x) = \sum<em>{n=0}^\infty a</em>n x^n \quad (\text{centered at } 0)
 $$
 Differentiate:  
 $$
-y' = \sum</em>{n=1}^\infty n a<em>n x^{n-1}, \quad y'' = \sum</em>{n=2}^\infty n(n-1) a<em>n x^{n-2}
+y' = \sum<em>{n=1}^\infty n a</em>n x^{n-1}, \quad y'' = \sum<em>{n=2}^\infty n(n-1) a</em>n x^{n-2}
 $$
 Plug into ODE:  
 $$
-\sum</em>{n=2}^\infty n(n-1) a<em>n x^{n-2} + \sum</em>{n=0}^\infty a<em>n x^n = 0
+\sum<em>{n=2}^\infty n(n-1) a</em>n x^{n-2} + \sum<em>{n=0}^\infty a</em>n x^n = 0
 $$
 Shift index in first sum ($k=n-2$):  
 $$
-\sum</em>{k=0}^\infty (k+2)(k+1) a<em>{k+2} x^k + \sum</em>{k=0}^\infty a<em>k x^k = 0
+\sum<em>{k=0}^\infty (k+2)(k+1) a</em>{k+2} x^k + \sum<em>{k=0}^\infty a</em>k x^k = 0
 $$
 Combine:  
 $$
-\sum</em>{k=0}^\infty \big[(k+2)(k+1) a<em>{k+2} + a</em>k\big] x^k = 0
+\sum<em>{k=0}^\infty \big[(k+2)(k+1) a</em>{k+2} + a<em>k\big] x^k = 0
 $$
 <strong>Recurrence</strong>:  
 $$
-(k+2)(k+1) a<em>{k+2} + a</em>k = 0 \quad \Rightarrow \quad a<em>{k+2} = -\frac{a</em>k}{(k+2)(k+1)}
+(k+2)(k+1) a</em>{k+2} + a<em>k = 0 \quad \Rightarrow \quad a</em>{k+2} = -\frac{a<em>k}{(k+2)(k+1)}
 $$
 Even and odd coefficients separate:
 <ul>
-<li>Even: $a<em>{2k} = \frac{(-1)^k}{(2k)!} a</em>0$</li>
-<li>Odd: $a<em>{2k+1} = \frac{(-1)^k}{(2k+1)!} a</em>1$</li>
+<li>Even: $a</em>{2k} = \frac{(-1)^k}{(2k)!} a<em>0$</li>
+<li>Odd: $a</em>{2k+1} = \frac{(-1)^k}{(2k+1)!} a<em>1$</li>
 </ul>
 Thus  
 $$
-y(x) = a<em>0 \sum</em>{k=0}^\infty \frac{(-1)^k}{(2k)!} x^{2k} + a<em>1 \sum</em>{k=0}^\infty \frac{(-1)^k}{(2k+1)!} x^{2k+1} = a<em>0 \cos x + a</em>1 \sin x
+y(x) = a</em>0 \sum<em>{k=0}^\infty \frac{(-1)^k}{(2k)!} x^{2k} + a</em>1 \sum<em>{k=0}^\infty \frac{(-1)^k}{(2k+1)!} x^{2k+1} = a</em>0 \cos x + a_1 \sin x
 $$
 (Ratio test confirms $R=\infty$).</p>
 

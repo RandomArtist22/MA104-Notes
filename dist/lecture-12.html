@@ -122,7 +122,7 @@ $$
 
 <strong>General IVP</strong>:
 $$
-a y'' + b y' + c y = r(t), \quad y(0)=k<em>0,\ y'(0)=k</em>1
+a y'' + b y' + c y = r(t), \quad y(0)=k_0,\ y'(0)=k_1
 $$
 
 <p>Take Laplace transform:
@@ -151,22 +151,22 @@ $$
 
 <strong>Definition</strong>:
 $$
-u<em>a(t) = 
+u_a(t) = 
 \begin{cases}
 0 & 0 \leq t < a \\
 1 & t \geq a
 \end{cases}
-= u</em>0(t-a)
+= u_0(t-a)
 $$
 
 <strong>Laplace</strong>:
 $$
-\mathcal{L}\{u<em>a(t)\}(s) = \frac{e^{-a s}}{s}, \quad s>0
+\mathcal{L}\{u_a(t)\}(s) = \frac{e^{-a s}}{s}, \quad s>0
 $$
 
 <strong>Piecewise functions</strong> via steps:
 <ul>
-<li>$f(t) = f</em>1(t) + u<em>{t</em>1}(t)[f<em>2(t) - f</em>1(t)] + \cdots$</li>
+<li>$f(t) = f_1(t) + u_{t_1}(t)[f_2(t) - f_1(t)] + \cdots$</li>
 </ul>
 <hr>
 
@@ -174,17 +174,17 @@ $$
 
 <p>If $\mathcal{L}\{f(t)\}(s) = F(s)$ for $s > s<em>0$ and $a>0$, then
 $$
-\mathcal{L}\{u</em>a(t) f(t-a)\}(s) = e^{-a s} F(s), \quad s > s<em>0
+\mathcal{L}\{u</em>a(t) f(t-a)\}(s) = e^{-a s} F(s), \quad s > s_0
 $$</p>
 
 <p>Equivalently:
 $$
-\mathcal{L}\{u</em>a(t) g(t)\}(s) = e^{-a s} G(s) \quad \text{where } G(s)=\mathcal{L}\{g(t+a)\}
+\mathcal{L}\{u_a(t) g(t)\}(s) = e^{-a s} G(s) \quad \text{where } G(s)=\mathcal{L}\{g(t+a)\}
 $$</p>
 
 <strong>Inverse form</strong>:
 $$
-\mathcal{L}^{-1}\{e^{-a s} F(s)\}(t) = u<em>a(t) f(t-a)
+\mathcal{L}^{-1}\{e^{-a s} F(s)\}(t) = u_a(t) f(t-a)
 $$
 
 <hr>
@@ -193,15 +193,15 @@ $$
 
 <strong>Definition</strong> (Convolution):
 $$
-(f <em> g)(t) = \int</em>0^t f(\tau) g(t-\tau)\, d\tau
+(f * g)(t) = \int_0^t f(\tau) g(t-\tau)\, d\tau
 $$
 
 <strong>Theorem</strong>:
 $$
-\mathcal{L}\{f </em> g\}(s) = \mathcal{L}\{f\}(s) \cdot \mathcal{L}\{g\}(s)
+\mathcal{L}\{f * g\}(s) = \mathcal{L}\{f\}(s) \cdot \mathcal{L}\{g\}(s)
 $$
 $$
-\mathcal{L}^{-1}\{F(s) G(s)\}(t) = (f <em> g)(t)
+\mathcal{L}^{-1}\{F(s) G(s)\}(t) = (f * g)(t)
 $$
 
 <strong>Proof</strong> (change of order of integration + Fubini).
@@ -209,7 +209,7 @@ $$
 <strong>Properties</strong>:
 <ul>
 <li>Commutative, associative, distributive.</li>
-<li>$f </em> 0 = 0$, $f * 1 = \int<em>0^t f(\tau)\, d\tau$.</li>
+<li>$f * 0 = 0$, $f * 1 = \int_0^t f(\tau)\, d\tau$.</li>
 </ul>
 <hr>
 
@@ -225,7 +225,7 @@ $$
 
 <strong>Integration in s</strong>:
 $$
-\mathcal{L}\left\{\frac{f(t)}{t}\right\}(s) = \int</em>s^\infty F(u)\, du \quad (\text{if limit exists as } t\to 0^+)
+\mathcal{L}\left\{\frac{f(t)}{t}\right\}(s) = \int_s^\infty F(u)\, du \quad (\text{if limit exists as } t\to 0^+)
 $$
 
 <hr>
