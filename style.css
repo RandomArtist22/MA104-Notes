@@ -436,6 +436,23 @@ body {
 /* Math (MathJax) */
 .mjx-chtml {
   color: var(--text-primary) !important;
+  font-size: 1.05em !important;
+}
+
+/* Ensure math doesn't overflow */
+.mjx-chtml svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Inline math spacing */
+.mjx-chtml.MJXc-display {
+  margin: 1em 0 !important;
+}
+
+/* Make sure math is visible */
+mjx-container {
+  color: var(--text-primary) !important;
 }
 
 /* Definition Lists */
