@@ -272,14 +272,35 @@ where $Y_n(x)$ is the Bessel function of the second kind (involves $\ln x$).
             </footer>
         </main>
     </div>
+    <div class="sidebar-overlay" onclick="closeSidebar()"></div>
     <script>
+        const sidebar = document.querySelector('.sidebar');
+        const overlay = document.querySelector('.sidebar-overlay');
+        
         document.querySelector('.menu-toggle').addEventListener('click', () => {
-            document.querySelector('.sidebar').classList.toggle('open');
+            sidebar.classList.add('open');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
         });
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('.sidebar') && !e.target.closest('.menu-toggle')) {
-                document.querySelector('.sidebar').classList.remove('open');
-            }
+        
+        function closeSidebar() {
+            sidebar.classList.remove('open');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        // Close sidebar when clicking a link on mobile
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    closeSidebar();
+                }
+            });
+        });
+        
+        // Close on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeSidebar();
         });
     </script>
 </body>
