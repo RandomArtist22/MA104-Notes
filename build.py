@@ -95,7 +95,7 @@ def convert_markdown_to_html(content: str) -> str:
         lang = match.group(1) or 'text'
         code = match.group(2)
         code_blocks.append((lang, code))
-        return f"{{{{CODE_BLOCK_{len(code_blocks)-1}}}}}"
+        return f"{{«CODEBLOCK{len(code_blocks)-1}}}}}"
     
     def store_math_block(match):
         math = match.group(0)
@@ -208,7 +208,7 @@ def convert_markdown_to_html(content: str) -> str:
     # Restore code blocks
     for i, (lang, code) in enumerate(code_blocks):
         escaped_code = escape_html(code)
-        content = content.replace(f'{{{{CODE_BLOCK_{i}}}}}', 
+        content = content.replace(f'{{«CODEBLOCK{i}}}}}', 
             f'<pre><code class="language-{lang}">{escaped_code}</code></pre>')
     
 
