@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MA 104: Ordinary Differential Equations - Lecture 5 | MA104 Notes</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js" async></script>
+</head>
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <span class="logo-icon">∂</span>
+                    <span class="logo-text">MA104</span>
+                </div>
+                <p class="logo-subtitle">Ordinary Differential Equations</p>
+            </div>
+            <nav class="nav">
+                <div class="nav-section">
+                    <span class="nav-label">Overview</span>
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">Course Overview</a></li>
+                    </ul>
+                </div>
+                <div class="nav-section">
+                    <span class="nav-label">Lectures</span>
+                    <ul class="nav-list">
+                        
+                        <li><a href="lecture-1.html" class="nav-link ">Lecture 1</a></li>
+                        
+
+                        <li><a href="lecture-2.html" class="nav-link ">Lecture 2</a></li>
+                        
+
+                        <li><a href="lecture-3.html" class="nav-link ">Lecture 3</a></li>
+                        
+
+                        <li><a href="lecture-4.html" class="nav-link ">Lecture 4</a></li>
+                        
+
+                        <li><a href="lecture-5.html" class="nav-link active">Lecture 5</a></li>
+                        
+
+                        <li><a href="lecture-6.html" class="nav-link ">Lecture 6</a></li>
+                        
+
+                        <li><a href="lecture-7.html" class="nav-link ">Lecture 7</a></li>
+                        
+
+                        <li><a href="lecture-8.html" class="nav-link ">Lecture 8</a></li>
+                        
+
+                        <li><a href="lecture-11.html" class="nav-link ">Lecture 11</a></li>
+                        
+
+                        <li><a href="lecture-12.html" class="nav-link ">Lecture 12</a></li>
+                        
+
+                        <li><a href="lecture-9-10-ma104.html" class="nav-link ">Lectures 9 & 10 (Combined)</a></li>
+                        
+                    </ul>
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <p class="ai-notice">🤖 AI-generated summaries of lecture notes</p>
+                <p class="footer-text">Made with ♥ for MA104</p>
+            </div>
+        </aside>
+        <main class="main">
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <article class="content">
+                <h1>MA 104: Ordinary Differential Equations - Lecture 5</h1>
+<strong>Related:</strong> <a href="index.html">MA 104 Course Overview</a> | <a href="lecture-4.html">Lecture 4 - MA104</a> | <a href="lecture-6.html">Lecture 6 - MA104</a>
+
+<hr>
+
+<h2>Second-Order Linear ODEs</h2>
+
+<strong>Explicit form</strong>:
+$$
+y'' = f(x, y, y')
+$$
+
+<strong>Linear</strong> if $f$ is linear in $y$ and $y'$:
+$$
+y'' + P(x)y' + Q(x)y = R(x) \tag{1}
+$$
+<ul>
+<li>$P,Q,R$ are functions of $x$ only.</li>
+<li><strong>Homogeneous</strong> if $R(x) \equiv 0$:</li>
+</ul>  $$
+  y'' + P(x)y' + Q(x)y = 0 \tag{2}
+  $$
+<ul>
+<li><strong>Nonhomogeneous</strong> otherwise.</li>
+</ul>
+<strong>Key Properties</strong>:
+<ul>
+<li>Equation (1) is <strong>linear in $y$ and its derivatives</strong>.</li>
+<li>$y \equiv 0$ is <strong>always</strong> a solution of the homogeneous equation (2).</li>
+<li>If $y<em>h$ is the general solution of (2) and $y</em>p$ is any particular solution of (1), then</li>
+</ul>  $$
+  y = y<em>h + y</em>p
+  $$
+  is the general solution of (1).
+
+<hr>
+
+<h2>Similarity with First-Order Linear ODEs</h2>
+A general second-order ODE is $y'' = f(x,y,y')$.  
+It becomes linear precisely when $f(x,y,y') = R(x) - P(x)y - Q(x)y'$.
+
+<hr>
+
+<h2>Superposition Principle (Homogeneous Case)</h2>
+
+<strong>Theorem</strong>: If $y<em>1(x)$ and $y</em>2(x)$ are solutions of (2) on an interval $I$, then for any constants $c<em>1, c</em>2$,
+$$
+y = c<em>1 y</em>1 + c<em>2 y</em>2
+$$
+is also a solution of (2).
+
+<strong>Proof</strong> (direct substitution):
+$$
+(c<em>1 y</em>1 + c<em>2 y</em>2)'' + P(c<em>1 y</em>1 + c<em>2 y</em>2)' + Q(c<em>1 y</em>1 + c<em>2 y</em>2) = c<em>1(y</em>1'' + P y<em>1' + Q y</em>1) + c<em>2(y</em>2'' + P y<em>2' + Q y</em>2) = 0
+$$
+
+<strong>Example</strong>:
+$y'' + y = 0$  
+$y<em>1 = \cos x$, $y</em>2 = \sin x$ are solutions.  
+Any $c<em>1 \cos x + c</em>2 \sin x$ is also a solution.
+
+<hr>
+
+<h2>General Solution & Basis</h2>
+
+<strong>General solution</strong> of homogeneous (2) on open interval $I$:
+$$
+y(x) = c<em>1 y</em>1(x) + c<em>2 y</em>2(x)
+$$
+where $y<em>1, y</em>2$ are <strong>linearly independent</strong> (not scalar multiples of each other) solutions on $I$.  
+$y<em>1, y</em>2$ form a <strong>basis</strong> (or fundamental set) of solutions.
+
+<strong>Linearly independent</strong>: $c<em>1 y</em>1 + c<em>2 y</em>2 \equiv 0$ implies $c<em>1 = c</em>2 = 0$.
+
+<hr>
+
+<h2>Initial Value Problem (IVP)</h2>
+
+<p>For homogeneous (2):
+$$
+y(x<em>0) = y</em>0, \quad y'(x<em>0) = y</em>1
+$$
+Two conditions determine $c<em>1, c</em>2$ uniquely.</p>
+
+<hr>
+
+<h2>Existence & Uniqueness Theorem (2nd-Order Linear)</h2>
+
+<strong>Theorem</strong>:  
+If $P(x), Q(x)$ are continuous on open interval $I$ containing $x<em>0$, then the IVP
+$$
+y'' + P y' + Q y = R(x), \quad y(x</em>0)=y<em>0,\ y'(x</em>0)=y<em>1
+$$
+has a <strong>unique</strong> solution on the entire interval $I$.
+
+<strong>Operator viewpoint</strong>:
+Define linear operator $L[y] = y'' + P y' + Q y$.  
+Null space $N(L) = \{y \in C^2(I) : L[y]=0\}$ is a <strong>2-dimensional vector space</strong>.
+
+<strong>Proof sketch</strong>:
+<ol>
+<li>Produce two linearly independent solutions $y</em>1, y<em>2$ by solving special IVPs:</li>
+</ol><ul>
+<li>$y</em>1$: $y(x<em>0)=1$, $y'(x</em>0)=0$</li>
+<li>$y<em>2$: $y(x</em>0)=0$, $y'(x<em>0)=1$</li>
+</ul>2. Any solution $y$ satisfies the same IVP as $c</em>1 y<em>1 + c</em>2 y<em>2$ with $c</em>1=y(x<em>0)$, $c</em>2=y'(x<em>0)$ → uniqueness.
+
+<hr>
+
+<h2>Reduction of Order (When One Solution is Known)</h2>
+
+<p>Given homogeneous (2) and one known nontrivial solution $y</em>1(x)$ on $I$.  
+Seek second solution of form $y<em>2 = u(x) y</em>1(x)$.</p>
+
+<p>Substitute:
+$$
+y<em>2' = u' y</em>1 + u y<em>1', \quad y</em>2'' = u'' y<em>1 + 2 u' y</em>1' + u y<em>1''
+$$
+Plug into (2) → after simplification (using $L[y</em>1]=0$):
+$$
+u'' y<em>1 + u' (2 y</em>1' + P y<em>1) = 0
+$$
+Let $v = u'$:
+$$
+v' + \left( \frac{2 y</em>1'}{y<em>1} + P \right) v = 0
+$$
+First-order separable:
+$$
+\frac{dv}{v} = -\left( \frac{2 y</em>1'}{y<em>1} + P \right) dx
+$$
+$$
+\ln |v| = -2 \ln |y</em>1| - \int P\, dx + C
+$$
+$$
+v = \frac{C}{y<em>1^2} e^{-\int P\, dx}
+$$
+Take $C=1$:
+$$
+u = \int \frac{1}{y</em>1^2} e^{-\int P\, dx}\, dx
+$$
+$$
+y<em>2 = y</em>1 \int \frac{e^{-\int P\, dx}}{y<em>1^2}\, dx
+$$</p>
+
+<strong>Example</strong>:
+$x^2 y'' + x y' - y = 0$ (or $y'' + \frac{1}{x} y' - \frac{1}{x^2} y = 0$)  
+Known: $y</em>1 = x$  
+$P = 1/x$  
+$$
+u = \int \frac{1}{x^2} e^{-\int dx/x}\, dx = \int \frac{1}{x^2} \cdot \frac{1}{x}\, dx = \int x^{-3}\, dx = -\frac{1}{2x^2}
+$$
+$$
+y<em>2 = x \left( -\frac{1}{2x^2} \right) = -\frac{1}{2x}
+$$
+General solution: $y = c</em>1 x - \frac{c<em>2}{2x}$
+
+<hr>
+
+<h2>Homogeneous Linear ODE with Constant Coefficients</h2>
+
+<p>$$
+y'' + p y' + q y = 0 \tag{3}
+\quad (p,q \text{ constants})
+$$</p>
+
+<strong>Characteristic equation</strong>:
+$$
+r^2 + p r + q = 0
+$$
+Roots:
+$$
+r = \frac{-p \pm \sqrt{p^2 - 4q}}{2}
+$$
+
+<h3>Case I: Two distinct real roots $r</em>1 \neq r<em>2$</h3>
+Basis: $\{e^{r</em>1 x}, e^{r<em>2 x}\}$  
+General solution:
+$$
+y = c</em>1 e^{r<em>1 x} + c</em>2 e^{r<em>2 x}
+$$
+
+<strong>Example</strong>:
+$y'' + 6y' + 5y = 0$  
+$r^2 + 6r + 5 = 0 \implies (r+5)(r+1)=0 \implies r=-5,-1$  
+$y = c</em>1 e^{-5x} + c<em>2 e^{-x}$
+
+<h3>Case II: Repeated real root $r = -p/2$</h3>
+Basis: $\{e^{r x}, x e^{r x}\}$  
+General solution:
+$$
+y = (c</em>1 + c<em>2 x) e^{r x}
+$$
+
+<strong>Example</strong>:
+$y'' + 6y' + 9y = 0$, $y(0)=3$, $y'(0)=1$  
+$r = -3$ (double)  
+$y = (c</em>1 + c<em>2 x) e^{-3x}$  
+$y(0)=c</em>1=3$  
+$y' = -3(c<em>1 + c</em>2 x)e^{-3x} + c<em>2 e^{-3x}$ → $y'(0) = -3c</em>1 + c<em>2 =1 \implies c</em>2=10$  
+$y = (3 + 10x) e^{-3x}$
+
+<h3>Case III: Complex conjugate roots $\alpha \pm i\beta$</h3>
+Basis: $\{e^{\alpha x} \cos \beta x, e^{\alpha x} \sin \beta x\}$  
+General solution:
+$$
+y = e^{\alpha x} (c<em>1 \cos \beta x + c</em>2 \sin \beta x)
+$$
+
+<strong>Example</strong>:
+$y'' + 4y' + 13y = 0$, $y(0)=3$, $y'(0)=1$  
+$r^2 + 4r + 13=0 \implies r = -2 \pm 3i$  
+$y = e^{-2x} (c<em>1 \cos 3x + c</em>2 \sin 3x)$  
+Apply ICs → $c<em>1=3$, $c</em>2=7/3$
+
+<hr>
+
+<h2>Euler-Cauchy (Equidimensional) Equations</h2>
+
+<p>Form:
+$$
+x^2 y'' + a x y' + b y = 0 \tag{4}
+\quad (a,b \text{ constants, } x>0 \text{ or } x<0)
+$$</p>
+
+<strong>Substitution</strong> $y = x^m$:
+$$
+m(m-1) + a m + b = 0 \quad \text{(auxiliary equation)}
+$$
+
+<strong>Solutions</strong>:
+<ul>
+<li>Distinct real $m<em>1 \neq m</em>2$: $y = c<em>1 x^{m</em>1} + c<em>2 x^{m</em>2}$</li>
+<li>Repeated $m$: $y = (c<em>1 + c</em>2 \ln |x|) x^m$</li>
+<li>Complex $m = \alpha \pm i\beta$: $y = |x|^\alpha [c<em>1 \cos(\beta \ln |x|) + c</em>2 \sin(\beta \ln |x|)]$</li>
+</ul>
+<hr>
+
+<h2>Summary of Lecture 5</h2>
+<ul>
+<li>Linear second-order ODEs: standard form, homogeneous vs nonhomogeneous.</li>
+<li>Superposition → general solution = $c<em>1 y</em>1 + c<em>2 y</em>2$ (linearly independent basis).</li>
+<li>Existence/uniqueness: guaranteed on intervals where $P,Q$ continuous.</li>
+<li>Reduction of order: powerful when one solution known.</li>
+<li>Constant coefficients → characteristic polynomial (3 cases).</li>
+<li>Euler-Cauchy → power substitution, auxiliary quadratic in $m$.</li>
+</ul>
+<strong>Next</strong>: Nonhomogeneous equations (undetermined coefficients, variation of parameters).
+
+<hr>
+
+<strong>Backlink to next lecture</strong> → <a href="lecture-6.html">Lecture 6 - MA104</a>
+            </article>
+            <footer class="main-footer">
+                <div class="footer-nav">
+                    
+                    <a href="lecture-4.html" class="footer-link prev">
+                        <span class="footer-link-label">← Previous</span>
+                        <span class="footer-link-title">Lecture 4</span>
+                    </a>
+                    
+                    
+                    
+                    <a href="lecture-6.html" class="footer-link next">
+                        <span class="footer-link-label">Next →</span>
+                        <span class="footer-link-title">Lecture 6</span>
+                    </a>
+                    
+                </div>
+            </footer>
+        </main>
+    </div>
+    <script>
+        document.querySelector('.menu-toggle').addEventListener('click', () => {
+            document.querySelector('.sidebar').classList.toggle('open');
+        });
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.sidebar') && !e.target.closest('.menu-toggle')) {
+                document.querySelector('.sidebar').classList.remove('open');
+            }
+        });
+    </script>
+</body>
+</html>

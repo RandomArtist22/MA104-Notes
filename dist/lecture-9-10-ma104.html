@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MA 104: Ordinary Differential Equations - Lectures 9 & 10 (Combined) | MA104 Notes</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js" async></script>
+</head>
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <span class="logo-icon">∂</span>
+                    <span class="logo-text">MA104</span>
+                </div>
+                <p class="logo-subtitle">Ordinary Differential Equations</p>
+            </div>
+            <nav class="nav">
+                <div class="nav-section">
+                    <span class="nav-label">Overview</span>
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">Course Overview</a></li>
+                    </ul>
+                </div>
+                <div class="nav-section">
+                    <span class="nav-label">Lectures</span>
+                    <ul class="nav-list">
+                        
+                        <li><a href="lecture-1.html" class="nav-link ">Lecture 1</a></li>
+                        
+
+                        <li><a href="lecture-2.html" class="nav-link ">Lecture 2</a></li>
+                        
+
+                        <li><a href="lecture-3.html" class="nav-link ">Lecture 3</a></li>
+                        
+
+                        <li><a href="lecture-4.html" class="nav-link ">Lecture 4</a></li>
+                        
+
+                        <li><a href="lecture-5.html" class="nav-link ">Lecture 5</a></li>
+                        
+
+                        <li><a href="lecture-6.html" class="nav-link ">Lecture 6</a></li>
+                        
+
+                        <li><a href="lecture-7.html" class="nav-link ">Lecture 7</a></li>
+                        
+
+                        <li><a href="lecture-8.html" class="nav-link ">Lecture 8</a></li>
+                        
+
+                        <li><a href="lecture-11.html" class="nav-link ">Lecture 11</a></li>
+                        
+
+                        <li><a href="lecture-12.html" class="nav-link ">Lecture 12</a></li>
+                        
+
+                        <li><a href="lecture-9-10-ma104.html" class="nav-link active">Lectures 9 & 10 (Combined)</a></li>
+                        
+                    </ul>
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <p class="ai-notice">🤖 AI-generated summaries of lecture notes</p>
+                <p class="footer-text">Made with ♥ for MA104</p>
+            </div>
+        </aside>
+        <main class="main">
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <article class="content">
+                <h1>MA 104: Ordinary Differential Equations - Lectures 9 & 10 (Combined)</h1>
+<strong>Related:</strong> <a href="index.html">MA 104 Course Overview</a> | <a href="lecture-8.html">Lecture 8 - MA104</a> | <a href="lecture-11.html">Lecture 11 - MA104</a>
+
+<hr>
+
+<h2>Power Series Solutions about the Initial Point</h2>
+
+<p>If initial conditions are given at $x = x<em>0$ (where $P(x)$ and $Q(x)$ are analytic), seek solution  
+$$
+y(x) = \sum</em>{k=0}^\infty a<em>k (x - x</em>0)^k
+$$
+<ul>
+<li>Or shift variable $\tilde{x} = x - x<em>0$ and solve about $\tilde{x}=0$.</li>
+</ul>
+<hr></p>
+
+<h2>Legendre’s Equation & Legendre Polynomials</h2>
+
+<strong>Legendre’s equation</strong> (parameter $\alpha \in \mathbb{R}$):
+$$
+(1 - x^2)y'' - 2x y' + \alpha(\alpha + 1)y = 0 \tag{1}
+$$
+or equivalently  
+$$
+[(1 - x^2)y']' = -\alpha(\alpha + 1)y
+$$
+
+<strong>Power series solution</strong> about $x=0$ (analytic coefficients):
+Assume $y(x) = \sum</em>{n=0}^\infty a<em>n x^n$.  
+Recurrence:
+$$
+a</em>{n+2} = -\frac{(\alpha - n)(\alpha + n + 1)}{(n+1)(n+2)} a<em>n, \quad n=0,1,2,\dots
+$$
+
+<strong>Two independent solutions</strong>:
+$$
+y</em>1(x) = 1 - \frac{\alpha(\alpha+1)}{2!}x^2 + \frac{(\alpha-2)\alpha(\alpha+1)(\alpha+3)}{4!}x^4 - \cdots
+$$
+$$
+y<em>2(x) = x - \frac{(\alpha-1)(\alpha+2)}{3!}x^3 + \frac{(\alpha-1)(\alpha-3)(\alpha+2)(\alpha+4)}{5!}x^5 - \cdots
+$$
+Both converge for $|x| < 1$.
+
+<strong>Legendre polynomials</strong> $P</em>\alpha(x)$:
+<ul>
+<li>When $\alpha = n \in \mathbb{N}<em>0$, one solution terminates → polynomial of degree $n$.</li>
+<li>Normalize so $P</em>n(1) = 1$.</li>
+</ul>
+<strong>Rodrigues’ formula</strong>:
+$$
+P<em>n(x) = \frac{1}{2^n n!} \frac{d^n}{dx^n} (x^2 - 1)^n
+$$
+
+<strong>Explicit forms</strong>:
+<ul>
+<li>$P</em>0(x) = 1$</li>
+<li>$P<em>1(x) = x$</li>
+<li>$P</em>2(x) = \frac12(3x^2 - 1)$</li>
+<li>$P<em>3(x) = \frac12(5x^3 - 3x)$</li>
+</ul>
+<strong>Orthogonality</strong> on $[-1,1]$:
+$$
+\int</em>{-1}^1 P<em>m(x) P</em>n(x)\, dx = 0 \quad (m \neq n), \quad \int<em>{-1}^1 [P</em>n(x)]^2\, dx = \frac{2}{2n+1}
+$$
+$\{P<em>n(x)\}</em>{n=0}^\infty$ forms an orthogonal basis for polynomials on $[-1,1]$.
+
+<strong>Expansion</strong>: Any polynomial $f(x)$ of degree $\leq n$:
+$$
+f(x) = \sum<em>{k=0}^n a</em>k P<em>k(x), \quad a</em>k = \frac{2k+1}{2} \int<em>{-1}^1 f(x) P</em>k(x)\, dx
+$$
+
+<hr>
+
+<h2>Frobenius Method (Extended Power Series)</h2>
+
+<p>For equations with regular singular point at $x=0$:
+$$
+x^2 y'' + x b(x) y' + c(x) y = 0 \tag{2}
+$$
+where $b(x), c(x)$ analytic at $x=0$ (i.e., $b(x) = \sum b<em>m x^m$, $c(x) = \sum c</em>m x^m$).</p>
+
+<strong>Indicial equation</strong> (from lowest power $x^r$):
+$$
+I(r) = r(r-1) + b<em>0 r + c</em>0 = 0
+$$
+
+<strong>Frobenius solution</strong>:
+$$
+y(x) = x^r \sum<em>{m=0}^\infty a</em>m x^m \quad (a<em>0 \neq 0)
+$$
+
+<strong>Recurrence</strong> (for $n \geq 1$):
+$$
+I(r+n) a</em>n + \sum<em>{k=0}^{n-1} [ (r+k) b</em>{n-k} + c<em>{n-k} ] a</em>k = 0
+$$
+
+<strong>Three cases</strong> (roots $r<em>1 \geq r</em>2$):
+
+<strong>Case 1</strong>: $r<em>1 - r</em>2 \notin \mathbb{Z}$ (distinct, not differing by integer)  
+Two independent solutions:
+$$
+y<em>1(x) = x^{r</em>1} \sum a<em>m(r</em>1) x^m, \quad y<em>2(x) = x^{r</em>2} \sum A<em>m(r</em>2) x^m
+$$
+
+<strong>Case 2</strong>: $r<em>1 = r</em>2 = r$ (repeated root)  
+$$
+y<em>1(x) = x^r \sum a</em>m x^m
+$$
+$$
+y<em>2(x) = y</em>1(x) \ln x + x^r \sum A<em>m x^m \quad (x>0)
+$$
+
+<strong>Case 3</strong>: $r</em>1 - r<em>2 = N \in \mathbb{N}$ (differ by positive integer)  
+$$
+y</em>1(x) = x^{r<em>1} \sum a</em>m x^m
+$$
+$$
+y<em>2(x) = k y</em>1(x) \ln x + x^{r<em>2} \sum A</em>m x^m \quad (k \text{ may be } 0)
+$$
+
+<hr>
+
+<h2>Bessel’s Equation & Bessel Functions</h2>
+
+<strong>Bessel’s equation</strong> (order $\nu \geq 0$):
+$$
+x^2 y'' + x y' + (x^2 - \nu^2) y = 0 \tag{3}
+$$
+or
+$$
+y'' + \frac{1}{x} y' + \left(1 - \frac{\nu^2}{x^2}\right) y = 0
+$$
+
+<strong>Indicial equation</strong>: $r^2 - \nu^2 = 0 \implies r = \pm \nu$
+
+<strong>Bessel function of first kind</strong> (order $n$ integer):
+$$
+J<em>n(x) = \sum</em>{m=0}^\infty \frac{(-1)^m}{m! (n+m)!} \left(\frac{x}{2}\right)^{n+2m}
+$$
+
+<strong>General solution</strong> (for integer $n$):
+$$
+y(x) = c<em>1 J</em>n(x) + c<em>2 Y</em>n(x)
+$$
+where $Y<em>n(x)$ is the Bessel function of the second kind (involves $\ln x$).
+
+<hr>
+
+<h2>Summary of Lectures 9 & 10</h2>
+<ul>
+<li><strong>Power series about arbitrary point</strong>: Shift variable or expand directly in $(x-x</em>0)$.</li>
+<li><strong>Legendre equation</strong>: Power series → Legendre polynomials $P<em>n(x)$ via termination; Rodrigues formula; orthogonal on $[-1,1]$.</li>
+<li><strong>Frobenius method</strong>: Handles regular singular points; indicial equation determines leading exponent $r$; three cases for second solution.</li>
+<li><strong>Bessel equation</strong>: Classic singular-point ODE; solutions $J</em>\nu(x)$ (first kind) and $Y<em>\nu(x)$ (second kind).</li>
+</ul>
+<strong>Key Formulas</strong>:
+<ul>
+<li>Legendre: $P</em>n(x) = \frac{1}{2^n n!} \frac{d^n}{dx^n}(x^2-1)^n$</li>
+<li>Frobenius recurrence: $I(r+n)a<em>n + \sum \dots = 0$</li>
+<li>Bessel $J</em>n(x)$ series as above.</li>
+</ul>
+<strong>Next</strong>: Applications of special functions, Sturm-Liouville theory, or systems of ODEs.
+
+<hr>
+
+<strong>Backlink to next lecture</strong> → <a href="lecture-11.html">Lecture 11 - MA104</a>
+            </article>
+            <footer class="main-footer">
+                <div class="footer-nav">
+                    
+                    <a href="lecture-12.html" class="footer-link prev">
+                        <span class="footer-link-label">← Previous</span>
+                        <span class="footer-link-title">Lecture 12</span>
+                    </a>
+                    
+                    
+                    
+                </div>
+            </footer>
+        </main>
+    </div>
+    <script>
+        document.querySelector('.menu-toggle').addEventListener('click', () => {
+            document.querySelector('.sidebar').classList.toggle('open');
+        });
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.sidebar') && !e.target.closest('.menu-toggle')) {
+                document.querySelector('.sidebar').classList.remove('open');
+            }
+        });
+    </script>
+</body>
+</html>

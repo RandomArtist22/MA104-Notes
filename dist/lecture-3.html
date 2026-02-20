@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MA 104: Ordinary Differential Equations - Lecture 3 | MA104 Notes</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js" async></script>
+</head>
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <span class="logo-icon">∂</span>
+                    <span class="logo-text">MA104</span>
+                </div>
+                <p class="logo-subtitle">Ordinary Differential Equations</p>
+            </div>
+            <nav class="nav">
+                <div class="nav-section">
+                    <span class="nav-label">Overview</span>
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">Course Overview</a></li>
+                    </ul>
+                </div>
+                <div class="nav-section">
+                    <span class="nav-label">Lectures</span>
+                    <ul class="nav-list">
+                        
+                        <li><a href="lecture-1.html" class="nav-link ">Lecture 1</a></li>
+                        
+
+                        <li><a href="lecture-2.html" class="nav-link ">Lecture 2</a></li>
+                        
+
+                        <li><a href="lecture-3.html" class="nav-link active">Lecture 3</a></li>
+                        
+
+                        <li><a href="lecture-4.html" class="nav-link ">Lecture 4</a></li>
+                        
+
+                        <li><a href="lecture-5.html" class="nav-link ">Lecture 5</a></li>
+                        
+
+                        <li><a href="lecture-6.html" class="nav-link ">Lecture 6</a></li>
+                        
+
+                        <li><a href="lecture-7.html" class="nav-link ">Lecture 7</a></li>
+                        
+
+                        <li><a href="lecture-8.html" class="nav-link ">Lecture 8</a></li>
+                        
+
+                        <li><a href="lecture-11.html" class="nav-link ">Lecture 11</a></li>
+                        
+
+                        <li><a href="lecture-12.html" class="nav-link ">Lecture 12</a></li>
+                        
+
+                        <li><a href="lecture-9-10-ma104.html" class="nav-link ">Lectures 9 & 10 (Combined)</a></li>
+                        
+                    </ul>
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <p class="ai-notice">🤖 AI-generated summaries of lecture notes</p>
+                <p class="footer-text">Made with ♥ for MA104</p>
+            </div>
+        </aside>
+        <main class="main">
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <article class="content">
+                <h1>MA 104: Ordinary Differential Equations - Lecture 3</h1>
+<strong>Related:</strong> <a href="index.html">MA 104 Course Overview</a> | <a href="lecture-2.html">Lecture 2 - MA104</a> | <a href="lecture-4.html">Lecture 4 - MA104</a>
+
+<hr>
+
+<h2>1. Linear First-Order ODEs</h2>
+
+<strong>Recall</strong>  
+Explicit form: $y' = f(x,y)$
+
+<strong>Linear</strong> if $f(x,y)$ is linear in $y$:  
+$f(x,y) = a(x)y + b(x)$
+
+<strong>Standard form</strong>:
+$$
+y' + P(x)y = Q(x) \tag{1}
+$$
+
+<h3>Simplest Case (P, Q constant)</h3>
+$$
+y' + py = q \quad (p \neq 0)
+$$
+Separate variables:
+$$
+\frac{dy}{y - q/p} = -p\, dx
+$$
+$$
+\ln |y - q/p| = -p x + \ln |C|
+$$
+$$
+y = C e^{-p x} + \frac{q}{p}
+$$
+
+<h3>General Case – Method of Integrating Factor (Leibniz)</h3>
+
+<p>Multiply (1) by $\mu(x)$ so left side becomes exact derivative:
+$$
+\frac{d}{dx} [\mu(x) y] = \mu(x) Q(x)
+$$</p>
+
+<strong>How to find $\mu(x)$?</strong>  
+Require:
+$$
+\mu' y + \mu (P y) = \mu' y + \mu P y \quad \Rightarrow \quad \frac{\mu'}{\mu} = P(x)
+$$
+$$
+\ln |\mu| = \int P(x)\, dx + C<em>1 \quad \Rightarrow \quad \mu(x) = e^{\int P(x)\, dx}
+$$
+(We take $C</em>1=0$ without loss of generality.)
+
+<strong>General Solution</strong>:
+$$
+y(x) = e^{-\int P\, dx} \left[ \int Q(x) e^{\int P\, dx}\, dx + C \right] \tag{2}
+$$
+
+<hr>
+
+<h3>Example 1</h3>
+$$
+\frac{dy}{dx} + \frac{y}{x} = 3x \quad (x \neq 0)
+$$
+$P(x) = 1/x$, $Q(x) = 3x$  
+$\int P\, dx = \ln |x|$ → $\mu(x) = x$
+
+<p>Multiply:
+$$
+x y' + y = 3x^2 \quad \Rightarrow \quad \frac{d}{dx}(x y) = 3x^2
+$$
+$$
+x y = x^3 + C \quad \Rightarrow \quad \boxed{y = x^2 + \frac{C}{x}}
+$$</p>
+
+<hr>
+
+<h3>Example 2 (IVP)</h3>
+$$
+y' + (\tan x) y = \sin 2x, \quad y(0)=1
+$$
+$P = \tan x$, $Q = \sin 2x$  
+$\int P\, dx = -\ln|\cos x|$ → $\mu(x) = \sec x$
+
+<p>Multiply:
+$$
+\sec x\, y' + \sec x \tan x\, y = \sec x \sin 2x
+$$
+$$
+\frac{d}{dx}(\sec x\, y) = 2 \sin x
+$$
+$$
+\sec x\, y = -2 \cos x + C
+$$
+$$
+y = -2 \cos^2 x + C \cos x
+$$
+Apply $y(0)=1$:
+$$
+1 = -2(1) + C(1) \quad \Rightarrow \quad C=3
+$$
+$$
+\boxed{y(x) = 3\cos x - 2\cos^2 x}
+$$</p>
+
+<hr>
+
+<h2>2. Bernoulli Equation</h2>
+
+<strong>Form</strong>:
+$$
+y' + \alpha(x) y = R(x) y^\beta \tag{3}
+\quad (\beta \neq 0,1)
+$$
+
+<strong>Note</strong>: When $\beta=0$ or $1$ → already linear.
+
+<strong>Transformation</strong>: Let $u = y^{1-\beta}$  
+Then $u' = (1-\beta) y^{-\beta} y'$
+
+<p>Substitute into (3) → linear ODE in $u$:
+$$
+u' + (1-\beta)\alpha(x) u = (1-\beta) R(x)
+$$</p>
+
+<hr>
+
+<h3>Example: Logistic Equation</h3>
+$$
+y' = A y - B y^2 \quad (A,B>0)
+$$
+Here $\beta=2$, $\alpha(x)=-A$, $R(x)=-B$  
+Let $u = y^{-1} = 1/y$ → $u' = -y^{-2} y'$
+
+<p>$$
+u' = - \frac{1}{y^2} (A y - B y^2) = -A u + B
+$$
+$$
+u' + A u = B
+$$
+Integrating factor $e^{A x}$:
+$$
+u = \frac{B}{A} + C e^{-A x}
+$$
+$$
+y = \frac{1}{\frac{B}{A} + C e^{-A x}} = \frac{A}{B + C A e^{-A x}}
+$$</p>
+
+<hr>
+
+<h2>3. Existence and Uniqueness Theorems for 1st-Order IVP</h2>
+
+<strong>IVP</strong>:
+$$
+y' = f(x,y), \quad y(x<em>0)=y</em>0 \tag{4}
+$$
+
+<h3>Existence Theorem</h3>
+If $f(x,y)$ is <strong>continuous</strong> and <strong>bounded</strong> ($|f| \leq K$) in rectangle  
+$D: |x-x<em>0| < a$, $|y-y</em>0| < b$,  
+then (4) has <strong>at least one</strong> solution on $|x-x<em>0| < \alpha$ where $\alpha = \min\{a, b/K\}$.
+
+<h3>Uniqueness Theorem (Picard-Lindelöf)</h3>
+If additionally $\partial f/\partial y$ is <strong>continuous</strong> and <strong>bounded</strong> ($|\partial f/\partial y| \leq M$) in $D$,  
+then (4) has <strong>at most one</strong> solution (hence <strong>exactly one</strong> by existence).
+
+<strong>Equivalent (weaker) condition</strong>: $f$ satisfies <strong>Lipschitz condition</strong> in $y$:
+$$
+|f(x,y</em>1)-f(x,y<em>2)| \leq L |y</em>1-y<em>2|
+$$
+
+<hr>
+
+<h3>Special Case: Linear ODE</h3>
+For $y' + P(x)y = Q(x)$, if $P,Q$ continuous on $|x-x</em>0|<a$, then <strong>unique</strong> solution on that interval.
+
+<hr>
+
+<h3>Illustrative Examples</h3>
+
+<strong>Ex 1</strong>: $y' = x^2 + y^2$, $y(1)=3$  
+$f$ and $\partial f/\partial y = 2y$ continuous everywhere → unique solution exists.
+
+<strong>Ex 2</strong>: $y' = \frac{x+y}{x-y}$, $y(x<em>0)=y</em>0$ with $x<em>0 \neq y</em>0$  
+$\partial f/\partial y$ blows up on $x=y$ → but unique in rectangle not crossing $x=y$.
+
+<strong>Ex 3</strong>: $y' = \frac13 x y^{2/5}$, $y(0)=-1$  
+Solution $y = (x^2 -1)^{5/3}$ valid on $\mathbb{R}$.  
+But on intervals crossing $|x|=1$, piecewise definitions show non-uniqueness outside $(-1,1)$.
+
+<strong>Counterexample to uniqueness (only continuity)</strong>:
+$$
+y' = \sqrt{|y|}, \quad y(0)=0
+$$
+Two solutions: $y\equiv 0$ and $y = \begin{cases} x^2/4 & x\geq0 \\ -x^2/4 & x<0 \end{cases}$
+
+<hr>
+
+<h2>4. Orthogonal Trajectories</h2>
+
+<strong>Definition</strong>: A family of curves that intersect a given family <strong>at right angles</strong> everywhere.
+
+<strong>Angle of intersection</strong> = angle between tangents at intersection point.
+
+<strong>Method</strong> (for one-parameter family $F(x,y,c)=0$):
+<ol>
+<li>Differentiate w.r.t. $x$: $G(x,y,y',c)=0$</li>
+<li>Eliminate $c$ → ODE $y' = f(x,y)$ for given family.</li>
+<li>Orthogonal family satisfies $y' = -1/f(x,y)$</li>
+<li>Solve the new ODE.</li>
+</ol>
+<hr>
+
+<h3>Example 1: Family of circles $x^2 + y^2 = c$</h3>
+Differentiate: $2x + 2y y' = 0 \implies y' = -x/y$  
+Orthogonal: $y' = y/x$ → $y = k x$ (lines through origin).
+
+<strong>Visualization</strong>: Circles centered at origin ⊥ radial lines.
+
+<hr>
+
+<h3>Example 2: Family of ellipses $\frac12 x^2 + y^2 = c$ ($c>0$)</h3>
+Differentiate: $x + 2 y y' = 0 \implies y' = -x/(2y)$  
+Orthogonal: $y' = 2y/x$  
+Separate: $\frac{dy}{y} = 2 \frac{dx}{x}$ → $\ln|y| = 2\ln|x| + \ln k$  
+$\boxed{y^2 = k x^2}$? Wait, correction in notes: actually $y^2 = c x$ (parabolas).
+
+<hr>
+
+<h2>Summary of Lecture 3</h2>
+<ul>
+<li><strong>Linear 1st-order</strong>: Always solvable via integrating factor $\mu = e^{\int P\,dx}$.</li>
+<li><strong>Bernoulli</strong>: Reduce to linear via $u=y^{1-\beta}$.</li>
+<li><strong>Existence/Uniqueness</strong>: Sufficient conditions via continuity + boundedness of $f$ and $f_y$ (or Lipschitz).</li>
+<li><strong>Linear case</strong>: Guaranteed unique solution when coefficients continuous.</li>
+<li><strong>Orthogonal Trajectories</strong>: Practical application of ODEs – replace slope by negative reciprocal.</li>
+</ul>
+<strong>Key Takeaway</strong>: These tools solve most first-order ODEs encountered in applications (growth, circuits, mixing, trajectories).
+
+<hr>
+
+<strong>Backlink to next lecture</strong> → <a href="lecture-4.html">Lecture 4 - MA104</a>
+            </article>
+            <footer class="main-footer">
+                <div class="footer-nav">
+                    
+                    <a href="lecture-2.html" class="footer-link prev">
+                        <span class="footer-link-label">← Previous</span>
+                        <span class="footer-link-title">Lecture 2</span>
+                    </a>
+                    
+                    
+                    
+                    <a href="lecture-4.html" class="footer-link next">
+                        <span class="footer-link-label">Next →</span>
+                        <span class="footer-link-title">Lecture 4</span>
+                    </a>
+                    
+                </div>
+            </footer>
+        </main>
+    </div>
+    <script>
+        document.querySelector('.menu-toggle').addEventListener('click', () => {
+            document.querySelector('.sidebar').classList.toggle('open');
+        });
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.sidebar') && !e.target.closest('.menu-toggle')) {
+                document.querySelector('.sidebar').classList.remove('open');
+            }
+        });
+    </script>
+</body>
+</html>

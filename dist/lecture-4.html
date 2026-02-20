@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MA 104: Ordinary Differential Equations - Lecture 4 | MA104 Notes</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js" async></script>
+</head>
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <span class="logo-icon">∂</span>
+                    <span class="logo-text">MA104</span>
+                </div>
+                <p class="logo-subtitle">Ordinary Differential Equations</p>
+            </div>
+            <nav class="nav">
+                <div class="nav-section">
+                    <span class="nav-label">Overview</span>
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">Course Overview</a></li>
+                    </ul>
+                </div>
+                <div class="nav-section">
+                    <span class="nav-label">Lectures</span>
+                    <ul class="nav-list">
+                        
+                        <li><a href="lecture-1.html" class="nav-link ">Lecture 1</a></li>
+                        
+
+                        <li><a href="lecture-2.html" class="nav-link ">Lecture 2</a></li>
+                        
+
+                        <li><a href="lecture-3.html" class="nav-link ">Lecture 3</a></li>
+                        
+
+                        <li><a href="lecture-4.html" class="nav-link active">Lecture 4</a></li>
+                        
+
+                        <li><a href="lecture-5.html" class="nav-link ">Lecture 5</a></li>
+                        
+
+                        <li><a href="lecture-6.html" class="nav-link ">Lecture 6</a></li>
+                        
+
+                        <li><a href="lecture-7.html" class="nav-link ">Lecture 7</a></li>
+                        
+
+                        <li><a href="lecture-8.html" class="nav-link ">Lecture 8</a></li>
+                        
+
+                        <li><a href="lecture-11.html" class="nav-link ">Lecture 11</a></li>
+                        
+
+                        <li><a href="lecture-12.html" class="nav-link ">Lecture 12</a></li>
+                        
+
+                        <li><a href="lecture-9-10-ma104.html" class="nav-link ">Lectures 9 & 10 (Combined)</a></li>
+                        
+                    </ul>
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <p class="ai-notice">🤖 AI-generated summaries of lecture notes</p>
+                <p class="footer-text">Made with ♥ for MA104</p>
+            </div>
+        </aside>
+        <main class="main">
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <article class="content">
+                <h1>MA 104: Ordinary Differential Equations - Lecture 4</h1>
+<strong>Related:</strong> <a href="index.html">MA 104 Course Overview</a> | <a href="lecture-3.html">Lecture 3 - MA104</a> | <a href="lecture-5.html">Lecture 5 - MA104</a>
+
+<hr>
+
+<h2>Review: Existence & Uniqueness Theorem</h2>
+
+<strong>Standard IVP</strong>:
+$$
+y' = f(x,y), \quad y(x<em>0) = y</em>0 \tag{1}
+$$
+
+<strong>Coordinate Shift</strong> (to simplify proof):
+Let $\tilde{x} = x - x<em>0$, $\tilde{y} = y - y</em>0$.  
+New IVP (at origin):
+$$
+\tilde{y}' = f(\tilde{x} + x<em>0, \tilde{y} + y</em>0), \quad \tilde{y}(0) = 0 \tag{2}
+$$
+
+<strong>Theorem</strong> (Picard–Lindelöf):
+If $f(x,y)$ and $\partial f/\partial y$ are <strong>continuous</strong> in rectangle  
+$D: |x| < a$, $|y| < b$,  
+then there exists $\alpha = \min\{a, b/K\}$ (where $|f| \leq K$ in $D$) such that (1) has a <strong>unique</strong> solution $y = \phi(x)$ on $|x - x<em>0| < \alpha$.
+
+<strong>Geometric Interpretation</strong> (rectangle $D$):
+<ul>
+<li>$f$ must be bounded ($|f| \leq K$) inside $D$.</li>
+<li>Solution stays inside $D$ for $|x| < \alpha$.</li>
+<li>Outside $D$ → no guarantee.</li>
+<li>Solution must be <strong>continuous</strong> (since differentiable).</li>
+</ul>
+<strong>Example</strong>:
+$$
+y' = 1 + y^2, \quad y(0) = 0
+$$
+Choose $D: |x| < 5$, $|y| < 3$.  
+$K = 1 + 9 = 10$, $\alpha = \min\{5, 3/10\} = 0.3$.  
+→ Unique solution exists on $|x| < 0.3$.  
+(Global solution $y = \tan x$ exists but <strong>not</strong> valid in larger intervals crossing discontinuities.)
+
+<hr>
+
+<h2>Integral Equation Formulation (Equivalent to IVP)</h2>
+
+<p>Assume $\phi(x)$ solves (1) with $\phi(0)=0$.  
+Then:
+$$
+\phi'(x) = f(x, \phi(x)), \quad \phi(0)=0
+$$
+Integrate:
+$$
+\phi(x) = \int</em>0^x f(t, \phi(t))\, dt \tag{3}
+$$</p>
+
+<strong>Equivalence</strong>:
+<ul>
+<li>Any $C^1$ solution of (1) satisfies (3).</li>
+<li>Any continuous solution of (3) is differentiable and satisfies (1) (by Fundamental Theorem of Calculus).</li>
+</ul>
+<strong>Advantage</strong>: (3) is easier to prove has unique solution → implies same for IVP.
+
+<hr>
+
+<h2>Picard’s Iteration Method (Successive Approximations)</h2>
+
+<strong>Algorithm</strong> (for IVP with $y(0)=0$):
+<ol>
+<li>Start with $\phi<em>0(x) = 0$ (or any function with $\phi</em>0(0)=0$).</li>
+<li>Define recursively:</li>
+</ol>   $$
+   \phi<em>{n+1}(x) = \int</em>0^x f(t, \phi<em>n(t))\, dt, \quad n = 0,1,2,\dots
+   $$
+<ol>
+<li>Under the continuity/boundedness conditions, $\phi</em>n(x) \to \phi(x)$ (the unique solution).</li>
+</ol>
+<strong>Key Property</strong>:
+<ul>
+<li>Each $\phi<em>n$ satisfies the initial condition.</li>
+<li>Sequence converges to the fixed point of the integral operator.</li>
+</ul>
+<hr>
+
+<h3>Detailed Example</h3>
+<strong>IVP</strong>: $y' = 2x(1 + y)$, $y(0) = 0$
+
+<p>$f(x,y) = 2x(1+y)$
+<ul>
+<li>$\phi</em>0(x) = 0$</li>
+<li>$\phi<em>1(x) = \int</em>0^x 2t(1+0)\,dt = x^2$</li>
+<li>$\phi<em>2(x) = \int</em>0^x 2t(1 + t^2)\,dt = x^2 + \frac{x^4}{2}$</li>
+<li>$\phi<em>3(x) = \int</em>0^x 2t(1 + t^2 + t^4/2)\,dt = x^2 + \frac{x^4}{2} + \frac{x^6}{6}$</li>
+<li>In general (by induction):</li>
+</ul>  $$
+  \phi<em>n(x) = x^2 + \frac{x^4}{2!} + \frac{x^6}{3!} + \cdots + \frac{x^{2n}}{n!}
+  $$</p>
+
+<strong>Limit</strong>:
+$$
+\phi(x) = \lim</em>{n\to\infty} \phi<em>n(x) = \sum</em>{k=1}^\infty \frac{x^{2k}}{k!} = e^{x^2} - 1
+$$
+
+<strong>Verification</strong>:
+<ul>
+<li>Series converges everywhere (ratio test: $|x^2/(k+1)| \to 0$).</li>
+<li>Taylor series → term-by-term differentiable.</li>
+<li>Direct substitution confirms it solves both integral equation and original IVP.</li>
+</ul>
+<strong>Visualization</strong>:
+Successive iterates $\phi<em>k(x)$ approximate the solution better with increasing $k$, expanding the interval of good approximation.
+
+<hr>
+
+<h2>Proof Sketch: The Limit Solves the IVP</h2>
+<ul>
+<li>Convergence of $\{\phi</em>n\}$ shown via uniform convergence on compact intervals (under boundedness of $f$).</li>
+<li>Limit $\phi$ satisfies integral equation (3) by taking limit inside integral (justified by uniform convergence).</li>
+<li>Hence $\phi$ solves the differential equation.</li>
+</ul>
+<hr>
+
+<h2>Uniqueness Proof (via Integral Equation)</h2>
+
+<p>Suppose $\phi(x)$ and $\psi(x)$ both solve (3).  
+Then:
+$$
+|\phi(x) - \psi(x)| \leq \int<em>0^{|x|} |f(t,\phi(t)) - f(t,\psi(t))|\, dt
+$$</p>
+
+<p>By <strong>Lipschitz condition</strong> (from continuity of $\partial f/\partial y \leq M$ in $D$):
+$$
+|f(t,\phi) - f(t,\psi)| \leq K |\phi(t) - \psi(t)|
+$$</p>
+
+<p>Define $u(x) = \int</em>0^x |\phi(t) - \psi(t)|\, dt$ ($\geq 0$, $u(0)=0$).  
+Then $u'(x) \leq K u(x)$ on $[0, \alpha/2]$.</p>
+
+<p>Multiply by integrating factor $e^{-Kx}$:
+$$
+\frac{d}{dx} [e^{-Kx} u(x)] \leq 0 \implies e^{-Kx} u(x) \leq 0 \implies u(x) \leq 0
+$$
+But $u \geq 0$ → $u(x) \equiv 0$ → $\phi \equiv \psi$.</p>
+
+<strong>Conclusion</strong>: Unique solution.
+
+<hr>
+
+<h2>Homework / Exercises from Lecture</h2>
+Construct the Picard iteration sequences $\{\phi_n(x)\}$ for:
+<ol>
+<li>$y' = x^2 + y^2$, $y(0) = 1$</li>
+<li>$y' = 2\sqrt{x}$, $y(0) = 2$</li>
+</ol>
+(Compute first few terms; observe convergence behavior.)
+
+<hr>
+
+<h2>Summary of Lecture 4</h2>
+<ul>
+<li><strong>Existence & Uniqueness</strong> proved rigorously via <strong>integral equation</strong> (3) equivalent to IVP.</li>
+<li><strong>Picard iteration</strong> generates sequence converging to unique solution under standard conditions.</li>
+<li>Detailed example shows power series solution emerging naturally.</li>
+<li>Uniqueness via Gronwall-type inequality (integral form).</li>
+<li><strong>Key Insight</strong>: Continuity of $f$ + boundedness of $\partial f/\partial y$ (or Lipschitz in $y$) guarantee local unique solution.</li>
+</ul>
+This completes the theoretical foundation for first-order IVPs before moving to higher-order equations and systems.
+
+<hr>
+
+<strong>Backlink to next lecture</strong> → <a href="lecture-5.html">Lecture 5 - MA104</a>
+            </article>
+            <footer class="main-footer">
+                <div class="footer-nav">
+                    
+                    <a href="lecture-3.html" class="footer-link prev">
+                        <span class="footer-link-label">← Previous</span>
+                        <span class="footer-link-title">Lecture 3</span>
+                    </a>
+                    
+                    
+                    
+                    <a href="lecture-5.html" class="footer-link next">
+                        <span class="footer-link-label">Next →</span>
+                        <span class="footer-link-title">Lecture 5</span>
+                    </a>
+                    
+                </div>
+            </footer>
+        </main>
+    </div>
+    <script>
+        document.querySelector('.menu-toggle').addEventListener('click', () => {
+            document.querySelector('.sidebar').classList.toggle('open');
+        });
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.sidebar') && !e.target.closest('.menu-toggle')) {
+                document.querySelector('.sidebar').classList.remove('open');
+            }
+        });
+    </script>
+</body>
+</html>

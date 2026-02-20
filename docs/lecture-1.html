@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MA 104: Ordinary Differential Equations - Lecture 1 | MA104 Notes</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js" async></script>
+</head>
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <span class="logo-icon">∂</span>
+                    <span class="logo-text">MA104</span>
+                </div>
+                <p class="logo-subtitle">Ordinary Differential Equations</p>
+            </div>
+            <nav class="nav">
+                <div class="nav-section">
+                    <span class="nav-label">Overview</span>
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">Course Overview</a></li>
+                    </ul>
+                </div>
+                <div class="nav-section">
+                    <span class="nav-label">Lectures</span>
+                    <ul class="nav-list">
+                        
+                        <li><a href="lecture-1.html" class="nav-link active">Lecture 1</a></li>
+                        
+
+                        <li><a href="lecture-2.html" class="nav-link ">Lecture 2</a></li>
+                        
+
+                        <li><a href="lecture-3.html" class="nav-link ">Lecture 3</a></li>
+                        
+
+                        <li><a href="lecture-4.html" class="nav-link ">Lecture 4</a></li>
+                        
+
+                        <li><a href="lecture-5.html" class="nav-link ">Lecture 5</a></li>
+                        
+
+                        <li><a href="lecture-6.html" class="nav-link ">Lecture 6</a></li>
+                        
+
+                        <li><a href="lecture-7.html" class="nav-link ">Lecture 7</a></li>
+                        
+
+                        <li><a href="lecture-8.html" class="nav-link ">Lecture 8</a></li>
+                        
+
+                        <li><a href="lecture-11.html" class="nav-link ">Lecture 11</a></li>
+                        
+
+                        <li><a href="lecture-12.html" class="nav-link ">Lecture 12</a></li>
+                        
+
+                        <li><a href="lecture-9-10-ma104.html" class="nav-link ">Lectures 9 & 10 (Combined)</a></li>
+                        
+                    </ul>
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <p class="ai-notice">🤖 AI-generated summaries of lecture notes</p>
+                <p class="footer-text">Made with ♥ for MA104</p>
+            </div>
+        </aside>
+        <main class="main">
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <article class="content">
+                <h1>MA 104: Ordinary Differential Equations - Lecture 1</h1>
+<strong>Related:</strong> <a href="index.html">MA 104 Course Overview</a> | <a href="lecture-2.html">Lecture 2 - MA104</a>
+
+<hr>
+
+<h2>Course Logistics</h2>
+
+<h3>Lecture & Tutorial Schedule</h3>
+<ul>
+<li><strong>Lectures:</strong> Wednesday & Friday, 10:00 AM – 11:20 AM</li>
+<li><strong>Tutorials:</strong> Wednesday, 11:30 AM – 12:50 PM</li>
+<li><strong>Office Hours:</strong> Monday, 08:30 AM – 09:30 AM (Office AB 06/347, <strong>by appointment</strong>)</li>
+<li><strong>Google Classroom Code:</strong> <code>vmileaxf</code></li>
+</ul>
+<blockquote>
+<strong>Note:</strong> Suggestions and comments are welcome throughout the course! Feel free to reach out anytime.
+</blockquote>
+<h3>Grading Policy (Relative Grading)</h3>
+<table>
+<thead>
+<tr><th>Evaluation Component</th><th>Weightage (%)</th></tr>
+</thead>
+<tbody>
+<tr><td>Quiz 1 (27 Jan, tentative)</td><td>20</td></tr>
+<tr><td>Quiz 2 (16 Feb, tentative)</td><td>20</td></tr>
+<tr><td>Final Examination</td><td>40</td></tr>
+<tr><td>Assignment</td><td>10</td></tr>
+<tr><td>Attendance</td><td>10</td></tr>
+<tr><td><strong>Total</strong></td><td><strong>100</strong></td></tr>
+</tbody>
+</table>
+
+<strong>Attendance Marks Breakdown</strong>
+<table>
+<thead>
+<tr><th>Attendance (%)</th><th>Marks</th></tr>
+</thead>
+<tbody>
+<tr><td>85% and above</td><td>10</td></tr>
+<tr><td>70% to <85%</td><td>8</td></tr>
+<tr><td>55% to <70%</td><td>6</td></tr>
+<tr><td>40% to <55%</td><td>4</td></tr>
+<tr><td>Below 40%</td><td>0</td></tr>
+</tbody>
+</table>
+
+<hr>
+
+<h2>References</h2>
+<strong>Textbook</strong> (primary):
+<ul>
+<li>E. Kreyszig, <em>Advanced Engineering Mathematics</em> (10th ed.), John Wiley, 2011.</li>
+</ul>
+<strong>Reference Books</strong>:
+<ul>
+<li>W. E. Boyce & R. DiPrima, <em>Elementary Differential Equations</em> (8th ed.), John Wiley, 2005.</li>
+<li>G. F. Simmons, <em>Differential Equations with Applications and Historical Notes</em>, Tata McGraw-Hill, 1974.</li>
+</ul>
+<hr>
+
+<h2>Basic Concepts: Modeling</h2>
+Differential equations arise naturally when we model physical systems mathematically.
+
+<strong>Modeling Flowchart</strong>:
+
+<p>{{CODE<em>BLOCK</em>0}}</p>
+
+<strong>Key Idea</strong>:  
+We translate real-world phenomena (e.g., motion, population growth, circuits) into ODEs, solve them, and interpret the results back in physical terms.
+
+<hr>
+
+<h2>What is an Ordinary Differential Equation (ODE)?</h2>
+
+<p>An <strong>ODE</strong> is an equation containing one or more <strong>ordinary derivatives</strong> (not partial) of an unknown function $y(x)$ or $y(t)$.</p>
+
+<strong>Order</strong> of an ODE = highest derivative present.
+
+<strong>Examples</strong>:
+<ul>
+<li>$y'' = x^3 + y$ → 2nd order</li>
+<li>$y'' = \sin(x + y)$ → 2nd order</li>
+<li>$y^{(4)} = (x-4)^2 + x^5$ → 4th order</li>
+</ul>
+<hr>
+
+<h2>Some Real-World Applications (with sections in Kreyszig)</h2>
+<ul>
+<li><strong>Falling stone</strong>: $y'' = g$ (constant acceleration)</li>
+<li><strong>Parachutist</strong>: $m v' = mg - b v^2$ (terminal velocity)</li>
+<li><strong>Outflowing water (Torricelli)</strong>: $h' = -k \sqrt{h}$</li>
+<li><strong>Vibrating mass on spring</strong>: $m y'' + c y' + k y = 0$</li>
+<li><strong>Beats in vibrating systems</strong></li>
+<li><strong>RLC circuit</strong>: $L I'' + R I' + \frac{1}{C} I = E'(t)$</li>
+<li><strong>Beam deflection</strong>: $EI y'' = f(x)$</li>
+<li><strong>Pendulum</strong>: $L \theta'' + g \sin\theta = 0$</li>
+<li><strong>Lotka-Volterra predator-prey</strong>:</li>
+</ul>  $\begin{cases} x' = a x - b x y \\ y' = -c y + d x y \end{cases}$
+
+<hr>
+
+<h2>First-Order ODEs</h2>
+
+<strong>Implicit form</strong>: $F(x, y, y') = 0$  
+<strong>Explicit form</strong>: $y' = f(x, y)$
+
+<strong>Definition of a Solution</strong>  
+A function $y = h(x)$ is a <strong>solution</strong> on $(a,b)$ if:
+<ol>
+<li>$h$ is differentiable on $(a,b)$.</li>
+<li>Substituting $y=h(x)$, $y'=h'(x)$ satisfies the equation identically.</li>
+</ol>
+The graph of $h(x)$ is called a <strong>solution curve</strong> or <strong>integral curve</strong>.
+
+<hr>
+
+<h2>Do Solutions Always Exist?</h2>
+
+<strong>No.</strong>  
+<strong>Counterexample</strong>: $|y'| + |y| + 1 = 0$  
+→ Sum of non-negative terms cannot be negative → <strong>no real or complex solution exists</strong>.
+
+<hr>
+
+<h2>Examples of Solutions & Families</h2>
+
+<strong>Example 1</strong> – Verify $\phi(x) = \frac{c}{x}$ ($c$ arbitrary, $x \neq 0$) solves $x y' = -y$.  
+(Direct substitution works.)
+
+<strong>Example 2</strong> – $y' = \cos x$  
+General solution (by integration):  
+$$y = \sin x + c$$  
+Family of solutions for $c = -3,-2,\dots,3$ (visualized as parallel sine waves shifted vertically).
+
+<hr>
+
+<h2>Growth & Decay Models</h2>
+<strong>Malthusian law</strong>: $y' = k y$  
+<strong>General solution</strong>: $y = c e^{k t}$  
+<ul>
+<li>$k > 0$ → <strong>exponential growth</strong>  </li>
+<li>$k < 0$ → <strong>exponential decay</strong></li>
+</ul>
+<hr>
+
+<h2>Solutions Outside the General Family (Singular Solutions)</h2>
+<strong>Example</strong>: $(y')^2 - 4y = 0$  
+One-parameter family: $y<em>c(x) = (x + c)^2$  
+<strong>Extra solution</strong> (not in family): $y \equiv 0$ (the x-axis envelope of the parabolas).
+
+<hr>
+
+<h2>Initial Value Problems (IVPs)</h2>
+A <strong>particular solution</strong> is obtained by imposing an <strong>initial condition</strong> $y(x</em>0) = y<em>0$.  
+This fixes the arbitrary constant $C$.
+
+<strong>IVP</strong> = ODE + initial condition.  
+Geometrically: the solution curve must pass through the point $(x</em>0, y_0)$.
+
+<strong>Example Figure</strong> (from slides):  
+$v' = 9.8 - \frac{v}{5}$, $v(0)=0$ (parachute velocity approaching terminal value).
+
+<hr>
+
+<h2>Possible Behaviors of First-Order IVPs</h2>
+<ol>
+<li><strong>No solution</strong>: $|y'| + |y| = 0$, $y(0)=3$</li>
+<li><strong>Unique solution</strong>: $y' = x$, $y(0)=1$ → $y = \frac{1}{2}x^2 + 1$</li>
+<li><strong>Infinitely many solutions</strong>: $x y' = y - 1$, $y(0)=1$ → $y = 1 + c x$ (all lines through (0,1) except the constant $y=1$ wait—no, family passes through (0,1) for any $c$? Wait, actually all satisfy).</li>
+</ol>
+These motivate <strong>existence & uniqueness theorems</strong> (Picard-Lindelöf, etc., covered later).
+
+<hr>
+
+<h2>Geometric Interpretation</h2>
+<strong>Example</strong>: $\frac{dy}{dx} = -\frac{y}{x}$ ($x \neq 0$)  
+Find curve through $(1,1)$ where slope at every point is $-\frac{y}{x}$.
+
+<strong>Solution</strong>: $y = \frac{1}{x}$ (hyperbola branch).
+
+<hr>
+
+<h2>Solving First-Order ODEs (Explicit Form $y' = f(x,y)$)</h2>
+
+<h3>Case 1: $f$ depends only on $x$</h3>
+$$y = \int f(x)\, dx + C$$
+(Use calculus techniques; sometimes impossible in elementary functions, e.g., $\int e^{x^2} dx$, $\int \frac{\sin x}{x} dx$.)
+
+<h3>Case 2: General $y' = \frac{M(x,y)}{N(x,y)}$</h3>
+Rewrite as:
+$$M(x,y)\, dx + N(x,y)\, dy = 0 \quad (1)$$
+
+<h4>Subcase 2A: Separable ($M(x,y)=M(x)$, $N(x,y)=N(y)$)</h4>
+$$ \int M(x)\, dx + \int N(y)\, dy = 0 $$
+<strong>Separation of variables</strong>.
+
+<strong>Example 1</strong>: $y' = 1 + y^2$  
+$\implies dx - \frac{1}{1+y^2} dy = 0$  
+$\implies \tan^{-1} y = x + C$  
+$\implies y = \tan(x + C)$
+
+<strong>Example 2</strong>: $y' = -2x y$, $y(0)=1.8$  
+$\frac{dy}{y} = -2x\, dx$  
+$\ln |y| = -x^2 + \ln C$  
+$y = C e^{-x^2}$  
+$y(0)=1.8 \implies C=1.8$  
+$\implies y = 1.8 e^{-x^2}$
+
+<hr>
+
+<h3>Case 3: Homogeneous Equations</h3>
+A function $f(x,y)$ is <strong>homogeneous of degree $n$</strong> if  
+$$f(tx, ty) = t^n f(x,y)$$
+
+<strong>Key observation</strong>: If $M$ and $N$ are both homogeneous of the <strong>same</strong> degree, then  
+$$\frac{dy}{dx} = f\left(\frac{y}{x}\right) \quad \text{(homogeneous of degree 0)}$$
+
+<strong>Substitution</strong>: Let $u = \frac{y}{x} \implies y = u x \implies y' = u' x + u$  
+Substitute → separable equation in $u$ and $x$:
+$$\int \frac{du}{g(u) - u} = \int \frac{dx}{x} + C$$
+Then $y = x \cdot \varphi(x)$.
+
+<strong>Example</strong> (from handwritten notes):  
+$2xy\, y' = y^2 + x^2$ ? (transcribed as $y^2 x^2$ but corrected via algebra to standard form)  
+Leads to $u = y/x$, circles family: $(x - c)^2 + y^2 = c^2/4$ or similar (exact family shown as concentric circles).
+
+<hr>
+
+<h3>Case 4: Exact Equations</h3>
+Equation (1) is <strong>exact</strong> if there exists $u(x,y)$ such that  
+$$M = \frac{\partial u}{\partial x}, \quad N = \frac{\partial u}{\partial y}$$
+
+<p>Then (1) becomes  
+$$du = \frac{\partial u}{\partial x} dx + \frac{\partial u}{\partial y} dy = 0 \implies u(x,y) = C$$</p>
+
+<strong>By chain rule</strong>: If $y=y(x)$, then  
+$$\frac{du}{dx} = \frac{\partial u}{\partial x} + \frac{\partial u}{\partial y} \frac{dy}{dx} = 0 \implies u = \text{constant}.$$
+
+<strong>Example</strong> (handwritten):  
+$2x + y^2 + 2x y y' = 0$  
+$\implies (2x + y^2) dx + 2x y\, dy = 0$  
+Let $u(x,y) = x^2 + x y^2$  
+$\frac{\partial u}{\partial x} = 2x + y^2 = M$  
+$\frac{\partial u}{\partial y} = 2 x y = N$  
+<strong>Exact!</strong> Solution: $x^2 + x y^2 = C$
+
+<hr>
+
+<h2>Summary of Lecture 1</h2>
+<ul>
+<li>Course logistics & expectations set.</li>
+<li>ODE definition, order, modeling philosophy.</li>
+<li>Applications across physics, biology, engineering.</li>
+<li>First-order concepts: solutions, IVPs, existence issues.</li>
+<li>Geometric meaning of $y' = f(x,y)$.</li>
+<li>Three core analytic methods for 1st-order ODEs:</li>
+</ul>  1. Separation of variables
+<ol>
+<li>Homogeneous → $u=y/x$</li>
+<li>Exact equations (potential function $u$)</li>
+</ol>
+<strong>Next</strong>: More solution techniques + existence/uniqueness theorems.
+
+<hr>
+
+<strong>Backlink to next lecture</strong> → <a href="lecture-2.html">Lecture 2 - MA104</a>
+            </article>
+            <footer class="main-footer">
+                <div class="footer-nav">
+                    
+                    <a href="index.html" class="footer-link prev">
+                        <span class="footer-link-label">← Previous</span>
+                        <span class="footer-link-title">Course Overview</span>
+                    </a>
+                    
+                    
+                    
+                    <a href="lecture-2.html" class="footer-link next">
+                        <span class="footer-link-label">Next →</span>
+                        <span class="footer-link-title">Lecture 2</span>
+                    </a>
+                    
+                </div>
+            </footer>
+        </main>
+    </div>
+    <script>
+        document.querySelector('.menu-toggle').addEventListener('click', () => {
+            document.querySelector('.sidebar').classList.toggle('open');
+        });
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.sidebar') && !e.target.closest('.menu-toggle')) {
+                document.querySelector('.sidebar').classList.remove('open');
+            }
+        });
+    </script>
+</body>
+</html>

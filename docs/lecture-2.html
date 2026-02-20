@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MA 104: Ordinary Differential Equations - Lecture 2 | MA104 Notes</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js" async></script>
+</head>
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <span class="logo-icon">∂</span>
+                    <span class="logo-text">MA104</span>
+                </div>
+                <p class="logo-subtitle">Ordinary Differential Equations</p>
+            </div>
+            <nav class="nav">
+                <div class="nav-section">
+                    <span class="nav-label">Overview</span>
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">Course Overview</a></li>
+                    </ul>
+                </div>
+                <div class="nav-section">
+                    <span class="nav-label">Lectures</span>
+                    <ul class="nav-list">
+                        
+                        <li><a href="lecture-1.html" class="nav-link ">Lecture 1</a></li>
+                        
+
+                        <li><a href="lecture-2.html" class="nav-link active">Lecture 2</a></li>
+                        
+
+                        <li><a href="lecture-3.html" class="nav-link ">Lecture 3</a></li>
+                        
+
+                        <li><a href="lecture-4.html" class="nav-link ">Lecture 4</a></li>
+                        
+
+                        <li><a href="lecture-5.html" class="nav-link ">Lecture 5</a></li>
+                        
+
+                        <li><a href="lecture-6.html" class="nav-link ">Lecture 6</a></li>
+                        
+
+                        <li><a href="lecture-7.html" class="nav-link ">Lecture 7</a></li>
+                        
+
+                        <li><a href="lecture-8.html" class="nav-link ">Lecture 8</a></li>
+                        
+
+                        <li><a href="lecture-11.html" class="nav-link ">Lecture 11</a></li>
+                        
+
+                        <li><a href="lecture-12.html" class="nav-link ">Lecture 12</a></li>
+                        
+
+                        <li><a href="lecture-9-10-ma104.html" class="nav-link ">Lectures 9 & 10 (Combined)</a></li>
+                        
+                    </ul>
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <p class="ai-notice">🤖 AI-generated summaries of lecture notes</p>
+                <p class="footer-text">Made with ♥ for MA104</p>
+            </div>
+        </aside>
+        <main class="main">
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <article class="content">
+                <h1>MA 104: Ordinary Differential Equations - Lecture 2</h1>
+<strong>Related:</strong> <a href="index.html">MA 104 Course Overview</a> | <a href="lecture-1.html">Lecture 1 - MA104</a> | <a href="lecture-3.html">Lecture 3 - MA104</a>
+
+<hr>
+
+<h2>Quick Recap from Lecture 1</h2>
+<ul>
+<li>First-order ODEs: $y' = f(x,y)$ or $M(x,y)\,dx + N(x,y)\,dy = 0$</li>
+<li><strong>Exact equation</strong>: Exists $u(x,y)$ s.t. $du = M\,dx + N\,dy$</li>
+<li>Solution: $u(x,y) = C$ (implicit)</li>
+<li>Test (to be justified today): $\frac{\partial M}{\partial y} = \frac{\partial N}{\partial x}$ (when continuous)</li>
+</ul>
+<hr>
+
+<h2>Part 1: Multivariable Calculus Review (Why We Need It)</h2>
+
+<h3>Partial Derivatives</h3>
+Let $\varphi: \mathbb{R}^2 \to \mathbb{R}$, i.e., $z = f(x,y)$.
+
+<strong>Geometric view</strong>:
+<ul>
+<li>Fix $y = b$ → vertical plane → curve $z = f(x,b)$ → slope = $\frac{\partial f}{\partial x}(a,b)$</li>
+<li>Fix $x = a$ → vertical plane → curve $z = f(a,y)$ → slope = $\frac{\partial f}{\partial y}(a,b)$</li>
+</ul>
+<strong>Definition</strong>:
+$$
+\left.\frac{\partial f}{\partial x}\right|<em>{(x</em>0,y<em>0)} = \lim</em>{h\to 0}\frac{f(x<em>0+h,y</em>0)-f(x<em>0,y</em>0)}{h}
+$$
+$$
+\left.\frac{\partial f}{\partial y}\right|<em>{(x</em>0,y<em>0)} = \lim</em>{h\to 0}\frac{f(x<em>0,y</em>0+h)-f(x<em>0,y</em>0)}{h}
+$$
+
+<strong>Higher-order & mixed partials</strong> (notation table):
+
+<table>
+<thead>
+<tr><th>Notation 1</th><th>Notation 2</th><th>Spoken as</th></tr>
+</thead>
+<tbody>
+<tr><td>$\frac{\partial^2 f}{\partial x^2}$</td><td>$f<em>{xx}$</td><td>f double-x</td></tr>
+<tr><td>$\frac{\partial^2 f}{\partial y^2}$</td><td>$f</em>{yy}$</td><td>f double-y</td></tr>
+<tr><td>$\frac{\partial^2 f}{\partial x\partial y}$</td><td>$f<em>{yx}$</td><td>f y-then-x</td></tr>
+<tr><td>$\frac{\partial^2 f}{\partial y\partial x}$</td><td>$f</em>{xy}$</td><td>f x-then-y</td></tr>
+</tbody>
+</table>
+
+<strong>Clairaut’s / Mixed Derivative Theorem</strong>  
+If $f$, $f<em>x$, $f</em>y$, $f<em>{xy}$, $f</em>{yx}$ are continuous in an open region containing $(a,b)$, then
+$$
+f<em>{xy}(a,b) = f</em>{yx}(a,b)
+$$
+
+<hr>
+
+<h3>Chain Rule</h3>
+<strong>Single variable recall</strong>:
+$$
+\frac{dz}{dx} = \frac{dz}{dy}\cdot\frac{dy}{dx}
+$$
+
+<strong>For $z = f(x,y)$</strong>, $x=x(t)$, $y=y(t)$:
+$$
+\frac{dz}{dt} = \frac{\partial z}{\partial x}\frac{dx}{dt} + \frac{\partial z}{\partial y}\frac{dy}{dt}
+$$
+<strong>Special case</strong> ($x=t$):
+$$
+\frac{dz}{dt} = \frac{\partial z}{\partial x} + \frac{\partial z}{\partial y}\frac{dy}{dt}
+$$
+
+<strong>Key application in ODEs</strong>: If $u(x,y(x))$, then
+$$
+\frac{du}{dx} = \frac{\partial u}{\partial x} + \frac{\partial u}{\partial y}\frac{dy}{dx}
+$$
+
+<hr>
+
+<h3>Geometric Meaning of Derivatives & Total Differential</h3>
+
+<strong>Linear approximation</strong> (tangent line in 1D):
+$$
+f'(a) = \lim<em>{x\to a}\frac{f(x)-f(a)}{x-a}
+$$
+
+<strong>Total differential</strong> (best linear approximation in 2D):
+Let $F:\mathbb{R}^2\to\mathbb{R}$ with continuous first partials in $D$. Then
+$$
+dF = \frac{\partial F}{\partial x}\,dx + \frac{\partial F}{\partial y}\,dy
+$$
+<ul>
+<li>Represents infinitesimal change in $F$ as linear combo of changes in $x$ and $y$.</li>
+<li>For exact ODE: $M\,dx + N\,dy = du$ exactly when the equation is exact.</li>
+</ul>
+<hr>
+
+<h2>Part 2: Exact First-Order ODEs (Deep Dive)</h2>
+
+<strong>ODE form</strong>:
+$$
+M(x,y) + N(x,y)y' = 0 \quad \text{or} \quad M\,dx + N\,dy = 0 \tag{1}
+$$
+
+<strong>Exact</strong> ⇔ exists $u(x,y)$ s.t.
+$$
+\frac{\partial u}{\partial x} = M, \quad \frac{\partial u}{\partial y} = N
+$$
+Then $du = 0 \implies u(x,y) = C$ (implicit solution).
+
+<strong>Test for exactness</strong> (Theorem):
+If $M,N,\frac{\partial M}{\partial y},\frac{\partial N}{\partial x}$ are continuous in a rectangular region $R=(a,b)\times(c,d)$, then (1) is <strong>exact in $R$</strong> iff
+$$
+\frac{\partial M}{\partial y} = \frac{\partial N}{\partial x}
+$$
+
+<strong>Why?</strong> From equality of mixed partials: $\frac{\partial^2 u}{\partial y\partial x} = \frac{\partial^2 u}{\partial x\partial y}$.
+
+<hr>
+
+<h3>Examples: Which are Exact?</h3>
+<ol>
+<li>$(2x+3) + (2y-2)y' = 0$ → <strong>Exact</strong> ($\frac{\partial M}{\partial y}=0=\frac{\partial N}{\partial x}$)</li>
+<li>$\frac{ax+by}{bx+cy} + y' = 0$ → <strong>Exact</strong> ($\frac{\partial M}{\partial y}=b=\frac{\partial N}{\partial x}$)</li>
+<li>$(3x^2y + 2xy + y^2) + (x^2 + y^2)y' = 0$ → <strong>Not exact</strong></li>
+</ol>
+<strong>Solving an exact equation – Step-by-step</strong>  
+<strong>Example</strong>: $3y + e^x + (3x + \cos y)y' = 0$  
+$M = 3y + e^x$, $N = 3x + \cos y$  
+$\frac{\partial M}{\partial y} = 3 = \frac{\partial N}{\partial x}$ → exact.
+
+<p>Integrate $M$ w.r.t. $x$ (y const):
+$$
+u = \int(3y + e^x)\,dx + h(y) = 3xy + e^x + h(y)
+$$
+Differentiate w.r.t. $y$:
+$$
+\frac{\partial u}{\partial y} = 3x + h'(y) = N = 3x + \cos y \implies h'(y) = \cos y
+$$
+$$
+h(y) = \sin y + C</em>1
+$$
+<strong>Implicit solution</strong>:
+$$
+u(x,y) = 3xy + e^x + \sin y = C
+$$</p>
+
+<hr>
+
+<h2>Part 3: Integrating Factors</h2>
+
+<strong>Definition</strong>: $\mu(x,y)$ is an <strong>integrating factor</strong> of (1) if
+$$
+\mu M\,dx + \mu N\,dy = 0 \tag{2}
+$$
+is exact, i.e.,
+$$
+\frac{\partial(\mu M)}{\partial y} = \frac{\partial(\mu N)}{\partial x}
+$$
+Which expands to the PDE:
+$$
+\frac{\partial M}{\partial y} - \frac{\partial N}{\partial x} = \frac{1}{\mu}\left(N\frac{\partial\mu}{\partial x} - M\frac{\partial\mu}{\partial y}\right)
+$$
+
+<strong>Bad news</strong>: Solving for $\mu$ is a PDE (harder).  
+<strong>Good news</strong>: We often need only $\mu(x)$ or $\mu(y)$ (special cases).
+
+<h3>Case 1: $\mu = \mu(x)$ only</h3>
+If
+$$
+\frac{1}{N}\left(\frac{\partial M}{\partial y} - \frac{\partial N}{\partial x}\right) = p(x) \quad (\text{function of }x\text{ only})
+$$
+then
+$$
+\mu(x) = \exp\left(\int p(x)\,dx\right)
+$$
+
+<h3>Case 2: $\mu = \mu(y)$ only</h3>
+If
+$$
+\frac{1}{M}\left(\frac{\partial N}{\partial x} - \frac{\partial M}{\partial y}\right) = q(y) \quad (\text{function of }y\text{ only})
+$$
+then
+$$
+\mu(y) = \exp\left(\int q(y)\,dy\right)
+$$
+
+<strong>Example 1</strong>:
+$$
+y\,dx + (x^2 y - x)\,dy = 0
+$$
+$\frac{1}{N}(\partial M/\partial y - \partial N/\partial x) = -2/x = p(x)$  
+$\mu(x) = e^{\int -2/x\,dx} = 1/x^2$  
+Multiplied: $y/x^2\,dx + (y - 1/x)\,dy = 0$ → exact.
+
+<strong>Example 2 (IVP)</strong>:
+$$
+(e^{x+y} + y e^y)\,dx + (x e^y - 1)\,dy = 0, \quad y(0) = -1
+$$
+Not exact.  
+$\frac{1}{M}(\partial N/\partial x - \partial M/\partial y) = -1$ → $\mu(y) = e^{-y}$  
+Multiplied equation is exact → solution $e^x + x y + e^y = C$  
+Apply IC: $C = 1+e$  
+Final: $e^x + x y + e^y = 1 + e$
+
+<strong>Important Remark</strong> (Homework from lecture):
+In general, solutions of the multiplied equation (2) <strong>may not</strong> solve the original (1) unless $\mu(x,y(x)) \neq 0$.  
+Find the precise condition (homework!).
+
+<hr>
+
+<h3>Is an Integrating Factor Unique?</h3>
+<ul>
+<li>No. If $\mu$ works, so does $c\mu$ ($c\neq 0$).</li>
+<li>Sometimes completely different $\mu$ exist.</li>
+</ul><strong>Example</strong>: $-y\,dx + x\,dy = 0$  
+Both $\mu<em>1 = 1/x^2$ and $\mu</em>2 = 1/y^2$ work (give different but equivalent forms).
+
+<hr>
+
+<h2>Useful Recognizable Exact Forms (Quick Integration Tricks)</h2>
+Notice combinations that are already total differentials:
+<ol>
+<li>$d(y/x) = \frac{y\,dx - x\,dy}{x^2}$</li>
+<li>$d(xy) = x\,dy + y\,dx$</li>
+<li>$d(x^2 + y^2) = 2(x\,dx + y\,dy)$</li>
+<li>$d(\tan^{-1}(y/x)) = \frac{y\,dx - x\,dy}{x^2 + y^2}$</li>
+<li>$d(\log(x/y)) = \frac{y\,dx - x\,dy}{xy}$</li>
+</ol>
+<strong>Example using trick</strong>:
+$$
+x^2 y\,dy - (x\,dy - y\,dx) = 0 \implies y\,dy = d(y/x) \implies \frac{y^2}{2} - \frac{y}{x} = C
+$$
+
+<hr>
+
+<h2>Summary of Lecture 2</h2>
+<ul>
+<li>Multivariable calculus toolkit (partials, chain rule, total diff, Clairaut) → foundation for exactness test.</li>
+<li>Exact ODEs: test + systematic solution via potential function $u(x,y)$.</li>
+<li>When not exact → <strong>integrating factor</strong> $\mu(x)$ or $\mu(y)$ via simple formulas (most common exam trick).</li>
+<li>Non-uniqueness of $\mu$; useful differential identities.</li>
+</ul>
+<strong>Next lecture</strong> will cover linear first-order ODEs, Bernoulli, and more advanced techniques.
+
+<hr>
+
+<strong>Backlink to next lecture</strong> → <a href="lecture-3.html">Lecture 3 - MA104</a>
+            </article>
+            <footer class="main-footer">
+                <div class="footer-nav">
+                    
+                    <a href="lecture-1.html" class="footer-link prev">
+                        <span class="footer-link-label">← Previous</span>
+                        <span class="footer-link-title">Lecture 1</span>
+                    </a>
+                    
+                    
+                    
+                    <a href="lecture-3.html" class="footer-link next">
+                        <span class="footer-link-label">Next →</span>
+                        <span class="footer-link-title">Lecture 3</span>
+                    </a>
+                    
+                </div>
+            </footer>
+        </main>
+    </div>
+    <script>
+        document.querySelector('.menu-toggle').addEventListener('click', () => {
+            document.querySelector('.sidebar').classList.toggle('open');
+        });
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.sidebar') && !e.target.closest('.menu-toggle')) {
+                document.querySelector('.sidebar').classList.remove('open');
+            }
+        });
+    </script>
+</body>
+</html>

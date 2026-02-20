@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MA 104: Ordinary Differential Equations - Lecture 6 | MA104 Notes</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.min.js" async></script>
+</head>
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <span class="logo-icon">∂</span>
+                    <span class="logo-text">MA104</span>
+                </div>
+                <p class="logo-subtitle">Ordinary Differential Equations</p>
+            </div>
+            <nav class="nav">
+                <div class="nav-section">
+                    <span class="nav-label">Overview</span>
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">Course Overview</a></li>
+                    </ul>
+                </div>
+                <div class="nav-section">
+                    <span class="nav-label">Lectures</span>
+                    <ul class="nav-list">
+                        
+                        <li><a href="lecture-1.html" class="nav-link ">Lecture 1</a></li>
+                        
+
+                        <li><a href="lecture-2.html" class="nav-link ">Lecture 2</a></li>
+                        
+
+                        <li><a href="lecture-3.html" class="nav-link ">Lecture 3</a></li>
+                        
+
+                        <li><a href="lecture-4.html" class="nav-link ">Lecture 4</a></li>
+                        
+
+                        <li><a href="lecture-5.html" class="nav-link ">Lecture 5</a></li>
+                        
+
+                        <li><a href="lecture-6.html" class="nav-link active">Lecture 6</a></li>
+                        
+
+                        <li><a href="lecture-7.html" class="nav-link ">Lecture 7</a></li>
+                        
+
+                        <li><a href="lecture-8.html" class="nav-link ">Lecture 8</a></li>
+                        
+
+                        <li><a href="lecture-11.html" class="nav-link ">Lecture 11</a></li>
+                        
+
+                        <li><a href="lecture-12.html" class="nav-link ">Lecture 12</a></li>
+                        
+
+                        <li><a href="lecture-9-10-ma104.html" class="nav-link ">Lectures 9 & 10 (Combined)</a></li>
+                        
+                    </ul>
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <p class="ai-notice">🤖 AI-generated summaries of lecture notes</p>
+                <p class="footer-text">Made with ♥ for MA104</p>
+            </div>
+        </aside>
+        <main class="main">
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <article class="content">
+                <h1>MA 104: Ordinary Differential Equations - Lecture 6</h1>
+<strong>Related:</strong> <a href="index.html">MA 104 Course Overview</a> | <a href="lecture-5.html">Lecture 5 - MA104</a> | <a href="lecture-7.html">Lecture 7 - MA104</a>
+
+<hr>
+
+<h2>Recall: Second-Order Homogeneous Linear ODE</h2>
+$$
+y'' + P(x)y' + Q(x)y = 0 \tag{1}
+$$
+on interval $I$.
+<ul>
+<li>$y<em>1, y</em>2$ are <strong>linearly independent (L.I.)</strong> solutions on $I$.</li>
+<li>Any other solution $y$ on $I$ can be written as</li>
+</ul>  $$
+  y(x) = c<em>1 y</em>1(x) + c<em>2 y</em>2(x)
+  $$
+  for constants $c<em>1, c</em>2$.
+
+<p>At any point $x<em>0 \in I$:
+$$
+y(x</em>0) = c<em>1 y</em>1(x<em>0) + c</em>2 y<em>2(x</em>0)
+$$
+$$
+y'(x<em>0) = c</em>1 y<em>1'(x</em>0) + c<em>2 y</em>2'(x<em>0)
+$$</p>
+
+<p>This linear system has unique solution $(c</em>1,c<em>2)$ <strong>if and only if</strong>
+$$
+W(y</em>1,y<em>2)(x</em>0) = y<em>1(x</em>0)y<em>2'(x</em>0) - y<em>1'(x</em>0)y<em>2(x</em>0) \neq 0
+$$</p>
+
+<hr>
+
+<h2>Wronskian</h2>
+
+<strong>Definition</strong>:
+For two twice-differentiable functions $y<em>1, y</em>2$ on $I$:
+$$
+W(y<em>1,y</em>2)(x) = \begin{vmatrix}
+y<em>1(x) & y</em>2(x) \\
+y<em>1'(x) & y</em>2'(x)
+\end{vmatrix}
+= y<em>1 y</em>2' - y<em>1' y</em>2
+$$
+<ul>
+<li>$W: I \to \mathbb{R}$ is a function (or map).</li>
+</ul>
+<strong>Example</strong>:
+$y<em>1 = e^x$, $y</em>2 = e^{2x}$  
+$W(e^x, e^{2x}) = e^x \cdot 2e^{2x} - e^{2x} \cdot e^x = e^{3x} \neq 0$ everywhere.
+
+<hr>
+
+<h2>Wronskian and Linear Independence</h2>
+
+<strong>Theorem</strong>:  
+If $y<em>1, y</em>2$ are L.I. and differentiable on $I = (a,b)$, then
+$$
+W(y<em>1,y</em>2)(x) = 0 \quad \forall x \in I
+$$
+
+<strong>Proof</strong> (contrapositive style):  
+Assume $c<em>1 y</em>1 + c<em>2 y</em>2 \equiv 0$ with not both $c<em>i=0$. Differentiate → system
+$$
+\begin{pmatrix}
+y</em>1 & y<em>2 \\
+y</em>1' & y<em>2'
+\end{pmatrix}
+\begin{pmatrix}
+c</em>1 \\ c<em>2
+\end{pmatrix}
+= \begin{pmatrix} 0 \\ 0 \end{pmatrix}
+$$
+Determinant $W=0$.
+
+<strong>Converse is NOT always true</strong> (counterexample):
+$y</em>1(x)=x^2$, $y<em>2(x)=x|x|$ on $\mathbb{R}$.  
+$W \equiv 0$ everywhere, but they are L.I. (no constants satisfy $c</em>1 x^2 + c<em>2 x|x| \equiv 0$).
+
+<strong>However</strong>: For solutions of the same linear homogeneous ODE (1) with continuous $P,Q$, the converse <strong>is true</strong>.
+
+<hr>
+
+<h2>Abel’s Theorem (Vanishing Property)</h2>
+
+<strong>Theorem</strong> (Abel):  
+If $y</em>1, y<em>2$ solve (1) and $P,Q$ continuous on $I$, then
+$$
+W(y</em>1,y<em>2)(x) = c \exp\left( -\int P(x)\, dx \right)
+$$
+where $c$ is constant (depends on choice of $y</em>1,y<em>2$, not on $x$).
+
+<strong>Remark</strong>:  
+Either $W \equiv 0$ on $I$ or $W(x) \neq 0$ for all $x \in I$.
+
+<strong>Proof outline</strong>:
+Differentiate Wronskian:
+$$
+W' = y</em>1 y<em>2'' - y</em>1'' y<em>2 = -P(y</em>1 y<em>2' - y</em>1' y<em>2) = -P W
+$$
+$$
+\frac{W'}{W} = -P \implies W(x) = c e^{-\int P\, dx}
+$$
+
+<strong>Consequences</strong>:
+<ul>
+<li>To check L.I., evaluate $W$ at <strong>one convenient point</strong> $x</em>0 \in I$.</li>
+<li>If $\{y<em>1,y</em>2\}$ and $\{y<em>1^<em>,y</em>2^</em>\}$ are two fundamental sets, then $W(y<em>1,y</em>2) = k \cdot W(y<em>1^<em>,y</em>2^</em>)$ (multiplicative constant).</li>
+</ul>
+<strong>Example</strong>:
+$y'' - \frac{4}{x} y' + \frac{6}{x^2} y = 0$  
+$y<em>1=x^2$, $y</em>2=x^3$ are L.I. solutions.  
+$W(x^2,x^3) = x^2 \cdot 3x^2 - x^3 \cdot 2x = x^4 \neq 0$ for $x \neq 0$.  
+At $x=0$, $W(0)=0$, but solutions are still L.I. on $(0,\infty)$ or $(-\infty,0)$.
+
+<hr>
+
+<h2>Nonhomogeneous Linear ODEs</h2>
+
+<p>$$
+y'' + P(x)y' + Q(x)y = R(x) \tag{3}
+$$</p>
+
+<strong>General solution</strong> on interval $I$:
+$$
+y(x) = y<em>h(x) + y</em>p(x)
+$$
+<ul>
+<li>$y<em>h = c</em>1 y<em>1 + c</em>2 y<em>2$ = general solution of homogeneous (1).</li>
+<li>$y</em>p$ = <strong>any</strong> particular solution of (3) (no arbitrary constants).</li>
+</ul>
+<hr>
+
+<h2>Method of Undetermined Coefficients</h2>
+
+<p>Suitable when $R(x)$ is exponential, polynomial, sine/cosine, or product/sum of these (and coefficients $P,Q$ constant).</p>
+
+<strong>Table of guesses</strong> (from Kreyszig):
+
+<table>
+<thead>
+<tr><th>Term in $R(x)$</th><th>Choice for $y<em>p(x)$</th></tr>
+</thead>
+<tbody>
+<tr><td>$k e^{\alpha x}$</td><td>$C e^{\alpha x}$</td></tr>
+<tr><td>$k x^n$ ($n=0,1,\dots$)</td><td>$K</em>n x^n + \dots + K<em>1 x + K</em>0$</td></tr>
+<tr><td>$k \cos \omega x$ or $k \sin \omega x$</td><td>$K \cos \omega x + M \sin \omega x$</td></tr>
+<tr><td>$k e^{\alpha x} \cos \omega x$ or sin</td><td>$e^{\alpha x}(K \cos \omega x + M \sin \omega x)$</td></tr>
+</tbody>
+</table>
+
+<strong>Rules</strong>:
+<ul>
+<li><strong>Basic Rule</strong>: Match form, plug in, solve for coefficients.</li>
+<li><strong>Modification Rule</strong>: If guess overlaps with homogeneous solution, multiply by $x$ (or $x^2$ for double root).</li>
+<li><strong>Sum Rule</strong>: For sum, take sum of individual guesses.</li>
+</ul>
+<strong>Example</strong> (modification):
+$y'' + 3y' + 2.25y = -10 e^{-1.5x}$, $y(0)=1$, $y'(0)=0$  
+Homogeneous: roots $-1.5$ (double) → $y<em>h = (c</em>1 + c<em>2 x)e^{-1.5x}$  
+Guess $y</em>p = C x^2 e^{-1.5x}$ (multiply by $x^2$).  
+Substitute → $C = -5$.  
+Particular: $y<em>p = -5 x^2 e^{-1.5x}$.
+
+<hr>
+
+<h2>Annihilator Method (Advanced Undetermined Coefficients)</h2>
+
+<strong>Annihilator</strong> of $f$: Differential operator $A$ such that $A[f] = 0$.
+
+<strong>Examples</strong>:
+<ul>
+<li>$f = e^{mx}$ → $A = D - m$</li>
+<li>$f = x^n$ → $A = D^{n+1}$</li>
+<li>$f = \sin(ax+b)$ → $A = D^2 + a^2$</li>
+<li>$f = x^n e^{mx}$ → $A = (D-m)^{n+1}$</li>
+</ul>
+<strong>Procedure</strong> for $L[y] = R(x)$ (constant coeff $L$):
+<ol>
+<li>Find annihilator $A$ with $A[R]=0$.</li>
+<li>Solve higher-order homogeneous $(A L)[y] = 0$.</li>
+<li>General solution of $(A L)y=0$ = $y</em>h +$ extra terms.</li>
+<li>Take $y<em>p$ = linear combination of <strong>extra terms only</strong> (those not in kernel of $L$).</li>
+<li>Plug into original equation to find constants.</li>
+</ol>
+<strong>Example</strong>:
+$y'' + y = x^2 + x$  
+$L = D^2 + 1$  
+$A = D^3$ (kills $x^2+x$)  
+$(D^3)(D^2+1)y = 0$ → characteristic $r^5 + r^3 = r^3(r^2+1)=0$  
+Roots: $0$ (multiplicity 3), $\pm i$  
+General: $y = c</em>1 + c<em>2 x + c</em>3 x^2 + c<em>4 \cos x + c</em>5 \sin x$  
+$y<em>h = d</em>1 \cos x + d<em>2 \sin x$  
+Thus $y</em>p = c<em>1 + c</em>2 x + c<em>3 x^2$  
+Substitute → $c</em>3=1$, $c<em>2=1$, $c</em>1=-2$  
+$y<em>p = x^2 + x - 2$
+
+<hr>
+
+<h2>Summary of Lecture 6</h2>
+<ul>
+<li><strong>Wronskian</strong> detects linear independence for solutions of linear homogeneous ODEs.</li>
+<li><strong>Abel’s theorem</strong>: $W(x) = c \exp(-\int P\, dx)$ → either always zero or never zero.</li>
+<li>Nonhomogeneous general solution = $y</em>h + y<em>p$.</li>
+<li><strong>Undetermined coefficients</strong>: Quick algebraic method for special $R(x)$.</li>
+<li><strong>Annihilator</strong>: Systematic way to guess form of $y</em>p$ by solving higher-order homogeneous equation.</li>
+</ul>
+<strong>Next lecture</strong>: Variation of parameters, higher-order equations, applications.
+
+<hr>
+
+<strong>Backlink to next lecture</strong> → <a href="lecture-7.html">Lecture 7 - MA104</a>
+            </article>
+            <footer class="main-footer">
+                <div class="footer-nav">
+                    
+                    <a href="lecture-5.html" class="footer-link prev">
+                        <span class="footer-link-label">← Previous</span>
+                        <span class="footer-link-title">Lecture 5</span>
+                    </a>
+                    
+                    
+                    
+                    <a href="lecture-7.html" class="footer-link next">
+                        <span class="footer-link-label">Next →</span>
+                        <span class="footer-link-title">Lecture 7</span>
+                    </a>
+                    
+                </div>
+            </footer>
+        </main>
+    </div>
+    <script>
+        document.querySelector('.menu-toggle').addEventListener('click', () => {
+            document.querySelector('.sidebar').classList.toggle('open');
+        });
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.sidebar') && !e.target.closest('.menu-toggle')) {
+                document.querySelector('.sidebar').classList.remove('open');
+            }
+        });
+    </script>
+</body>
+</html>
