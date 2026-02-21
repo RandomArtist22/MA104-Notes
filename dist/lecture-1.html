@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#070b13">
     <title>MA 104: Ordinary Differential Equations - Lecture 1 | MA104 Notes</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=IBM+Plex+Mono:wght@400;500;600&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script>
         MathJax = {
             tex: {
@@ -85,7 +86,7 @@
             </div>
         </aside>
         <main class="main">
-            <button class="menu-toggle" aria-label="Toggle menu">
+            <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -396,16 +397,19 @@ $$\frac{du}{dx} = \frac{\partial u}{\partial x} + \frac{\partial u}{\partial y} 
     <script>
         const sidebar = document.querySelector('.sidebar');
         const overlay = document.querySelector('.sidebar-overlay');
+        const menuToggle = document.querySelector('.menu-toggle');
         
-        document.querySelector('.menu-toggle').addEventListener('click', () => {
+        menuToggle.addEventListener('click', () => {
             sidebar.classList.add('open');
             overlay.classList.add('active');
+            menuToggle.setAttribute('aria-expanded', 'true');
             document.body.style.overflow = 'hidden';
         });
         
         function closeSidebar() {
             sidebar.classList.remove('open');
             overlay.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
             document.body.style.overflow = '';
         }
         
