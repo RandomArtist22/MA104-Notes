@@ -21,24 +21,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      - name: Create Obsidian Vault directory structure
+      - name: Validate docs output
         run: |
-          # Note: In production, you'd need to either:
-          # 1. Commit your vault contents (not recommended for private notes)
-          # 2. Use a different source for your markdown files
-          # 3. Download from a private repository
-          mkdir -p "/home/runner/work/Obsidian Vault/Resources"
-          
-          # Copy your vault contents here if they're in the repo
-          # Or configure a different SOURCE_DIR in build.py
-
-      - name: Build site
-        run: python3 build.py
+          test -f docs/index.html
+          test -f docs/style.css
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -46,7 +32,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
+          path: './docs'
 
   deploy:
     environment:
