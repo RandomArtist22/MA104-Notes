@@ -92,162 +92,186 @@
             </button>
             <article class="content">
                 <h1>MA 104: Ordinary Differential Equations - Lecture 4</h1>
-<strong>Related:</strong> <a href="index.html">MA 104 Course Overview</a> | <a href="lecture-3.html">Lecture 3 - MA104</a> | <a href="lecture-5.html">Lecture 5 - MA104</a>
+
+<p><strong>Related:</strong> <a href="index.html">MA 104 Course Overview</a> | <a href="lecture-3.html">Lecture 3 - MA104</a> | <a href="lecture-5.html">Lecture 5 - MA104</a></p>
 
 <hr>
 
 <h2>Review: Existence & Uniqueness Theorem</h2>
 
-<strong>Standard IVP</strong>:
+<p><strong>Standard IVP</strong>:</p>
+
 $$
 y' = f(x,y), \quad y(x_0) = y_0 \tag{1}
 $$
 
-<strong>Coordinate Shift</strong> (to simplify proof):
-Let $\tilde{x} = x - x_0$, $\tilde{y} = y - y_0$.  
-New IVP (at origin):
+<p><strong>Coordinate Shift</strong> (to simplify proof): Let $\tilde{x} = x - x_0$, $\tilde{y} = y - y_0$.<br> New IVP (at origin):</p>
+
 $$
 \tilde{y}' = f(\tilde{x} + x_0, \tilde{y} + y_0), \quad \tilde{y}(0) = 0 \tag{2}
 $$
 
-<strong>Theorem</strong> (Picard–Lindelöf):
-If $f(x,y)$ and $\partial f/\partial y$ are <strong>continuous</strong> in rectangle  
-$D: |x| < a$, $|y| < b$,  
-then there exists $\alpha = \min\{a, b/K\}$ (where $|f| \leq K$ in $D$) such that (1) has a <strong>unique</strong> solution $y = \phi(x)$ on $|x - x_0| < \alpha$.
+<p><strong>Theorem</strong> (Picard–Lindelöf): If $f(x,y)$ and $\partial f/\partial y$ are <strong>continuous</strong> in rectangle<br> $D: |x| < a$, $|y| < b$,<br> then there exists $\alpha = \min\{a, b/K\}$ (where $|f| \leq K$ in $D$) such that (1) has a <strong>unique</strong> solution $y = \phi(x)$ on $|x - x_0| < \alpha$.</p>
 
-<strong>Geometric Interpretation</strong> (rectangle $D$):
+<p><strong>Geometric Interpretation</strong> (rectangle $D$):</p>
+
 <ul>
 <li>$f$ must be bounded ($|f| \leq K$) inside $D$.</li>
 <li>Solution stays inside $D$ for $|x| < \alpha$.</li>
 <li>Outside $D$ → no guarantee.</li>
 <li>Solution must be <strong>continuous</strong> (since differentiable).</li>
 </ul>
-<strong>Example</strong>:
+
+<p><strong>Example</strong>:</p>
+
 $$
 y' = 1 + y^2, \quad y(0) = 0
 $$
-Choose $D: |x| < 5$, $|y| < 3$.  
-$K = 1 + 9 = 10$, $\alpha = \min\{5, 3/10\} = 0.3$.  
-→ Unique solution exists on $|x| < 0.3$.  
-(Global solution $y = \tan x$ exists but <strong>not</strong> valid in larger intervals crossing discontinuities.)
+
+<p>Choose $D: |x| < 5$, $|y| < 3$.<br> $K = 1 + 9 = 10$, $\alpha = \min\{5, 3/10\} = 0.3$.<br> → Unique solution exists on $|x| < 0.3$.<br> (Global solution $y = \tan x$ exists but <strong>not</strong> valid in larger intervals crossing discontinuities.)</p>
 
 <hr>
 
 <h2>Integral Equation Formulation (Equivalent to IVP)</h2>
 
-<p>Assume $\phi(x)$ solves (1) with $\phi(0)=0$.  
-Then:
+<p>Assume $\phi(x)$ solves (1) with $\phi(0)=0$.<br> Then:</p>
+
 $$
 \phi'(x) = f(x, \phi(x)), \quad \phi(0)=0
 $$
-Integrate:
+
+<p>Integrate:</p>
+
 $$
 \phi(x) = \int_0^x f(t, \phi(t))\, dt \tag{3}
-$$</p>
+$$
 
-<strong>Equivalence</strong>:
+<p><strong>Equivalence</strong>:</p>
+
 <ul>
 <li>Any $C^1$ solution of (1) satisfies (3).</li>
 <li>Any continuous solution of (3) is differentiable and satisfies (1) (by Fundamental Theorem of Calculus).</li>
 </ul>
-<strong>Advantage</strong>: (3) is easier to prove has unique solution → implies same for IVP.
+
+<p><strong>Advantage</strong>: (3) is easier to prove has unique solution → implies same for IVP.</p>
 
 <hr>
 
 <h2>Picard’s Iteration Method (Successive Approximations)</h2>
 
-<strong>Algorithm</strong> (for IVP with $y(0)=0$):
+<p><strong>Algorithm</strong> (for IVP with $y(0)=0$):</p>
+
 <ol>
 <li>Start with $\phi_0(x) = 0$ (or any function with $\phi_0(0)=0$).</li>
 <li>Define recursively:</li>
-</ol>   $$
+</ol>
+
+$$
    \phi_{n+1}(x) = \int_0^x f(t, \phi_n(t))\, dt, \quad n = 0,1,2,\dots
    $$
+
 <ol>
 <li>Under the continuity/boundedness conditions, $\phi_n(x) \to \phi(x)$ (the unique solution).</li>
 </ol>
-<strong>Key Property</strong>:
+
+<p><strong>Key Property</strong>:</p>
+
 <ul>
 <li>Each $\phi_n$ satisfies the initial condition.</li>
 <li>Sequence converges to the fixed point of the integral operator.</li>
 </ul>
+
 <hr>
 
 <h3>Detailed Example</h3>
-<strong>IVP</strong>: $y' = 2x(1 + y)$, $y(0) = 0$
 
-<p>$f(x,y) = 2x(1+y)$
+<p><strong>IVP</strong>: $y' = 2x(1 + y)$, $y(0) = 0$</p>
+
+<p>$f(x,y) = 2x(1+y)$</p>
+
 <ul>
-<li>$\phi<em>0(x) = 0$</li>
-<li>$\phi</em>1(x) = \int<em>0^x 2t(1+0)\,dt = x^2$</li>
-<li>$\phi</em>2(x) = \int<em>0^x 2t(1 + t^2)\,dt = x^2 + \frac{x^4}{2}$</li>
-<li>$\phi</em>3(x) = \int<em>0^x 2t(1 + t^2 + t^4/2)\,dt = x^2 + \frac{x^4}{2} + \frac{x^6}{6}$</li>
+<li>$\phi_0(x) = 0$</li>
+<li>$\phi_1(x) = \int_0^x 2t(1+0)\,dt = x^2$</li>
+<li>$\phi_2(x) = \int_0^x 2t(1 + t^2)\,dt = x^2 + \frac{x^4}{2}$</li>
+<li>$\phi_3(x) = \int_0^x 2t(1 + t^2 + t^4/2)\,dt = x^2 + \frac{x^4}{2} + \frac{x^6}{6}$</li>
 <li>In general (by induction):</li>
-</ul>  $$
-  \phi</em>n(x) = x^2 + \frac{x^4}{2!} + \frac{x^6}{3!} + \cdots + \frac{x^{2n}}{n!}
-  $$</p>
+</ul>
 
-<strong>Limit</strong>:
+$$
+  \phi_n(x) = x^2 + \frac{x^4}{2!} + \frac{x^6}{3!} + \cdots + \frac{x^{2n}}{n!}
+  $$
+
+<p><strong>Limit</strong>:</p>
+
 $$
 \phi(x) = \lim_{n\to\infty} \phi_n(x) = \sum_{k=1}^\infty \frac{x^{2k}}{k!} = e^{x^2} - 1
 $$
 
-<strong>Verification</strong>:
+<p><strong>Verification</strong>:</p>
+
 <ul>
 <li>Series converges everywhere (ratio test: $|x^2/(k+1)| \to 0$).</li>
 <li>Taylor series → term-by-term differentiable.</li>
 <li>Direct substitution confirms it solves both integral equation and original IVP.</li>
 </ul>
-<strong>Visualization</strong>:
-Successive iterates $\phi_k(x)$ approximate the solution better with increasing $k$, expanding the interval of good approximation.
+
+<p><strong>Visualization</strong>: Successive iterates $\phi_k(x)$ approximate the solution better with increasing $k$, expanding the interval of good approximation.</p>
 
 <hr>
 
 <h2>Proof Sketch: The Limit Solves the IVP</h2>
+
 <ul>
 <li>Convergence of $\{\phi_n\}$ shown via uniform convergence on compact intervals (under boundedness of $f$).</li>
 <li>Limit $\phi$ satisfies integral equation (3) by taking limit inside integral (justified by uniform convergence).</li>
 <li>Hence $\phi$ solves the differential equation.</li>
 </ul>
+
 <hr>
 
 <h2>Uniqueness Proof (via Integral Equation)</h2>
 
-<p>Suppose $\phi(x)$ and $\psi(x)$ both solve (3).  
-Then:
+<p>Suppose $\phi(x)$ and $\psi(x)$ both solve (3).<br> Then:</p>
+
 $$
 |\phi(x) - \psi(x)| \leq \int_0^{|x|} |f(t,\phi(t)) - f(t,\psi(t))|\, dt
-$$</p>
+$$
 
-<p>By <strong>Lipschitz condition</strong> (from continuity of $\partial f/\partial y \leq M$ in $D$):
+<p>By <strong>Lipschitz condition</strong> (from continuity of $\partial f/\partial y \leq M$ in $D$):</p>
+
 $$
 |f(t,\phi) - f(t,\psi)| \leq K |\phi(t) - \psi(t)|
-$$</p>
+$$
 
-<p>Define $u(x) = \int_0^x |\phi(t) - \psi(t)|\, dt$ ($\geq 0$, $u(0)=0$).  
-Then $u'(x) \leq K u(x)$ on $[0, \alpha/2]$.</p>
+<p>Define $u(x) = \int_0^x |\phi(t) - \psi(t)|\, dt$ ($\geq 0$, $u(0)=0$).<br> Then $u'(x) \leq K u(x)$ on $[0, \alpha/2]$.</p>
 
-<p>Multiply by integrating factor $e^{-Kx}$:
+<p>Multiply by integrating factor $e^{-Kx}$:</p>
+
 $$
 \frac{d}{dx} [e^{-Kx} u(x)] \leq 0 \implies e^{-Kx} u(x) \leq 0 \implies u(x) \leq 0
 $$
-But $u \geq 0$ → $u(x) \equiv 0$ → $\phi \equiv \psi$.</p>
 
-<strong>Conclusion</strong>: Unique solution.
+<p>But $u \geq 0$ → $u(x) \equiv 0$ → $\phi \equiv \psi$.</p>
+
+<p><strong>Conclusion</strong>: Unique solution.</p>
 
 <hr>
 
 <h2>Homework / Exercises from Lecture</h2>
-Construct the Picard iteration sequences $\{\phi_n(x)\}$ for:
+
+<p>Construct the Picard iteration sequences $\{\phi_n(x)\}$ for:</p>
+
 <ol>
 <li>$y' = x^2 + y^2$, $y(0) = 1$</li>
 <li>$y' = 2\sqrt{x}$, $y(0) = 2$</li>
 </ol>
-(Compute first few terms; observe convergence behavior.)
+
+<p>(Compute first few terms; observe convergence behavior.)</p>
 
 <hr>
 
 <h2>Summary of Lecture 4</h2>
+
 <ul>
 <li><strong>Existence & Uniqueness</strong> proved rigorously via <strong>integral equation</strong> (3) equivalent to IVP.</li>
 <li><strong>Picard iteration</strong> generates sequence converging to unique solution under standard conditions.</li>
@@ -255,11 +279,12 @@ Construct the Picard iteration sequences $\{\phi_n(x)\}$ for:
 <li>Uniqueness via Gronwall-type inequality (integral form).</li>
 <li><strong>Key Insight</strong>: Continuity of $f$ + boundedness of $\partial f/\partial y$ (or Lipschitz in $y$) guarantee local unique solution.</li>
 </ul>
-This completes the theoretical foundation for first-order IVPs before moving to higher-order equations and systems.
+
+<p>This completes the theoretical foundation for first-order IVPs before moving to higher-order equations and systems.</p>
 
 <hr>
 
-<strong>Backlink to next lecture</strong> → <a href="lecture-5.html">Lecture 5 - MA104</a>
+<p><strong>Backlink to next lecture</strong> → <a href="lecture-5.html">Lecture 5 - MA104</a></p>
             </article>
             <footer class="main-footer">
                 <div class="footer-nav">

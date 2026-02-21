@@ -92,23 +92,28 @@
             </button>
             <article class="content">
                 <h1>MA 104: Ordinary Differential Equations - Lecture 1</h1>
-<strong>Related:</strong> <a href="index.html">MA 104 Course Overview</a> | <a href="lecture-2.html">Lecture 2 - MA104</a>
+
+<p><strong>Related:</strong> <a href="index.html">MA 104 Course Overview</a> | <a href="lecture-2.html">Lecture 2 - MA104</a></p>
 
 <hr>
 
 <h2>Course Logistics</h2>
 
 <h3>Lecture & Tutorial Schedule</h3>
+
 <ul>
 <li><strong>Lectures:</strong> Wednesday & Friday, 10:00 AM – 11:20 AM</li>
 <li><strong>Tutorials:</strong> Wednesday, 11:30 AM – 12:50 PM</li>
 <li><strong>Office Hours:</strong> Monday, 08:30 AM – 09:30 AM (Office AB 06/347, <strong>by appointment</strong>)</li>
 <li><strong>Google Classroom Code:</strong> <code>vmileaxf</code></li>
 </ul>
+
 <blockquote>
 <strong>Note:</strong> Suggestions and comments are welcome throughout the course! Feel free to reach out anytime.
 </blockquote>
+
 <h3>Grading Policy (Relative Grading)</h3>
+
 <table>
 <thead>
 <tr><th>Evaluation Component</th><th>Weightage (%)</th></tr>
@@ -123,7 +128,8 @@
 </tbody>
 </table>
 
-<strong>Attendance Marks Breakdown</strong>
+<p><strong>Attendance Marks Breakdown</strong></p>
+
 <table>
 <thead>
 <tr><th>Attendance (%)</th><th>Marks</th></tr>
@@ -140,21 +146,27 @@
 <hr>
 
 <h2>References</h2>
-<strong>Textbook</strong> (primary):
+
+<p><strong>Textbook</strong> (primary):</p>
+
 <ul>
 <li>E. Kreyszig, <em>Advanced Engineering Mathematics</em> (10th ed.), John Wiley, 2011.</li>
 </ul>
-<strong>Reference Books</strong>:
+
+<p><strong>Reference Books</strong>:</p>
+
 <ul>
 <li>W. E. Boyce & R. DiPrima, <em>Elementary Differential Equations</em> (8th ed.), John Wiley, 2005.</li>
 <li>G. F. Simmons, <em>Differential Equations with Applications and Historical Notes</em>, Tata McGraw-Hill, 1974.</li>
 </ul>
+
 <hr>
 
 <h2>Basic Concepts: Modeling</h2>
-Differential equations arise naturally when we model physical systems mathematically.
 
-<strong>Modeling Flowchart</strong>:
+<p>Differential equations arise naturally when we model physical systems mathematically.</p>
+
+<p><strong>Modeling Flowchart</strong>:</p>
 
 <pre><code class="language-text">Physical System
         ↓
@@ -162,11 +174,9 @@ Mathematical Model (ODE/PDE)
         ↓
 Mathematical Solution
         ↓
-Physical Interpretation
-</code></pre>
+Physical Interpretation</code></pre>
 
-<strong>Key Idea</strong>:  
-We translate real-world phenomena (e.g., motion, population growth, circuits) into ODEs, solve them, and interpret the results back in physical terms.
+<p><strong>Key Idea</strong>:<br> We translate real-world phenomena (e.g., motion, population growth, circuits) into ODEs, solve them, and interpret the results back in physical terms.</p>
 
 <hr>
 
@@ -174,17 +184,20 @@ We translate real-world phenomena (e.g., motion, population growth, circuits) in
 
 <p>An <strong>ODE</strong> is an equation containing one or more <strong>ordinary derivatives</strong> (not partial) of an unknown function $y(x)$ or $y(t)$.</p>
 
-<strong>Order</strong> of an ODE = highest derivative present.
+<p><strong>Order</strong> of an ODE = highest derivative present.</p>
 
-<strong>Examples</strong>:
+<p><strong>Examples</strong>:</p>
+
 <ul>
 <li>$y'' = x^3 + y$ → 2nd order</li>
 <li>$y'' = \sin(x + y)$ → 2nd order</li>
 <li>$y^{(4)} = (x-4)^2 + x^5$ → 4th order</li>
 </ul>
+
 <hr>
 
 <h2>Some Real-World Applications (with sections in Kreyszig)</h2>
+
 <ul>
 <li><strong>Falling stone</strong>: $y'' = g$ (constant acceleration)</li>
 <li><strong>Parachutist</strong>: $m v' = mg - b v^2$ (terminal velocity)</li>
@@ -194,176 +207,171 @@ We translate real-world phenomena (e.g., motion, population growth, circuits) in
 <li><strong>RLC circuit</strong>: $L I'' + R I' + \frac{1}{C} I = E'(t)$</li>
 <li><strong>Beam deflection</strong>: $EI y'' = f(x)$</li>
 <li><strong>Pendulum</strong>: $L \theta'' + g \sin\theta = 0$</li>
-<li><strong>Lotka-Volterra predator-prey</strong>:</li>
-</ul>  $\begin{cases} x' = a x - b x y \\ y' = -c y + d x y \end{cases}$
+<li><strong>Lotka-Volterra predator-prey</strong>: $\begin{cases} x' = a x - b x y \\ y' = -c y + d x y \end{cases}$</li>
+</ul>
 
 <hr>
 
 <h2>First-Order ODEs</h2>
 
-<strong>Implicit form</strong>: $F(x, y, y') = 0$  
-<strong>Explicit form</strong>: $y' = f(x, y)$
+<p><strong>Implicit form</strong>: $F(x, y, y') = 0$<br> <strong>Explicit form</strong>: $y' = f(x, y)$</p>
 
-<strong>Definition of a Solution</strong>  
-A function $y = h(x)$ is a <strong>solution</strong> on $(a,b)$ if:
+<p><strong>Definition of a Solution</strong><br> A function $y = h(x)$ is a <strong>solution</strong> on $(a,b)$ if:</p>
+
 <ol>
 <li>$h$ is differentiable on $(a,b)$.</li>
 <li>Substituting $y=h(x)$, $y'=h'(x)$ satisfies the equation identically.</li>
 </ol>
-The graph of $h(x)$ is called a <strong>solution curve</strong> or <strong>integral curve</strong>.
+
+<p>The graph of $h(x)$ is called a <strong>solution curve</strong> or <strong>integral curve</strong>.</p>
 
 <hr>
 
 <h2>Do Solutions Always Exist?</h2>
 
-<strong>No.</strong>  
-<strong>Counterexample</strong>: $|y'| + |y| + 1 = 0$  
-→ Sum of non-negative terms cannot be negative → <strong>no real or complex solution exists</strong>.
+<p><strong>No.</strong><br> <strong>Counterexample</strong>: $|y'| + |y| + 1 = 0$<br> → Sum of non-negative terms cannot be negative → <strong>no real or complex solution exists</strong>.</p>
 
 <hr>
 
 <h2>Examples of Solutions & Families</h2>
 
-<strong>Example 1</strong> – Verify $\phi(x) = \frac{c}{x}$ ($c$ arbitrary, $x \neq 0$) solves $x y' = -y$.  
-(Direct substitution works.)
+<p><strong>Example 1</strong> – Verify $\phi(x) = \frac{c}{x}$ ($c$ arbitrary, $x \neq 0$) solves $x y' = -y$.<br> (Direct substitution works.)</p>
 
-<strong>Example 2</strong> – $y' = \cos x$  
-General solution (by integration):  
-$$y = \sin x + c$$  
-Family of solutions for $c = -3,-2,\dots,3$ (visualized as parallel sine waves shifted vertically).
+<p><strong>Example 2</strong> – $y' = \cos x$<br> General solution (by integration):</p>
+
+$$y = \sin x + c$$
+
+<p>Family of solutions for $c = -3,-2,\dots,3$ (visualized as parallel sine waves shifted vertically).</p>
 
 <hr>
 
 <h2>Growth & Decay Models</h2>
-<strong>Malthusian law</strong>: $y' = k y$  
-<strong>General solution</strong>: $y = c e^{k t}$  
+
+<p><strong>Malthusian law</strong>: $y' = k y$<br> <strong>General solution</strong>: $y = c e^{k t}$</p>
+
 <ul>
-<li>$k > 0$ → <strong>exponential growth</strong>  </li>
+<li>$k > 0$ → <strong>exponential growth</strong></li>
 <li>$k < 0$ → <strong>exponential decay</strong></li>
 </ul>
+
 <hr>
 
 <h2>Solutions Outside the General Family (Singular Solutions)</h2>
-<strong>Example</strong>: $(y')^2 - 4y = 0$  
-One-parameter family: $y_c(x) = (x + c)^2$  
-<strong>Extra solution</strong> (not in family): $y \equiv 0$ (the x-axis envelope of the parabolas).
+
+<p><strong>Example</strong>: $(y')^2 - 4y = 0$<br> One-parameter family: $y_c(x) = (x + c)^2$<br> <strong>Extra solution</strong> (not in family): $y \equiv 0$ (the x-axis envelope of the parabolas).</p>
 
 <hr>
 
 <h2>Initial Value Problems (IVPs)</h2>
-A <strong>particular solution</strong> is obtained by imposing an <strong>initial condition</strong> $y(x_0) = y_0$.  
-This fixes the arbitrary constant $C$.
 
-<strong>IVP</strong> = ODE + initial condition.  
-Geometrically: the solution curve must pass through the point $(x_0, y_0)$.
+<p>A <strong>particular solution</strong> is obtained by imposing an <strong>initial condition</strong> $y(x_0) = y_0$.<br> This fixes the arbitrary constant $C$.</p>
 
-<strong>Example Figure</strong> (from slides):  
-$v' = 9.8 - \frac{v}{5}$, $v(0)=0$ (parachute velocity approaching terminal value).
+<p><strong>IVP</strong> = ODE + initial condition.<br> Geometrically: the solution curve must pass through the point $(x_0, y_0)$.</p>
+
+<p><strong>Example Figure</strong> (from slides):<br> $v' = 9.8 - \frac{v}{5}$, $v(0)=0$ (parachute velocity approaching terminal value).</p>
 
 <hr>
 
 <h2>Possible Behaviors of First-Order IVPs</h2>
+
 <ol>
 <li><strong>No solution</strong>: $|y'| + |y| = 0$, $y(0)=3$</li>
 <li><strong>Unique solution</strong>: $y' = x$, $y(0)=1$ → $y = \frac{1}{2}x^2 + 1$</li>
 <li><strong>Infinitely many solutions</strong>: $x y' = y - 1$, $y(0)=1$ → $y = 1 + c x$ (all lines through (0,1) except the constant $y=1$ wait—no, family passes through (0,1) for any $c$? Wait, actually all satisfy).</li>
 </ol>
-These motivate <strong>existence & uniqueness theorems</strong> (Picard-Lindelöf, etc., covered later).
+
+<p>These motivate <strong>existence & uniqueness theorems</strong> (Picard-Lindelöf, etc., covered later).</p>
 
 <hr>
 
 <h2>Geometric Interpretation</h2>
-<strong>Example</strong>: $\frac{dy}{dx} = -\frac{y}{x}$ ($x \neq 0$)  
-Find curve through $(1,1)$ where slope at every point is $-\frac{y}{x}$.
 
-<strong>Solution</strong>: $y = \frac{1}{x}$ (hyperbola branch).
+<p><strong>Example</strong>: $\frac{dy}{dx} = -\frac{y}{x}$ ($x \neq 0$)<br> Find curve through $(1,1)$ where slope at every point is $-\frac{y}{x}$.</p>
+
+<p><strong>Solution</strong>: $y = \frac{1}{x}$ (hyperbola branch).</p>
 
 <hr>
 
 <h2>Solving First-Order ODEs (Explicit Form $y' = f(x,y)$)</h2>
 
 <h3>Case 1: $f$ depends only on $x$</h3>
+
 $$y = \int f(x)\, dx + C$$
-(Use calculus techniques; sometimes impossible in elementary functions, e.g., $\int e^{x^2} dx$, $\int \frac{\sin x}{x} dx$.)
+
+<p>(Use calculus techniques; sometimes impossible in elementary functions, e.g., $\int e^{x^2} dx$, $\int \frac{\sin x}{x} dx$.)</p>
 
 <h3>Case 2: General $y' = \frac{M(x,y)}{N(x,y)}$</h3>
-Rewrite as:
+
+<p>Rewrite as:</p>
+
 $$M(x,y)\, dx + N(x,y)\, dy = 0 \quad (1)$$
 
 <h4>Subcase 2A: Separable ($M(x,y)=M(x)$, $N(x,y)=N(y)$)</h4>
+
 $$ \int M(x)\, dx + \int N(y)\, dy = 0 $$
-<strong>Separation of variables</strong>.
 
-<strong>Example 1</strong>: $y' = 1 + y^2$  
-$\implies dx - \frac{1}{1+y^2} dy = 0$  
-$\implies \tan^{-1} y = x + C$  
-$\implies y = \tan(x + C)$
+<p><strong>Separation of variables</strong>.</p>
 
-<strong>Example 2</strong>: $y' = -2x y$, $y(0)=1.8$  
-$\frac{dy}{y} = -2x\, dx$  
-$\ln |y| = -x^2 + \ln C$  
-$y = C e^{-x^2}$  
-$y(0)=1.8 \implies C=1.8$  
-$\implies y = 1.8 e^{-x^2}$
+<p><strong>Example 1</strong>: $y' = 1 + y^2$<br> $\implies dx - \frac{1}{1+y^2} dy = 0$<br> $\implies \tan^{-1} y = x + C$<br> $\implies y = \tan(x + C)$</p>
+
+<p><strong>Example 2</strong>: $y' = -2x y$, $y(0)=1.8$<br> $\frac{dy}{y} = -2x\, dx$<br> $\ln |y| = -x^2 + \ln C$<br> $y = C e^{-x^2}$<br> $y(0)=1.8 \implies C=1.8$<br> $\implies y = 1.8 e^{-x^2}$</p>
 
 <hr>
 
 <h3>Case 3: Homogeneous Equations</h3>
-A function $f(x,y)$ is <strong>homogeneous of degree $n$</strong> if  
+
+<p>A function $f(x,y)$ is <strong>homogeneous of degree $n$</strong> if</p>
+
 $$f(tx, ty) = t^n f(x,y)$$
 
-<strong>Key observation</strong>: If $M$ and $N$ are both homogeneous of the <strong>same</strong> degree, then  
+<p><strong>Key observation</strong>: If $M$ and $N$ are both homogeneous of the <strong>same</strong> degree, then</p>
+
 $$\frac{dy}{dx} = f\left(\frac{y}{x}\right) \quad \text{(homogeneous of degree 0)}$$
 
-<strong>Substitution</strong>: Let $u = \frac{y}{x} \implies y = u x \implies y' = u' x + u$  
-Substitute → separable equation in $u$ and $x$:
-$$\int \frac{du}{g(u) - u} = \int \frac{dx}{x} + C$$
-Then $y = x \cdot \varphi(x)$.
+<p><strong>Substitution</strong>: Let $u = \frac{y}{x} \implies y = u x \implies y' = u' x + u$<br> Substitute → separable equation in $u$ and $x$:</p>
 
-<strong>Example</strong> (from handwritten notes):  
-$2xy\, y' = y^2 + x^2$ ? (transcribed as $y^2 x^2$ but corrected via algebra to standard form)  
-Leads to $u = y/x$, circles family: $(x - c)^2 + y^2 = c^2/4$ or similar (exact family shown as concentric circles).
+$$\int \frac{du}{g(u) - u} = \int \frac{dx}{x} + C$$
+
+<p>Then $y = x \cdot \varphi(x)$.</p>
+
+<p><strong>Example</strong> (from handwritten notes):<br> $2xy\, y' = y^2 + x^2$ ? (transcribed as $y^2 x^2$ but corrected via algebra to standard form)<br> Leads to $u = y/x$, circles family: $(x - c)^2 + y^2 = c^2/4$ or similar (exact family shown as concentric circles).</p>
 
 <hr>
 
 <h3>Case 4: Exact Equations</h3>
-Equation (1) is <strong>exact</strong> if there exists $u(x,y)$ such that  
+
+<p>Equation (1) is <strong>exact</strong> if there exists $u(x,y)$ such that</p>
+
 $$M = \frac{\partial u}{\partial x}, \quad N = \frac{\partial u}{\partial y}$$
 
-<p>Then (1) becomes  
-$$du = \frac{\partial u}{\partial x} dx + \frac{\partial u}{\partial y} dy = 0 \implies u(x,y) = C$$</p>
+<p>Then (1) becomes</p>
 
-<strong>By chain rule</strong>: If $y=y(x)$, then  
+$$du = \frac{\partial u}{\partial x} dx + \frac{\partial u}{\partial y} dy = 0 \implies u(x,y) = C$$
+
+<p><strong>By chain rule</strong>: If $y=y(x)$, then</p>
+
 $$\frac{du}{dx} = \frac{\partial u}{\partial x} + \frac{\partial u}{\partial y} \frac{dy}{dx} = 0 \implies u = \text{constant}.$$
 
-<strong>Example</strong> (handwritten):  
-$2x + y^2 + 2x y y' = 0$  
-$\implies (2x + y^2) dx + 2x y\, dy = 0$  
-Let $u(x,y) = x^2 + x y^2$  
-$\frac{\partial u}{\partial x} = 2x + y^2 = M$  
-$\frac{\partial u}{\partial y} = 2 x y = N$  
-<strong>Exact!</strong> Solution: $x^2 + x y^2 = C$
+<p><strong>Example</strong> (handwritten):<br> $2x + y^2 + 2x y y' = 0$<br> $\implies (2x + y^2) dx + 2x y\, dy = 0$<br> Let $u(x,y) = x^2 + x y^2$<br> $\frac{\partial u}{\partial x} = 2x + y^2 = M$<br> $\frac{\partial u}{\partial y} = 2 x y = N$<br> <strong>Exact!</strong> Solution: $x^2 + x y^2 = C$</p>
 
 <hr>
 
 <h2>Summary of Lecture 1</h2>
+
 <ul>
 <li>Course logistics & expectations set.</li>
 <li>ODE definition, order, modeling philosophy.</li>
 <li>Applications across physics, biology, engineering.</li>
 <li>First-order concepts: solutions, IVPs, existence issues.</li>
 <li>Geometric meaning of $y' = f(x,y)$.</li>
-<li>Three core analytic methods for 1st-order ODEs:</li>
-</ul>  1. Separation of variables
-<ol>
-<li>Homogeneous → $u=y/x$</li>
-<li>Exact equations (potential function $u$)</li>
-</ol>
-<strong>Next</strong>: More solution techniques + existence/uniqueness theorems.
+<li>Three core analytic methods for 1st-order ODEs: 1. Separation of variables 2. Homogeneous → $u=y/x$ 3. Exact equations (potential function $u$)</li>
+</ul>
+
+<p><strong>Next</strong>: More solution techniques + existence/uniqueness theorems.</p>
 
 <hr>
 
-<strong>Backlink to next lecture</strong> → <a href="lecture-2.html">Lecture 2 - MA104</a>
+<p><strong>Backlink to next lecture</strong> → <a href="lecture-2.html">Lecture 2 - MA104</a></p>
             </article>
             <footer class="main-footer">
                 <div class="footer-nav">

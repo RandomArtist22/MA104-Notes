@@ -92,38 +92,46 @@
             </button>
             <article class="content">
                 <h1>MA 104: Ordinary Differential Equations - Lecture 2</h1>
-<strong>Related:</strong> <a href="index.html">MA 104 Course Overview</a> | <a href="lecture-1.html">Lecture 1 - MA104</a> | <a href="lecture-3.html">Lecture 3 - MA104</a>
+
+<p><strong>Related:</strong> <a href="index.html">MA 104 Course Overview</a> | <a href="lecture-1.html">Lecture 1 - MA104</a> | <a href="lecture-3.html">Lecture 3 - MA104</a></p>
 
 <hr>
 
 <h2>Quick Recap from Lecture 1</h2>
+
 <ul>
 <li>First-order ODEs: $y' = f(x,y)$ or $M(x,y)\,dx + N(x,y)\,dy = 0$</li>
 <li><strong>Exact equation</strong>: Exists $u(x,y)$ s.t. $du = M\,dx + N\,dy$</li>
 <li>Solution: $u(x,y) = C$ (implicit)</li>
 <li>Test (to be justified today): $\frac{\partial M}{\partial y} = \frac{\partial N}{\partial x}$ (when continuous)</li>
 </ul>
+
 <hr>
 
 <h2>Part 1: Multivariable Calculus Review (Why We Need It)</h2>
 
 <h3>Partial Derivatives</h3>
-Let $\varphi: \mathbb{R}^2 \to \mathbb{R}$, i.e., $z = f(x,y)$.
 
-<strong>Geometric view</strong>:
+<p>Let $\varphi: \mathbb{R}^2 \to \mathbb{R}$, i.e., $z = f(x,y)$.</p>
+
+<p><strong>Geometric view</strong>:</p>
+
 <ul>
 <li>Fix $y = b$ → vertical plane → curve $z = f(x,b)$ → slope = $\frac{\partial f}{\partial x}(a,b)$</li>
 <li>Fix $x = a$ → vertical plane → curve $z = f(a,y)$ → slope = $\frac{\partial f}{\partial y}(a,b)$</li>
 </ul>
-<strong>Definition</strong>:
+
+<p><strong>Definition</strong>:</p>
+
 $$
 \left.\frac{\partial f}{\partial x}\right|_{(x_0,y_0)} = \lim_{h\to 0}\frac{f(x_0+h,y_0)-f(x_0,y_0)}{h}
 $$
+
 $$
 \left.\frac{\partial f}{\partial y}\right|_{(x_0,y_0)} = \lim_{h\to 0}\frac{f(x_0,y_0+h)-f(x_0,y_0)}{h}
 $$
 
-<strong>Higher-order & mixed partials</strong> (notation table):
+<p><strong>Higher-order & mixed partials</strong> (notation table):</p>
 
 <table>
 <thead>
@@ -137,8 +145,8 @@ $$
 </tbody>
 </table>
 
-<strong>Clairaut’s / Mixed Derivative Theorem</strong>  
-If $f$, $f_x$, $f_y$, $f_{xy}$, $f_{yx}$ are continuous in an open region containing $(a,b)$, then
+<p><strong>Clairaut’s / Mixed Derivative Theorem</strong><br> If $f$, $f_x$, $f_y$, $f_{xy}$, $f_{yx}$ are continuous in an open region containing $(a,b)$, then</p>
+
 $$
 f_{xy}(a,b) = f_{yx}(a,b)
 $$
@@ -146,21 +154,27 @@ $$
 <hr>
 
 <h3>Chain Rule</h3>
-<strong>Single variable recall</strong>:
+
+<p><strong>Single variable recall</strong>:</p>
+
 $$
 \frac{dz}{dx} = \frac{dz}{dy}\cdot\frac{dy}{dx}
 $$
 
-<strong>For $z = f(x,y)$</strong>, $x=x(t)$, $y=y(t)$:
+<p><strong>For $z = f(x,y)$</strong>, $x=x(t)$, $y=y(t)$:</p>
+
 $$
 \frac{dz}{dt} = \frac{\partial z}{\partial x}\frac{dx}{dt} + \frac{\partial z}{\partial y}\frac{dy}{dt}
 $$
-<strong>Special case</strong> ($x=t$):
+
+<p><strong>Special case</strong> ($x=t$):</p>
+
 $$
 \frac{dz}{dt} = \frac{\partial z}{\partial x} + \frac{\partial z}{\partial y}\frac{dy}{dt}
 $$
 
-<strong>Key application in ODEs</strong>: If $u(x,y(x))$, then
+<p><strong>Key application in ODEs</strong>: If $u(x,y(x))$, then</p>
+
 $$
 \frac{du}{dx} = \frac{\partial u}{\partial x} + \frac{\partial u}{\partial y}\frac{dy}{dx}
 $$
@@ -169,147 +183,170 @@ $$
 
 <h3>Geometric Meaning of Derivatives & Total Differential</h3>
 
-<strong>Linear approximation</strong> (tangent line in 1D):
+<p><strong>Linear approximation</strong> (tangent line in 1D):</p>
+
 $$
 f'(a) = \lim_{x\to a}\frac{f(x)-f(a)}{x-a}
 $$
 
-<strong>Total differential</strong> (best linear approximation in 2D):
-Let $F:\mathbb{R}^2\to\mathbb{R}$ with continuous first partials in $D$. Then
+<p><strong>Total differential</strong> (best linear approximation in 2D): Let $F:\mathbb{R}^2\to\mathbb{R}$ with continuous first partials in $D$. Then</p>
+
 $$
 dF = \frac{\partial F}{\partial x}\,dx + \frac{\partial F}{\partial y}\,dy
 $$
+
 <ul>
 <li>Represents infinitesimal change in $F$ as linear combo of changes in $x$ and $y$.</li>
 <li>For exact ODE: $M\,dx + N\,dy = du$ exactly when the equation is exact.</li>
 </ul>
+
 <hr>
 
 <h2>Part 2: Exact First-Order ODEs (Deep Dive)</h2>
 
-<strong>ODE form</strong>:
+<p><strong>ODE form</strong>:</p>
+
 $$
 M(x,y) + N(x,y)y' = 0 \quad \text{or} \quad M\,dx + N\,dy = 0 \tag{1}
 $$
 
-<strong>Exact</strong> ⇔ exists $u(x,y)$ s.t.
+<p><strong>Exact</strong> ⇔ exists $u(x,y)$ s.t.</p>
+
 $$
 \frac{\partial u}{\partial x} = M, \quad \frac{\partial u}{\partial y} = N
 $$
-Then $du = 0 \implies u(x,y) = C$ (implicit solution).
 
-<strong>Test for exactness</strong> (Theorem):
-If $M,N,\frac{\partial M}{\partial y},\frac{\partial N}{\partial x}$ are continuous in a rectangular region $R=(a,b)\times(c,d)$, then (1) is <strong>exact in $R$</strong> iff
+<p>Then $du = 0 \implies u(x,y) = C$ (implicit solution).</p>
+
+<p><strong>Test for exactness</strong> (Theorem): If $M,N,\frac{\partial M}{\partial y},\frac{\partial N}{\partial x}$ are continuous in a rectangular region $R=(a,b)\times(c,d)$, then (1) is <strong>exact in $R$</strong> iff</p>
+
 $$
 \frac{\partial M}{\partial y} = \frac{\partial N}{\partial x}
 $$
 
-<strong>Why?</strong> From equality of mixed partials: $\frac{\partial^2 u}{\partial y\partial x} = \frac{\partial^2 u}{\partial x\partial y}$.
+<p><strong>Why?</strong> From equality of mixed partials: $\frac{\partial^2 u}{\partial y\partial x} = \frac{\partial^2 u}{\partial x\partial y}$.</p>
 
 <hr>
 
 <h3>Examples: Which are Exact?</h3>
+
 <ol>
 <li>$(2x+3) + (2y-2)y' = 0$ → <strong>Exact</strong> ($\frac{\partial M}{\partial y}=0=\frac{\partial N}{\partial x}$)</li>
 <li>$\frac{ax+by}{bx+cy} + y' = 0$ → <strong>Exact</strong> ($\frac{\partial M}{\partial y}=b=\frac{\partial N}{\partial x}$)</li>
 <li>$(3x^2y + 2xy + y^2) + (x^2 + y^2)y' = 0$ → <strong>Not exact</strong></li>
 </ol>
-<strong>Solving an exact equation – Step-by-step</strong>  
-<strong>Example</strong>: $3y + e^x + (3x + \cos y)y' = 0$  
-$M = 3y + e^x$, $N = 3x + \cos y$  
-$\frac{\partial M}{\partial y} = 3 = \frac{\partial N}{\partial x}$ → exact.
 
-<p>Integrate $M$ w.r.t. $x$ (y const):
+<p><strong>Solving an exact equation – Step-by-step</strong><br> <strong>Example</strong>: $3y + e^x + (3x + \cos y)y' = 0$<br> $M = 3y + e^x$, $N = 3x + \cos y$<br> $\frac{\partial M}{\partial y} = 3 = \frac{\partial N}{\partial x}$ → exact.</p>
+
+<p>Integrate $M$ w.r.t. $x$ (y const):</p>
+
 $$
 u = \int(3y + e^x)\,dx + h(y) = 3xy + e^x + h(y)
 $$
-Differentiate w.r.t. $y$:
+
+<p>Differentiate w.r.t. $y$:</p>
+
 $$
 \frac{\partial u}{\partial y} = 3x + h'(y) = N = 3x + \cos y \implies h'(y) = \cos y
 $$
+
 $$
 h(y) = \sin y + C_1
 $$
-<strong>Implicit solution</strong>:
+
+<p><strong>Implicit solution</strong>:</p>
+
 $$
 u(x,y) = 3xy + e^x + \sin y = C
-$$</p>
+$$
 
 <hr>
 
 <h2>Part 3: Integrating Factors</h2>
 
-<strong>Definition</strong>: $\mu(x,y)$ is an <strong>integrating factor</strong> of (1) if
+<p><strong>Definition</strong>: $\mu(x,y)$ is an <strong>integrating factor</strong> of (1) if</p>
+
 $$
 \mu M\,dx + \mu N\,dy = 0 \tag{2}
 $$
-is exact, i.e.,
+
+<p>is exact, i.e.,</p>
+
 $$
 \frac{\partial(\mu M)}{\partial y} = \frac{\partial(\mu N)}{\partial x}
 $$
-Which expands to the PDE:
+
+<p>Which expands to the PDE:</p>
+
 $$
 \frac{\partial M}{\partial y} - \frac{\partial N}{\partial x} = \frac{1}{\mu}\left(N\frac{\partial\mu}{\partial x} - M\frac{\partial\mu}{\partial y}\right)
 $$
 
-<strong>Bad news</strong>: Solving for $\mu$ is a PDE (harder).  
-<strong>Good news</strong>: We often need only $\mu(x)$ or $\mu(y)$ (special cases).
+<p><strong>Bad news</strong>: Solving for $\mu$ is a PDE (harder).<br> <strong>Good news</strong>: We often need only $\mu(x)$ or $\mu(y)$ (special cases).</p>
 
 <h3>Case 1: $\mu = \mu(x)$ only</h3>
-If
+
+<p>If</p>
+
 $$
 \frac{1}{N}\left(\frac{\partial M}{\partial y} - \frac{\partial N}{\partial x}\right) = p(x) \quad (\text{function of }x\text{ only})
 $$
-then
+
+<p>then</p>
+
 $$
 \mu(x) = \exp\left(\int p(x)\,dx\right)
 $$
 
 <h3>Case 2: $\mu = \mu(y)$ only</h3>
-If
+
+<p>If</p>
+
 $$
 \frac{1}{M}\left(\frac{\partial N}{\partial x} - \frac{\partial M}{\partial y}\right) = q(y) \quad (\text{function of }y\text{ only})
 $$
-then
+
+<p>then</p>
+
 $$
 \mu(y) = \exp\left(\int q(y)\,dy\right)
 $$
 
-<strong>Example 1</strong>:
+<p><strong>Example 1</strong>:</p>
+
 $$
 y\,dx + (x^2 y - x)\,dy = 0
 $$
-$\frac{1}{N}(\partial M/\partial y - \partial N/\partial x) = -2/x = p(x)$  
-$\mu(x) = e^{\int -2/x\,dx} = 1/x^2$  
-Multiplied: $y/x^2\,dx + (y - 1/x)\,dy = 0$ → exact.
 
-<strong>Example 2 (IVP)</strong>:
+<p>$\frac{1}{N}(\partial M/\partial y - \partial N/\partial x) = -2/x = p(x)$<br> $\mu(x) = e^{\int -2/x\,dx} = 1/x^2$<br> Multiplied: $y/x^2\,dx + (y - 1/x)\,dy = 0$ → exact.</p>
+
+<p><strong>Example 2 (IVP)</strong>:</p>
+
 $$
 (e^{x+y} + y e^y)\,dx + (x e^y - 1)\,dy = 0, \quad y(0) = -1
 $$
-Not exact.  
-$\frac{1}{M}(\partial N/\partial x - \partial M/\partial y) = -1$ → $\mu(y) = e^{-y}$  
-Multiplied equation is exact → solution $e^x + x y + e^y = C$  
-Apply IC: $C = 1+e$  
-Final: $e^x + x y + e^y = 1 + e$
 
-<strong>Important Remark</strong> (Homework from lecture):
-In general, solutions of the multiplied equation (2) <strong>may not</strong> solve the original (1) unless $\mu(x,y(x)) \neq 0$.  
-Find the precise condition (homework!).
+<p>Not exact.<br> $\frac{1}{M}(\partial N/\partial x - \partial M/\partial y) = -1$ → $\mu(y) = e^{-y}$<br> Multiplied equation is exact → solution $e^x + x y + e^y = C$<br> Apply IC: $C = 1+e$<br> Final: $e^x + x y + e^y = 1 + e$</p>
+
+<p><strong>Important Remark</strong> (Homework from lecture): In general, solutions of the multiplied equation (2) <strong>may not</strong> solve the original (1) unless $\mu(x,y(x)) \neq 0$.<br> Find the precise condition (homework!).</p>
 
 <hr>
 
 <h3>Is an Integrating Factor Unique?</h3>
+
 <ul>
 <li>No. If $\mu$ works, so does $c\mu$ ($c\neq 0$).</li>
 <li>Sometimes completely different $\mu$ exist.</li>
-</ul><strong>Example</strong>: $-y\,dx + x\,dy = 0$  
-Both $\mu_1 = 1/x^2$ and $\mu_2 = 1/y^2$ work (give different but equivalent forms).
+</ul>
+
+<p><strong>Example</strong>: $-y\,dx + x\,dy = 0$<br> Both $\mu_1 = 1/x^2$ and $\mu_2 = 1/y^2$ work (give different but equivalent forms).</p>
 
 <hr>
 
 <h2>Useful Recognizable Exact Forms (Quick Integration Tricks)</h2>
-Notice combinations that are already total differentials:
+
+<p>Notice combinations that are already total differentials:</p>
+
 <ol>
 <li>$d(y/x) = \frac{y\,dx - x\,dy}{x^2}$</li>
 <li>$d(xy) = x\,dy + y\,dx$</li>
@@ -317,7 +354,9 @@ Notice combinations that are already total differentials:
 <li>$d(\tan^{-1}(y/x)) = \frac{y\,dx - x\,dy}{x^2 + y^2}$</li>
 <li>$d(\log(x/y)) = \frac{y\,dx - x\,dy}{xy}$</li>
 </ol>
-<strong>Example using trick</strong>:
+
+<p><strong>Example using trick</strong>:</p>
+
 $$
 x^2 y\,dy - (x\,dy - y\,dx) = 0 \implies y\,dy = d(y/x) \implies \frac{y^2}{2} - \frac{y}{x} = C
 $$
@@ -325,17 +364,19 @@ $$
 <hr>
 
 <h2>Summary of Lecture 2</h2>
+
 <ul>
 <li>Multivariable calculus toolkit (partials, chain rule, total diff, Clairaut) → foundation for exactness test.</li>
 <li>Exact ODEs: test + systematic solution via potential function $u(x,y)$.</li>
 <li>When not exact → <strong>integrating factor</strong> $\mu(x)$ or $\mu(y)$ via simple formulas (most common exam trick).</li>
 <li>Non-uniqueness of $\mu$; useful differential identities.</li>
 </ul>
-<strong>Next lecture</strong> will cover linear first-order ODEs, Bernoulli, and more advanced techniques.
+
+<p><strong>Next lecture</strong> will cover linear first-order ODEs, Bernoulli, and more advanced techniques.</p>
 
 <hr>
 
-<strong>Backlink to next lecture</strong> → <a href="lecture-3.html">Lecture 3 - MA104</a>
+<p><strong>Backlink to next lecture</strong> → <a href="lecture-3.html">Lecture 3 - MA104</a></p>
             </article>
             <footer class="main-footer">
                 <div class="footer-nav">

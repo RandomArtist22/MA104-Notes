@@ -25,6 +25,12 @@ CODE_THEMES = {
     'operator': '#e46876',   # wave-red
 }
 
+BLOCK_LEVEL_TAG_RE = re.compile(
+    r'^<(?:h[1-6]|ul|ol|li|pre|blockquote|table|thead|tbody|tr|th|td|hr|p|div|img)\b',
+    re.IGNORECASE,
+)
+BLOCK_PLACEHOLDER_RE = re.compile(r'^@@(?:CODEBLOCK|DISPLAYMATH)_\d+@@$')
+
 
 def extract_title(content: str, filename: str) -> str:
     """Extract title from markdown content or filename."""
@@ -84,33 +90,63 @@ def parse_obsidian_links(content: str, file_mapping: dict) -> str:
     return re.sub(r'\[\[(.*?)\]\]', replace_link, content)
 
 
+def is_block_level_html(block: str) -> bool:
+    """Return True if a block already represents block-level HTML."""
+    stripped = block.strip()
+    if not stripped:
+        return False
+    if BLOCK_PLACEHOLDER_RE.fullmatch(stripped):
+        return True
+    return bool(BLOCK_LEVEL_TAG_RE.match(stripped))
+
+
 def convert_markdown_to_html(content: str) -> str:
     """Convert markdown to HTML."""
-    # Store code blocks temporarily
+    content = content.replace('\r\n', '\n').replace('\r', '\n')
+
+    # Store blocks temporarily
     code_blocks = []
-    # Store math blocks temporarily
-    math_blocks = []
-    
+    display_math_blocks = []
+    inline_math_blocks = []
+
     def store_code_block(match):
-        lang = match.group(1) or 'text'
-        code = match.group(2)
+        lang = (match.group(1) or 'text').strip() or 'text'
+        code = match.group(2).rstrip('\n')
         code_blocks.append((lang, code))
-        return f"{{«CODEBLOCK{len(code_blocks)-1}}}}}"
-    
-    def store_math_block(match):
+        return f"@@CODEBLOCK_{len(code_blocks)-1}@@"
+
+    def store_display_math_block(match):
         math = match.group(0)
-        math_blocks.append(math)
-        return f"{{«MATHBLOCK{len(math_blocks)-1}}}}}"
-    
-    # Extract code blocks first (before math, to avoid conflicts)
-    content = re.sub(r'```(\w+)?\n(.*?)```', store_code_block, content, flags=re.DOTALL)
-    
-    # Extract display math ($$...$$) - must be before inline math
-    content = re.sub(r'\$\$(.*?)\$\$', store_math_block, content, flags=re.DOTALL)
-    
-    # Extract inline math ($...$) - be careful to not match escaped dollars
-    content = re.sub(r'(?<!\$)\$([^\$\n]+?)\$(?!\$)', store_math_block, content)
-    
+        display_math_blocks.append(math.strip())
+        # Keep display math as a standalone block
+        return f"\n\n@@DISPLAYMATH_{len(display_math_blocks)-1}@@\n\n"
+
+    def store_inline_math_block(match):
+        math = match.group(0)
+        inline_math_blocks.append(math)
+        return f"@@INLINEMATH_{len(inline_math_blocks)-1}@@"
+
+    def restore_placeholders(text: str) -> str:
+        for i, (lang, code) in enumerate(code_blocks):
+            escaped_code = escape_html(code)
+            text = text.replace(
+                f"@@CODEBLOCK_{i}@@",
+                f'<pre><code class="language-{lang}">{escaped_code}</code></pre>',
+            )
+
+        for i, math in enumerate(display_math_blocks):
+            text = text.replace(f"@@DISPLAYMATH_{i}@@", math)
+
+        for i, math in enumerate(inline_math_blocks):
+            text = text.replace(f"@@INLINEMATH_{i}@@", math)
+
+        return text
+
+    # Extract code first, then math (so markdown in code fences is untouched)
+    content = re.sub(r'```([^\n`]*)\n(.*?)```', store_code_block, content, flags=re.DOTALL)
+    content = re.sub(r'\$\$(.*?)\$\$', store_display_math_block, content, flags=re.DOTALL)
+    content = re.sub(r'(?<!\$)\$([^\$\n]+?)\$(?!\$)', store_inline_math_block, content)
+
     # Headers
     content = re.sub(r'^######\s+(.+)$', r'<h6>\1</h6>', content, flags=re.MULTILINE)
     content = re.sub(r'^#####\s+(.+)$', r'<h5>\1</h5>', content, flags=re.MULTILINE)
@@ -118,24 +154,8 @@ def convert_markdown_to_html(content: str) -> str:
     content = re.sub(r'^###\s+(.+)$', r'<h3>\1</h3>', content, flags=re.MULTILINE)
     content = re.sub(r'^##\s+(.+)$', r'<h2>\1</h2>', content, flags=re.MULTILINE)
     content = re.sub(r'^#\s+(.+)$', r'<h1>\1</h1>', content, flags=re.MULTILINE)
-    
-    # Bold and Italic
-    content = re.sub(r'\*\*\*([^*]+)\*\*\*', r'<strong><em>\1</em></strong>', content)
-    content = re.sub(r'\*\*([^*]+)\*\*', r'<strong>\1</strong>', content)
-    content = re.sub(r'\*([^*]+)\*', r'<em>\1</em>', content)
-    content = re.sub(r'___([^_]+)___', r'<strong><em>\1</em></strong>', content)
-    content = re.sub(r'__([^_]+)__', r'<strong>\1</strong>', content)
-    content = re.sub(r'_([^_]+)_', r'<em>\1</em>', content)
-    
-    # Inline code (after bold/italic to avoid conflicts)
-    content = re.sub(r'`([^`]+)`', r'<code>\1</code>', content)
-    
-    # Links
-    content = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2">\1</a>', content)
-    
-    # Images
-    content = re.sub(r'!\[([^\]]*)\]\(([^)]+)\)', r'<img src="\2" alt="\1" loading="lazy">', content)
-    
+    content = re.sub(r'^(<h[1-6][^>]*>.*?</h[1-6]>)$', r'\n\n\1\n\n', content, flags=re.MULTILINE)
+
     # Blockquotes
     def process_blockquote(match):
         lines = match.group(1).strip().split('\n')
@@ -146,103 +166,164 @@ def convert_markdown_to_html(content: str) -> str:
         inner = '\n'.join(processed_lines)
         # Recursively process inner content
         inner = convert_simple_inline(inner)
-        return f'<blockquote>\n{inner}\n</blockquote>'
+        return f'\n\n<blockquote>\n{inner}\n</blockquote>\n\n'
     
-    content = re.sub(r'((?:^>.*\n?)+)', process_blockquote, content, flags=re.MULTILINE)
-    
+    content = re.sub(r'((?:^>.*(?:\n|$))+)', process_blockquote, content, flags=re.MULTILINE)
+
     # Tables
     def process_table(match):
         table_text = match.group(0)
         lines = table_text.strip().split('\n')
-        
+
         html = ['<table>']
         html.append('<thead>')
-        
+
         # Header row
-        header_cells = [cell.strip() for cell in lines[0].split('|') if cell.strip()]
+        header_cells = [convert_simple_inline(cell.strip()) for cell in lines[0].split('|') if cell.strip()]
         html.append('<tr>' + ''.join(f'<th>{cell}</th>' for cell in header_cells) + '</tr>')
         html.append('</thead>')
         html.append('<tbody>')
-        
+
         # Data rows (skip separator line)
         for line in lines[2:]:
-            cells = [cell.strip() for cell in line.split('|') if cell.strip()]
+            cells = [convert_simple_inline(cell.strip()) for cell in line.split('|') if cell.strip()]
             if cells:
                 html.append('<tr>' + ''.join(f'<td>{cell}</td>' for cell in cells) + '</tr>')
-        
+
         html.append('</tbody>')
         html.append('</table>')
-        return '\n'.join(html)
-    
+        return '\n\n' + '\n'.join(html) + '\n\n'
+
     # Match tables: lines starting with | and containing |
     content = re.sub(r'(^\|.*\|$(?:\n^\|[-:\s|]+\|$(?:\n^\|.*\|$)*))', process_table, content, flags=re.MULTILINE)
-    
+
     # Horizontal rule
     content = re.sub(r'^---+$', '<hr>', content, flags=re.MULTILINE)
-    
+    content = re.sub(r'^(<hr>)$', r'\n\n\1\n\n', content, flags=re.MULTILINE)
+
     # Lists
     def process_ul(match):
-        items = match.group(0).strip().split('\n')
-        html_items = []
-        for item in items:
-            item_content = re.sub(r'^[\s]*[-*+]\s+', '', item)
-            item_content = convert_simple_inline(item_content)
-            html_items.append(f'<li>{item_content}</li>')
-        return '<ul>\n' + '\n'.join(html_items) + '\n</ul>'
-    
-    def process_ol(match):
-        items = match.group(0).strip().split('\n')
-        html_items = []
-        for item in items:
-            item_content = re.sub(r'^[\s]*\d+\.\s+', '', item)
-            item_content = convert_simple_inline(item_content)
-            html_items.append(f'<li>{item_content}</li>')
-        return '<ol>\n' + '\n'.join(html_items) + '\n</ol>'
-    
-    # Process unordered lists (consecutive lines starting with -, *, or +)
-    content = re.sub(r'((?:^[\s]*[-*+]\s+.+\n?)+)', process_ul, content, flags=re.MULTILINE)
-    
-    # Process ordered lists
-    content = re.sub(r'((?:^[\s]*\d+\.\s+.+\n?)+)', process_ol, content, flags=re.MULTILINE)
-    
-    # Restore code blocks
-    for i, (lang, code) in enumerate(code_blocks):
-        escaped_code = escape_html(code)
-        content = content.replace(f'{{«CODEBLOCK{i}}}}}', 
-            f'<pre><code class="language-{lang}">{escaped_code}</code></pre>')
-    
+        lines = match.group(0).split('\n')
+        items = []
+        current_item = None
 
-    # Restore math blocks (keep raw $...$ for MathJax)
-    for i, math in enumerate(math_blocks):
-        content = content.replace(f'{{«MATHBLOCK{i}}}}}',
-            math)
+        for line in lines:
+            bullet_match = re.match(r'^[\s]*[-*+]\s+(.+)$', line)
+            if bullet_match:
+                if current_item is not None:
+                    items.append(current_item.strip())
+                current_item = bullet_match.group(1).rstrip()
+                continue
+
+            continuation_match = re.match(r'^[ \t]{2,}(.+)$', line)
+            if continuation_match and current_item is not None:
+                current_item += '\n' + continuation_match.group(1).rstrip()
+
+        if current_item is not None:
+            items.append(current_item.strip())
+
+        html_items = []
+        for item in items:
+            item_content = convert_simple_inline(item)
+            html_items.append(f'<li>{item_content}</li>')
+        return '\n\n<ul>\n' + '\n'.join(html_items) + '\n</ul>\n\n'
+
+    def process_ol(match):
+        lines = match.group(0).split('\n')
+        items = []
+        current_item = None
+
+        for line in lines:
+            item_match = re.match(r'^[\s]*\d+\.\s+(.+)$', line)
+            if item_match:
+                if current_item is not None:
+                    items.append(current_item.strip())
+                current_item = item_match.group(1).rstrip()
+                continue
+
+            continuation_match = re.match(r'^[ \t]{2,}(.+)$', line)
+            if continuation_match and current_item is not None:
+                current_item += '\n' + continuation_match.group(1).rstrip()
+
+        if current_item is not None:
+            items.append(current_item.strip())
+
+        html_items = []
+        for item in items:
+            item_content = convert_simple_inline(item)
+            html_items.append(f'<li>{item_content}</li>')
+        return '\n\n<ol>\n' + '\n'.join(html_items) + '\n</ol>\n\n'
+
+    # Process lists with continuation lines (indented by at least 2 spaces)
+    content = re.sub(
+        r'((?:^[\s]*[-*+]\s+.+(?:\n^[ \t]{2,}.+)*\n?)+)',
+        process_ul,
+        content,
+        flags=re.MULTILINE,
+    )
+
+    # Process ordered lists
+    content = re.sub(
+        r'((?:^[\s]*\d+\.\s+.+(?:\n^[ \t]{2,}.+)*\n?)+)',
+        process_ol,
+        content,
+        flags=re.MULTILINE,
+    )
+
     # Paragraphs (wrap remaining text)
     paragraphs = []
-    for block in content.split('\n\n'):
+    for block in re.split(r'\n{2,}', content):
         block = block.strip()
-        if block and not block.startswith('<'):
+        if not block:
+            continue
+
+        if not is_block_level_html(block):
             block = convert_simple_inline(block)
             paragraphs.append(f'<p>{block}</p>')
         else:
             paragraphs.append(block)
-    
-    return '\n\n'.join(paragraphs)
+
+    html = '\n\n'.join(paragraphs)
+    return restore_placeholders(html)
 
 
 def convert_simple_inline(text: str) -> str:
     """Convert simple inline markdown without block elements."""
+    text = text.replace('\r\n', '\n').replace('\r', '\n')
+
+    # Preserve markdown hard line breaks only.
+    text = re.sub(r' {2,}\n', '<br>\n', text)
+    text = re.sub(r'\\\n', '<br>\n', text)
+    text = re.sub(r'\n+', ' ', text)
+
+    # Protect inline code from markdown emphasis parsing.
+    inline_code_blocks = []
+
+    def store_inline_code(match):
+        inline_code_blocks.append(match.group(1))
+        return f"@@INLINECODE_{len(inline_code_blocks)-1}@@"
+
+    text = re.sub(r'`([^`]+)`', store_inline_code, text)
+
     # Bold and Italic
-    text = re.sub(r'\*\*\*([^*]+)\*\*\*', r'<strong><em>\1</em></strong>', text)
-    text = re.sub(r'\*\*([^*]+)\*\*', r'<strong>\1</strong>', text)
-    text = re.sub(r'\*([^*]+)\*', r'<em>\1</em>', text)
-    text = re.sub(r'___([^_]+)___', r'<strong><em>\1</em></strong>', text)
-    text = re.sub(r'__([^_]+)__', r'<strong>\1</strong>', text)
-    text = re.sub(r'_([^_]+)_', r'<em>\1</em>', text)
-    # Inline code
-    text = re.sub(r'`([^`]+)`', r'<code>\1</code>', text)
+    text = re.sub(r'\*\*\*([^*\n]+)\*\*\*', r'<strong><em>\1</em></strong>', text)
+    text = re.sub(r'\*\*([^*\n]+)\*\*', r'<strong>\1</strong>', text)
+    text = re.sub(r'\*([^*\n]+)\*', r'<em>\1</em>', text)
+    text = re.sub(r'(?<!\w)___([^_\n]+)___(?!\w)', r'<strong><em>\1</em></strong>', text)
+    text = re.sub(r'(?<!\w)__([^_\n]+)__(?!\w)', r'<strong>\1</strong>', text)
+    text = re.sub(r'(?<!\w)_([^_\n]+)_(?!\w)', r'<em>\1</em>', text)
+
+    # Images before links to avoid partial conversion of ![...](...)
+    text = re.sub(r'!\[([^\]]*)\]\(([^)]+)\)', r'<img src="\2" alt="\1" loading="lazy">', text)
+
     # Links
     text = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2">\1</a>', text)
-    return text
+
+    for i, code in enumerate(inline_code_blocks):
+        escaped_code = escape_html(code)
+        text = text.replace(f"@@INLINECODE_{i}@@", f'<code>{escaped_code}</code>')
+
+    return text.strip()
 
 
 def escape_html(text: str) -> str:

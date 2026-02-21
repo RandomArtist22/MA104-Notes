@@ -92,26 +92,29 @@
             </button>
             <article class="content">
                 <h1>MA 104: Ordinary Differential Equations - Lecture 12</h1>
-<strong>Related:</strong> <a href="index.html">MA 104 Course Overview</a> | <a href="lecture-11.html">Lecture 11 - MA104</a>
+
+<p><strong>Related:</strong> <a href="index.html">MA 104 Course Overview</a> | <a href="lecture-11.html">Lecture 11 - MA104</a></p>
 
 <hr>
 
 <h2>Laplace Transform of Derivatives</h2>
 
-<strong>Theorem</strong>:  
-Let $f:[0,\infty)\to\mathbb{R}$ be continuous and of exponential order $\alpha$. Let $f'$ be piecewise continuous on $[0,\infty)$. Then for $s>\alpha$,
+<p><strong>Theorem</strong>:<br> Let $f:[0,\infty)\to\mathbb{R}$ be continuous and of exponential order $\alpha$. Let $f'$ be piecewise continuous on $[0,\infty)$. Then for $s>\alpha$,</p>
+
 $$
 \mathcal{L}\{f'(t)\}(s) = s\mathcal{L}\{f(t)\}(s) - f(0)
 $$
 
-<strong>General formula</strong> (nth derivative):
+<p><strong>General formula</strong> (nth derivative):</p>
+
 $$
 \mathcal{L}\{f^{(k)}(t)\}(s) = s^k \mathcal{L}\{f(t)\}(s) - s^{k-1}f(0) - s^{k-2}f'(0) - \cdots - f^{(k-1)}(0)
 $$
 
-<strong>Proof sketch</strong> (integration by parts on intervals between discontinuities) leads to the boundary term $-f(0)$ and the factor $s$ from differentiating $e^{-st}$.
+<p><strong>Proof sketch</strong> (integration by parts on intervals between discontinuities) leads to the boundary term $-f(0)$ and the factor $s$ from differentiating $e^{-st}$.</p>
 
-<strong>Example</strong> (second derivative):
+<p><strong>Example</strong> (second derivative):</p>
+
 $$
 \mathcal{L}\{y''\} = s^2 Y(s) - s y(0) - y'(0)
 $$
@@ -120,27 +123,34 @@ $$
 
 <h2>Solving Constant-Coefficient IVPs</h2>
 
-<strong>General IVP</strong>:
+<p><strong>General IVP</strong>:</p>
+
 $$
 a y'' + b y' + c y = r(t), \quad y(0)=k_0,\ y'(0)=k_1
 $$
 
-<p>Take Laplace transform:
-$$
-(a s^2 + b s + c) Y(s) = \mathcal{L}\{r(t)\} + (a s + b) k<em>0 + a k</em>1
-$$
-$$
-Y(s) = \frac{\mathcal{L}\{r(t)\} + (a s + b) k<em>0 + a k</em>1}{a s^2 + b s + c}
-$$
-Invert using partial fractions or tables.</p>
+<p>Take Laplace transform:</p>
 
-<strong>Example</strong>:
+$$
+(a s^2 + b s + c) Y(s) = \mathcal{L}\{r(t)\} + (a s + b) k_0 + a k_1
+$$
+
+$$
+Y(s) = \frac{\mathcal{L}\{r(t)\} + (a s + b) k_0 + a k_1}{a s^2 + b s + c}
+$$
+
+<p>Invert using partial fractions or tables.</p>
+
+<p><strong>Example</strong>:</p>
+
 $$
 y'' - y = t, \quad y(0)=1,\ y'(0)=1
 $$
+
 $$
 Y(s) = \frac{1 + s + 1}{s^2 - 1} = \frac{s+2}{s^2-1}
 $$
+
 $$
 y(t) = e^t + \sinh t - t
 $$
@@ -149,7 +159,8 @@ $$
 
 <h2>Unit Step (Heaviside) Function</h2>
 
-<strong>Definition</strong>:
+<p><strong>Definition</strong>:</p>
+
 $$
 u_a(t) = 
 \begin{cases}
@@ -159,30 +170,36 @@ u_a(t) =
 = u_0(t-a)
 $$
 
-<strong>Laplace</strong>:
+<p><strong>Laplace</strong>:</p>
+
 $$
 \mathcal{L}\{u_a(t)\}(s) = \frac{e^{-a s}}{s}, \quad s>0
 $$
 
-<strong>Piecewise functions</strong> via steps:
+<p><strong>Piecewise functions</strong> via steps:</p>
+
 <ul>
 <li>$f(t) = f_1(t) + u_{t_1}(t)[f_2(t) - f_1(t)] + \cdots$</li>
 </ul>
+
 <hr>
 
 <h2>Second Shifting Theorem</h2>
 
-<p>If $\mathcal{L}\{f(t)\}(s) = F(s)$ for $s > s<em>0$ and $a>0$, then
-$$
-\mathcal{L}\{u</em>a(t) f(t-a)\}(s) = e^{-a s} F(s), \quad s > s_0
-$$</p>
+<p>If $\mathcal{L}\{f(t)\}(s) = F(s)$ for $s > s_0$ and $a>0$, then</p>
 
-<p>Equivalently:
+$$
+\mathcal{L}\{u_a(t) f(t-a)\}(s) = e^{-a s} F(s), \quad s > s_0
+$$
+
+<p>Equivalently:</p>
+
 $$
 \mathcal{L}\{u_a(t) g(t)\}(s) = e^{-a s} G(s) \quad \text{where } G(s)=\mathcal{L}\{g(t+a)\}
-$$</p>
+$$
 
-<strong>Inverse form</strong>:
+<p><strong>Inverse form</strong>:</p>
+
 $$
 \mathcal{L}^{-1}\{e^{-a s} F(s)\}(t) = u_a(t) f(t-a)
 $$
@@ -191,39 +208,47 @@ $$
 
 <h2>Convolution Theorem</h2>
 
-<strong>Definition</strong> (Convolution):
+<p><strong>Definition</strong> (Convolution):</p>
+
 $$
 (f * g)(t) = \int_0^t f(\tau) g(t-\tau)\, d\tau
 $$
 
-<strong>Theorem</strong>:
+<p><strong>Theorem</strong>:</p>
+
 $$
 \mathcal{L}\{f * g\}(s) = \mathcal{L}\{f\}(s) \cdot \mathcal{L}\{g\}(s)
 $$
+
 $$
 \mathcal{L}^{-1}\{F(s) G(s)\}(t) = (f * g)(t)
 $$
 
-<strong>Proof</strong> (change of order of integration + Fubini).
+<p><strong>Proof</strong> (change of order of integration + Fubini).</p>
 
-<strong>Properties</strong>:
+<p><strong>Properties</strong>:</p>
+
 <ul>
 <li>Commutative, associative, distributive.</li>
 <li>$f * 0 = 0$, $f * 1 = \int_0^t f(\tau)\, d\tau$.</li>
 </ul>
+
 <hr>
 
 <h2>Derivative & Integration of Laplace Transform</h2>
 
-<strong>Differentiation in s</strong>:
+<p><strong>Differentiation in s</strong>:</p>
+
 $$
 \mathcal{L}\{t f(t)\}(s) = - \frac{d}{ds} F(s)
 $$
+
 $$
 \mathcal{L}\{t^n f(t)\}(s) = (-1)^n \frac{d^n}{ds^n} F(s)
 $$
 
-<strong>Integration in s</strong>:
+<p><strong>Integration in s</strong>:</p>
+
 $$
 \mathcal{L}\left\{\frac{f(t)}{t}\right\}(s) = \int_s^\infty F(u)\, du \quad (\text{if limit exists as } t\to 0^+)
 $$
@@ -231,6 +256,7 @@ $$
 <hr>
 
 <h2>Summary of Lecture 12</h2>
+
 <ul>
 <li><strong>Derivatives</strong>: Transform turns $y'' \to s^2 Y - s y(0) - y'(0)$.</li>
 <li><strong>Constant-coefficient IVPs</strong>: Algebraic solution + inverse.</li>
@@ -239,10 +265,12 @@ $$
 <li><strong>Convolution</strong>: Product in s-domain ↔ convolution in t-domain.</li>
 <li><strong>s-domain operations</strong>: Differentiation/integration give multiplication/division by t.</li>
 </ul>
-<strong>Key Advantage</strong>: Laplace handles initial conditions and piecewise/discontinuous forcing elegantly.
+
+<p><strong>Key Advantage</strong>: Laplace handles initial conditions and piecewise/discontinuous forcing elegantly.</p>
 
 <hr>
-THE END
+
+<p>THE END</p>
             </article>
             <footer class="main-footer">
                 <div class="footer-nav">

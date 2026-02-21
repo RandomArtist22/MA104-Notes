@@ -92,243 +92,273 @@
             </button>
             <article class="content">
                 <h1>MA 104: Ordinary Differential Equations - Lecture 5</h1>
-<strong>Related:</strong> <a href="index.html">MA 104 Course Overview</a> | <a href="lecture-4.html">Lecture 4 - MA104</a> | <a href="lecture-6.html">Lecture 6 - MA104</a>
+
+<p><strong>Related:</strong> <a href="index.html">MA 104 Course Overview</a> | <a href="lecture-4.html">Lecture 4 - MA104</a> | <a href="lecture-6.html">Lecture 6 - MA104</a></p>
 
 <hr>
 
 <h2>Second-Order Linear ODEs</h2>
 
-<strong>Explicit form</strong>:
+<p><strong>Explicit form</strong>:</p>
+
 $$
 y'' = f(x, y, y')
 $$
 
-<strong>Linear</strong> if $f$ is linear in $y$ and $y'$:
+<p><strong>Linear</strong> if $f$ is linear in $y$ and $y'$:</p>
+
 $$
 y'' + P(x)y' + Q(x)y = R(x) \tag{1}
 $$
+
 <ul>
 <li>$P,Q,R$ are functions of $x$ only.</li>
 <li><strong>Homogeneous</strong> if $R(x) \equiv 0$:</li>
-</ul>  $$
+</ul>
+
+$$
   y'' + P(x)y' + Q(x)y = 0 \tag{2}
   $$
+
 <ul>
 <li><strong>Nonhomogeneous</strong> otherwise.</li>
 </ul>
-<strong>Key Properties</strong>:
+
+<p><strong>Key Properties</strong>:</p>
+
 <ul>
 <li>Equation (1) is <strong>linear in $y$ and its derivatives</strong>.</li>
 <li>$y \equiv 0$ is <strong>always</strong> a solution of the homogeneous equation (2).</li>
 <li>If $y_h$ is the general solution of (2) and $y_p$ is any particular solution of (1), then</li>
-</ul>  $$
+</ul>
+
+$$
   y = y_h + y_p
   $$
-  is the general solution of (1).
+
+<p>is the general solution of (1).</p>
 
 <hr>
 
 <h2>Similarity with First-Order Linear ODEs</h2>
-A general second-order ODE is $y'' = f(x,y,y')$.  
-It becomes linear precisely when $f(x,y,y') = R(x) - P(x)y - Q(x)y'$.
+
+<p>A general second-order ODE is $y'' = f(x,y,y')$.<br> It becomes linear precisely when $f(x,y,y') = R(x) - P(x)y - Q(x)y'$.</p>
 
 <hr>
 
 <h2>Superposition Principle (Homogeneous Case)</h2>
 
-<strong>Theorem</strong>: If $y_1(x)$ and $y_2(x)$ are solutions of (2) on an interval $I$, then for any constants $c_1, c_2$,
+<p><strong>Theorem</strong>: If $y_1(x)$ and $y_2(x)$ are solutions of (2) on an interval $I$, then for any constants $c_1, c_2$,</p>
+
 $$
 y = c_1 y_1 + c_2 y_2
 $$
-is also a solution of (2).
 
-<strong>Proof</strong> (direct substitution):
+<p>is also a solution of (2).</p>
+
+<p><strong>Proof</strong> (direct substitution):</p>
+
 $$
 (c_1 y_1 + c_2 y_2)'' + P(c_1 y_1 + c_2 y_2)' + Q(c_1 y_1 + c_2 y_2) = c_1(y_1'' + P y_1' + Q y_1) + c_2(y_2'' + P y_2' + Q y_2) = 0
 $$
 
-<strong>Example</strong>:
-$y'' + y = 0$  
-$y_1 = \cos x$, $y_2 = \sin x$ are solutions.  
-Any $c_1 \cos x + c_2 \sin x$ is also a solution.
+<p><strong>Example</strong>: $y'' + y = 0$<br> $y_1 = \cos x$, $y_2 = \sin x$ are solutions.<br> Any $c_1 \cos x + c_2 \sin x$ is also a solution.</p>
 
 <hr>
 
 <h2>General Solution & Basis</h2>
 
-<strong>General solution</strong> of homogeneous (2) on open interval $I$:
+<p><strong>General solution</strong> of homogeneous (2) on open interval $I$:</p>
+
 $$
 y(x) = c_1 y_1(x) + c_2 y_2(x)
 $$
-where $y_1, y_2$ are <strong>linearly independent</strong> (not scalar multiples of each other) solutions on $I$.  
-$y_1, y_2$ form a <strong>basis</strong> (or fundamental set) of solutions.
 
-<strong>Linearly independent</strong>: $c_1 y_1 + c_2 y_2 \equiv 0$ implies $c_1 = c_2 = 0$.
+<p>where $y_1, y_2$ are <strong>linearly independent</strong> (not scalar multiples of each other) solutions on $I$.<br> $y_1, y_2$ form a <strong>basis</strong> (or fundamental set) of solutions.</p>
+
+<p><strong>Linearly independent</strong>: $c_1 y_1 + c_2 y_2 \equiv 0$ implies $c_1 = c_2 = 0$.</p>
 
 <hr>
 
 <h2>Initial Value Problem (IVP)</h2>
 
-<p>For homogeneous (2):
+<p>For homogeneous (2):</p>
+
 $$
-y(x<em>0) = y</em>0, \quad y'(x<em>0) = y</em>1
+y(x_0) = y_0, \quad y'(x_0) = y_1
 $$
-Two conditions determine $c<em>1, c</em>2$ uniquely.</p>
+
+<p>Two conditions determine $c_1, c_2$ uniquely.</p>
 
 <hr>
 
 <h2>Existence & Uniqueness Theorem (2nd-Order Linear)</h2>
 
-<strong>Theorem</strong>:  
-If $P(x), Q(x)$ are continuous on open interval $I$ containing $x_0$, then the IVP
+<p><strong>Theorem</strong>:<br> If $P(x), Q(x)$ are continuous on open interval $I$ containing $x_0$, then the IVP</p>
+
 $$
 y'' + P y' + Q y = R(x), \quad y(x_0)=y_0,\ y'(x_0)=y_1
 $$
-has a <strong>unique</strong> solution on the entire interval $I$.
 
-<strong>Operator viewpoint</strong>:
-Define linear operator $L[y] = y'' + P y' + Q y$.  
-Null space $N(L) = \{y \in C^2(I) : L[y]=0\}$ is a <strong>2-dimensional vector space</strong>.
+<p>has a <strong>unique</strong> solution on the entire interval $I$.</p>
 
-<strong>Proof sketch</strong>:
+<p><strong>Operator viewpoint</strong>: Define linear operator $L[y] = y'' + P y' + Q y$.<br> Null space $N(L) = \{y \in C^2(I) : L[y]=0\}$ is a <strong>2-dimensional vector space</strong>.</p>
+
+<p><strong>Proof sketch</strong>:</p>
+
 <ol>
 <li>Produce two linearly independent solutions $y_1, y_2$ by solving special IVPs:</li>
-</ol><ul>
+</ol>
+
+<ul>
 <li>$y_1$: $y(x_0)=1$, $y'(x_0)=0$</li>
 <li>$y_2$: $y(x_0)=0$, $y'(x_0)=1$</li>
-</ul>2. Any solution $y$ satisfies the same IVP as $c_1 y_1 + c_2 y_2$ with $c_1=y(x_0)$, $c_2=y'(x_0)$ → uniqueness.
+</ul>
+
+<ol>
+<li>Any solution $y$ satisfies the same IVP as $c_1 y_1 + c_2 y_2$ with $c_1=y(x_0)$, $c_2=y'(x_0)$ → uniqueness.</li>
+</ol>
 
 <hr>
 
 <h2>Reduction of Order (When One Solution is Known)</h2>
 
-<p>Given homogeneous (2) and one known nontrivial solution $y<em>1(x)$ on $I$.  
-Seek second solution of form $y</em>2 = u(x) y_1(x)$.</p>
+<p>Given homogeneous (2) and one known nontrivial solution $y_1(x)$ on $I$.<br> Seek second solution of form $y_2 = u(x) y_1(x)$.</p>
 
-<p>Substitute:
-$$
-y<em>2' = u' y</em>1 + u y<em>1', \quad y</em>2'' = u'' y<em>1 + 2 u' y</em>1' + u y<em>1''
-$$
-Plug into (2) → after simplification (using $L[y</em>1]=0$):
-$$
-u'' y<em>1 + u' (2 y</em>1' + P y<em>1) = 0
-$$
-Let $v = u'$:
-$$
-v' + \left( \frac{2 y</em>1'}{y<em>1} + P \right) v = 0
-$$
-First-order separable:
-$$
-\frac{dv}{v} = -\left( \frac{2 y</em>1'}{y<em>1} + P \right) dx
-$$
-$$
-\ln |v| = -2 \ln |y</em>1| - \int P\, dx + C
-$$
-$$
-v = \frac{C}{y<em>1^2} e^{-\int P\, dx}
-$$
-Take $C=1$:
-$$
-u = \int \frac{1}{y</em>1^2} e^{-\int P\, dx}\, dx
-$$
-$$
-y<em>2 = y</em>1 \int \frac{e^{-\int P\, dx}}{y_1^2}\, dx
-$$</p>
+<p>Substitute:</p>
 
-<strong>Example</strong>:
-$x^2 y'' + x y' - y = 0$ (or $y'' + \frac{1}{x} y' - \frac{1}{x^2} y = 0$)  
-Known: $y_1 = x$  
-$P = 1/x$  
+$$
+y_2' = u' y_1 + u y_1', \quad y_2'' = u'' y_1 + 2 u' y_1' + u y_1''
+$$
+
+<p>Plug into (2) → after simplification (using $L[y_1]=0$):</p>
+
+$$
+u'' y_1 + u' (2 y_1' + P y_1) = 0
+$$
+
+<p>Let $v = u'$:</p>
+
+$$
+v' + \left( \frac{2 y_1'}{y_1} + P \right) v = 0
+$$
+
+<p>First-order separable:</p>
+
+$$
+\frac{dv}{v} = -\left( \frac{2 y_1'}{y_1} + P \right) dx
+$$
+
+$$
+\ln |v| = -2 \ln |y_1| - \int P\, dx + C
+$$
+
+$$
+v = \frac{C}{y_1^2} e^{-\int P\, dx}
+$$
+
+<p>Take $C=1$:</p>
+
+$$
+u = \int \frac{1}{y_1^2} e^{-\int P\, dx}\, dx
+$$
+
+$$
+y_2 = y_1 \int \frac{e^{-\int P\, dx}}{y_1^2}\, dx
+$$
+
+<p><strong>Example</strong>: $x^2 y'' + x y' - y = 0$ (or $y'' + \frac{1}{x} y' - \frac{1}{x^2} y = 0$)<br> Known: $y_1 = x$<br> $P = 1/x$</p>
+
 $$
 u = \int \frac{1}{x^2} e^{-\int dx/x}\, dx = \int \frac{1}{x^2} \cdot \frac{1}{x}\, dx = \int x^{-3}\, dx = -\frac{1}{2x^2}
 $$
+
 $$
 y_2 = x \left( -\frac{1}{2x^2} \right) = -\frac{1}{2x}
 $$
-General solution: $y = c_1 x - \frac{c_2}{2x}$
+
+<p>General solution: $y = c_1 x - \frac{c_2}{2x}$</p>
 
 <hr>
 
 <h2>Homogeneous Linear ODE with Constant Coefficients</h2>
 
-<p>$$
+$$
 y'' + p y' + q y = 0 \tag{3}
 \quad (p,q \text{ constants})
-$$</p>
+$$
 
-<strong>Characteristic equation</strong>:
+<p><strong>Characteristic equation</strong>:</p>
+
 $$
 r^2 + p r + q = 0
 $$
-Roots:
+
+<p>Roots:</p>
+
 $$
 r = \frac{-p \pm \sqrt{p^2 - 4q}}{2}
 $$
 
 <h3>Case I: Two distinct real roots $r_1 \neq r_2$</h3>
-Basis: $\{e^{r_1 x}, e^{r_2 x}\}$  
-General solution:
+
+<p>Basis: $\{e^{r_1 x}, e^{r_2 x}\}$<br> General solution:</p>
+
 $$
 y = c_1 e^{r_1 x} + c_2 e^{r_2 x}
 $$
 
-<strong>Example</strong>:
-$y'' + 6y' + 5y = 0$  
-$r^2 + 6r + 5 = 0 \implies (r+5)(r+1)=0 \implies r=-5,-1$  
-$y = c_1 e^{-5x} + c_2 e^{-x}$
+<p><strong>Example</strong>: $y'' + 6y' + 5y = 0$<br> $r^2 + 6r + 5 = 0 \implies (r+5)(r+1)=0 \implies r=-5,-1$<br> $y = c_1 e^{-5x} + c_2 e^{-x}$</p>
 
 <h3>Case II: Repeated real root $r = -p/2$</h3>
-Basis: $\{e^{r x}, x e^{r x}\}$  
-General solution:
+
+<p>Basis: $\{e^{r x}, x e^{r x}\}$<br> General solution:</p>
+
 $$
 y = (c_1 + c_2 x) e^{r x}
 $$
 
-<strong>Example</strong>:
-$y'' + 6y' + 9y = 0$, $y(0)=3$, $y'(0)=1$  
-$r = -3$ (double)  
-$y = (c_1 + c_2 x) e^{-3x}$  
-$y(0)=c_1=3$  
-$y' = -3(c_1 + c_2 x)e^{-3x} + c_2 e^{-3x}$ → $y'(0) = -3c_1 + c_2 =1 \implies c_2=10$  
-$y = (3 + 10x) e^{-3x}$
+<p><strong>Example</strong>: $y'' + 6y' + 9y = 0$, $y(0)=3$, $y'(0)=1$<br> $r = -3$ (double)<br> $y = (c_1 + c_2 x) e^{-3x}$<br> $y(0)=c_1=3$<br> $y' = -3(c_1 + c_2 x)e^{-3x} + c_2 e^{-3x}$ → $y'(0) = -3c_1 + c_2 =1 \implies c_2=10$<br> $y = (3 + 10x) e^{-3x}$</p>
 
 <h3>Case III: Complex conjugate roots $\alpha \pm i\beta$</h3>
-Basis: $\{e^{\alpha x} \cos \beta x, e^{\alpha x} \sin \beta x\}$  
-General solution:
+
+<p>Basis: $\{e^{\alpha x} \cos \beta x, e^{\alpha x} \sin \beta x\}$<br> General solution:</p>
+
 $$
 y = e^{\alpha x} (c_1 \cos \beta x + c_2 \sin \beta x)
 $$
 
-<strong>Example</strong>:
-$y'' + 4y' + 13y = 0$, $y(0)=3$, $y'(0)=1$  
-$r^2 + 4r + 13=0 \implies r = -2 \pm 3i$  
-$y = e^{-2x} (c_1 \cos 3x + c_2 \sin 3x)$  
-Apply ICs → $c_1=3$, $c_2=7/3$
+<p><strong>Example</strong>: $y'' + 4y' + 13y = 0$, $y(0)=3$, $y'(0)=1$<br> $r^2 + 4r + 13=0 \implies r = -2 \pm 3i$<br> $y = e^{-2x} (c_1 \cos 3x + c_2 \sin 3x)$<br> Apply ICs → $c_1=3$, $c_2=7/3$</p>
 
 <hr>
 
 <h2>Euler-Cauchy (Equidimensional) Equations</h2>
 
-<p>Form:
+<p>Form:</p>
+
 $$
 x^2 y'' + a x y' + b y = 0 \tag{4}
 \quad (a,b \text{ constants, } x>0 \text{ or } x<0)
-$$</p>
+$$
 
-<strong>Substitution</strong> $y = x^m$:
+<p><strong>Substitution</strong> $y = x^m$:</p>
+
 $$
 m(m-1) + a m + b = 0 \quad \text{(auxiliary equation)}
 $$
 
-<strong>Solutions</strong>:
+<p><strong>Solutions</strong>:</p>
+
 <ul>
 <li>Distinct real $m_1 \neq m_2$: $y = c_1 x^{m_1} + c_2 x^{m_2}$</li>
 <li>Repeated $m$: $y = (c_1 + c_2 \ln |x|) x^m$</li>
 <li>Complex $m = \alpha \pm i\beta$: $y = |x|^\alpha [c_1 \cos(\beta \ln |x|) + c_2 \sin(\beta \ln |x|)]$</li>
 </ul>
+
 <hr>
 
 <h2>Summary of Lecture 5</h2>
+
 <ul>
 <li>Linear second-order ODEs: standard form, homogeneous vs nonhomogeneous.</li>
 <li>Superposition → general solution = $c_1 y_1 + c_2 y_2$ (linearly independent basis).</li>
@@ -337,11 +367,12 @@ $$
 <li>Constant coefficients → characteristic polynomial (3 cases).</li>
 <li>Euler-Cauchy → power substitution, auxiliary quadratic in $m$.</li>
 </ul>
-<strong>Next</strong>: Nonhomogeneous equations (undetermined coefficients, variation of parameters).
+
+<p><strong>Next</strong>: Nonhomogeneous equations (undetermined coefficients, variation of parameters).</p>
 
 <hr>
 
-<strong>Backlink to next lecture</strong> → <a href="lecture-6.html">Lecture 6 - MA104</a>
+<p><strong>Backlink to next lecture</strong> → <a href="lecture-6.html">Lecture 6 - MA104</a></p>
             </article>
             <footer class="main-footer">
                 <div class="footer-nav">

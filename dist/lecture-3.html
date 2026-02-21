@@ -92,56 +92,65 @@
             </button>
             <article class="content">
                 <h1>MA 104: Ordinary Differential Equations - Lecture 3</h1>
-<strong>Related:</strong> <a href="index.html">MA 104 Course Overview</a> | <a href="lecture-2.html">Lecture 2 - MA104</a> | <a href="lecture-4.html">Lecture 4 - MA104</a>
+
+<p><strong>Related:</strong> <a href="index.html">MA 104 Course Overview</a> | <a href="lecture-2.html">Lecture 2 - MA104</a> | <a href="lecture-4.html">Lecture 4 - MA104</a></p>
 
 <hr>
 
 <h2>1. Linear First-Order ODEs</h2>
 
-<strong>Recall</strong>  
-Explicit form: $y' = f(x,y)$
+<p><strong>Recall</strong><br> Explicit form: $y' = f(x,y)$</p>
 
-<strong>Linear</strong> if $f(x,y)$ is linear in $y$:  
-$f(x,y) = a(x)y + b(x)$
+<p><strong>Linear</strong> if $f(x,y)$ is linear in $y$:<br> $f(x,y) = a(x)y + b(x)$</p>
 
-<strong>Standard form</strong>:
+<p><strong>Standard form</strong>:</p>
+
 $$
 y' + P(x)y = Q(x) \tag{1}
 $$
 
 <h3>Simplest Case (P, Q constant)</h3>
+
 $$
 y' + py = q \quad (p \neq 0)
 $$
-Separate variables:
+
+<p>Separate variables:</p>
+
 $$
 \frac{dy}{y - q/p} = -p\, dx
 $$
+
 $$
 \ln |y - q/p| = -p x + \ln |C|
 $$
+
 $$
 y = C e^{-p x} + \frac{q}{p}
 $$
 
 <h3>General Case – Method of Integrating Factor (Leibniz)</h3>
 
-<p>Multiply (1) by $\mu(x)$ so left side becomes exact derivative:
+<p>Multiply (1) by $\mu(x)$ so left side becomes exact derivative:</p>
+
 $$
 \frac{d}{dx} [\mu(x) y] = \mu(x) Q(x)
-$$</p>
+$$
 
-<strong>How to find $\mu(x)$?</strong>  
-Require:
+<p><strong>How to find $\mu(x)$?</strong><br> Require:</p>
+
 $$
 \mu' y + \mu (P y) = \mu' y + \mu P y \quad \Rightarrow \quad \frac{\mu'}{\mu} = P(x)
 $$
+
 $$
 \ln |\mu| = \int P(x)\, dx + C_1 \quad \Rightarrow \quad \mu(x) = e^{\int P(x)\, dx}
 $$
-(We take $C_1=0$ without loss of generality.)
 
-<strong>General Solution</strong>:
+<p>(We take $C_1=0$ without loss of generality.)</p>
+
+<p><strong>General Solution</strong>:</p>
+
 $$
 y(x) = e^{-\int P\, dx} \left[ \int Q(x) e^{\int P\, dx}\, dx + C \right] \tag{2}
 $$
@@ -149,112 +158,130 @@ $$
 <hr>
 
 <h3>Example 1</h3>
+
 $$
 \frac{dy}{dx} + \frac{y}{x} = 3x \quad (x \neq 0)
 $$
-$P(x) = 1/x$, $Q(x) = 3x$  
-$\int P\, dx = \ln |x|$ → $\mu(x) = x$
 
-<p>Multiply:
+<p>$P(x) = 1/x$, $Q(x) = 3x$<br> $\int P\, dx = \ln |x|$ → $\mu(x) = x$</p>
+
+<p>Multiply:</p>
+
 $$
 x y' + y = 3x^2 \quad \Rightarrow \quad \frac{d}{dx}(x y) = 3x^2
 $$
+
 $$
 x y = x^3 + C \quad \Rightarrow \quad \boxed{y = x^2 + \frac{C}{x}}
-$$</p>
+$$
 
 <hr>
 
 <h3>Example 2 (IVP)</h3>
+
 $$
 y' + (\tan x) y = \sin 2x, \quad y(0)=1
 $$
-$P = \tan x$, $Q = \sin 2x$  
-$\int P\, dx = -\ln|\cos x|$ → $\mu(x) = \sec x$
 
-<p>Multiply:
+<p>$P = \tan x$, $Q = \sin 2x$<br> $\int P\, dx = -\ln|\cos x|$ → $\mu(x) = \sec x$</p>
+
+<p>Multiply:</p>
+
 $$
 \sec x\, y' + \sec x \tan x\, y = \sec x \sin 2x
 $$
+
 $$
 \frac{d}{dx}(\sec x\, y) = 2 \sin x
 $$
+
 $$
 \sec x\, y = -2 \cos x + C
 $$
+
 $$
 y = -2 \cos^2 x + C \cos x
 $$
-Apply $y(0)=1$:
+
+<p>Apply $y(0)=1$:</p>
+
 $$
 1 = -2(1) + C(1) \quad \Rightarrow \quad C=3
 $$
+
 $$
 \boxed{y(x) = 3\cos x - 2\cos^2 x}
-$$</p>
+$$
 
 <hr>
 
 <h2>2. Bernoulli Equation</h2>
 
-<strong>Form</strong>:
+<p><strong>Form</strong>:</p>
+
 $$
 y' + \alpha(x) y = R(x) y^\beta \tag{3}
 \quad (\beta \neq 0,1)
 $$
 
-<strong>Note</strong>: When $\beta=0$ or $1$ → already linear.
+<p><strong>Note</strong>: When $\beta=0$ or $1$ → already linear.</p>
 
-<strong>Transformation</strong>: Let $u = y^{1-\beta}$  
-Then $u' = (1-\beta) y^{-\beta} y'$
+<p><strong>Transformation</strong>: Let $u = y^{1-\beta}$<br> Then $u' = (1-\beta) y^{-\beta} y'$</p>
 
-<p>Substitute into (3) → linear ODE in $u$:
+<p>Substitute into (3) → linear ODE in $u$:</p>
+
 $$
 u' + (1-\beta)\alpha(x) u = (1-\beta) R(x)
-$$</p>
+$$
 
 <hr>
 
 <h3>Example: Logistic Equation</h3>
+
 $$
 y' = A y - B y^2 \quad (A,B>0)
 $$
-Here $\beta=2$, $\alpha(x)=-A$, $R(x)=-B$  
-Let $u = y^{-1} = 1/y$ → $u' = -y^{-2} y'$
 
-<p>$$
+<p>Here $\beta=2$, $\alpha(x)=-A$, $R(x)=-B$<br> Let $u = y^{-1} = 1/y$ → $u' = -y^{-2} y'$</p>
+
+$$
 u' = - \frac{1}{y^2} (A y - B y^2) = -A u + B
 $$
+
 $$
 u' + A u = B
 $$
-Integrating factor $e^{A x}$:
+
+<p>Integrating factor $e^{A x}$:</p>
+
 $$
 u = \frac{B}{A} + C e^{-A x}
 $$
+
 $$
 y = \frac{1}{\frac{B}{A} + C e^{-A x}} = \frac{A}{B + C A e^{-A x}}
-$$</p>
+$$
 
 <hr>
 
 <h2>3. Existence and Uniqueness Theorems for 1st-Order IVP</h2>
 
-<strong>IVP</strong>:
+<p><strong>IVP</strong>:</p>
+
 $$
 y' = f(x,y), \quad y(x_0)=y_0 \tag{4}
 $$
 
 <h3>Existence Theorem</h3>
-If $f(x,y)$ is <strong>continuous</strong> and <strong>bounded</strong> ($|f| \leq K$) in rectangle  
-$D: |x-x_0| < a$, $|y-y_0| < b$,  
-then (4) has <strong>at least one</strong> solution on $|x-x_0| < \alpha$ where $\alpha = \min\{a, b/K\}$.
+
+<p>If $f(x,y)$ is <strong>continuous</strong> and <strong>bounded</strong> ($|f| \leq K$) in rectangle<br> $D: |x-x_0| < a$, $|y-y_0| < b$,<br> then (4) has <strong>at least one</strong> solution on $|x-x_0| < \alpha$ where $\alpha = \min\{a, b/K\}$.</p>
 
 <h3>Uniqueness Theorem (Picard-Lindelöf)</h3>
-If additionally $\partial f/\partial y$ is <strong>continuous</strong> and <strong>bounded</strong> ($|\partial f/\partial y| \leq M$) in $D$,  
-then (4) has <strong>at most one</strong> solution (hence <strong>exactly one</strong> by existence).
 
-<strong>Equivalent (weaker) condition</strong>: $f$ satisfies <strong>Lipschitz condition</strong> in $y$:
+<p>If additionally $\partial f/\partial y$ is <strong>continuous</strong> and <strong>bounded</strong> ($|\partial f/\partial y| \leq M$) in $D$,<br> then (4) has <strong>at most one</strong> solution (hence <strong>exactly one</strong> by existence).</p>
+
+<p><strong>Equivalent (weaker) condition</strong>: $f$ satisfies <strong>Lipschitz condition</strong> in $y$:</p>
+
 $$
 |f(x,y_1)-f(x,y_2)| \leq L |y_1-y_2|
 $$
@@ -262,62 +289,62 @@ $$
 <hr>
 
 <h3>Special Case: Linear ODE</h3>
-For $y' + P(x)y = Q(x)$, if $P,Q$ continuous on $|x-x_0|<a$, then <strong>unique</strong> solution on that interval.
+
+<p>For $y' + P(x)y = Q(x)$, if $P,Q$ continuous on $|x-x_0|<a$, then <strong>unique</strong> solution on that interval.</p>
 
 <hr>
 
 <h3>Illustrative Examples</h3>
 
-<strong>Ex 1</strong>: $y' = x^2 + y^2$, $y(1)=3$  
-$f$ and $\partial f/\partial y = 2y$ continuous everywhere → unique solution exists.
+<p><strong>Ex 1</strong>: $y' = x^2 + y^2$, $y(1)=3$<br> $f$ and $\partial f/\partial y = 2y$ continuous everywhere → unique solution exists.</p>
 
-<strong>Ex 2</strong>: $y' = \frac{x+y}{x-y}$, $y(x_0)=y_0$ with $x_0 \neq y_0$  
-$\partial f/\partial y$ blows up on $x=y$ → but unique in rectangle not crossing $x=y$.
+<p><strong>Ex 2</strong>: $y' = \frac{x+y}{x-y}$, $y(x_0)=y_0$ with $x_0 \neq y_0$<br> $\partial f/\partial y$ blows up on $x=y$ → but unique in rectangle not crossing $x=y$.</p>
 
-<strong>Ex 3</strong>: $y' = \frac13 x y^{2/5}$, $y(0)=-1$  
-Solution $y = (x^2 -1)^{5/3}$ valid on $\mathbb{R}$.  
-But on intervals crossing $|x|=1$, piecewise definitions show non-uniqueness outside $(-1,1)$.
+<p><strong>Ex 3</strong>: $y' = \frac13 x y^{2/5}$, $y(0)=-1$<br> Solution $y = (x^2 -1)^{5/3}$ valid on $\mathbb{R}$.<br> But on intervals crossing $|x|=1$, piecewise definitions show non-uniqueness outside $(-1,1)$.</p>
 
-<strong>Counterexample to uniqueness (only continuity)</strong>:
+<p><strong>Counterexample to uniqueness (only continuity)</strong>:</p>
+
 $$
 y' = \sqrt{|y|}, \quad y(0)=0
 $$
-Two solutions: $y\equiv 0$ and $y = \begin{cases} x^2/4 & x\geq0 \\ -x^2/4 & x<0 \end{cases}$
+
+<p>Two solutions: $y\equiv 0$ and $y = \begin{cases} x^2/4 & x\geq0 \\ -x^2/4 & x<0 \end{cases}$</p>
 
 <hr>
 
 <h2>4. Orthogonal Trajectories</h2>
 
-<strong>Definition</strong>: A family of curves that intersect a given family <strong>at right angles</strong> everywhere.
+<p><strong>Definition</strong>: A family of curves that intersect a given family <strong>at right angles</strong> everywhere.</p>
 
-<strong>Angle of intersection</strong> = angle between tangents at intersection point.
+<p><strong>Angle of intersection</strong> = angle between tangents at intersection point.</p>
 
-<strong>Method</strong> (for one-parameter family $F(x,y,c)=0$):
+<p><strong>Method</strong> (for one-parameter family $F(x,y,c)=0$):</p>
+
 <ol>
 <li>Differentiate w.r.t. $x$: $G(x,y,y',c)=0$</li>
 <li>Eliminate $c$ → ODE $y' = f(x,y)$ for given family.</li>
 <li>Orthogonal family satisfies $y' = -1/f(x,y)$</li>
 <li>Solve the new ODE.</li>
 </ol>
+
 <hr>
 
 <h3>Example 1: Family of circles $x^2 + y^2 = c$</h3>
-Differentiate: $2x + 2y y' = 0 \implies y' = -x/y$  
-Orthogonal: $y' = y/x$ → $y = k x$ (lines through origin).
 
-<strong>Visualization</strong>: Circles centered at origin ⊥ radial lines.
+<p>Differentiate: $2x + 2y y' = 0 \implies y' = -x/y$<br> Orthogonal: $y' = y/x$ → $y = k x$ (lines through origin).</p>
+
+<p><strong>Visualization</strong>: Circles centered at origin ⊥ radial lines.</p>
 
 <hr>
 
 <h3>Example 2: Family of ellipses $\frac12 x^2 + y^2 = c$ ($c>0$)</h3>
-Differentiate: $x + 2 y y' = 0 \implies y' = -x/(2y)$  
-Orthogonal: $y' = 2y/x$  
-Separate: $\frac{dy}{y} = 2 \frac{dx}{x}$ → $\ln|y| = 2\ln|x| + \ln k$  
-$\boxed{y^2 = k x^2}$? Wait, correction in notes: actually $y^2 = c x$ (parabolas).
+
+<p>Differentiate: $x + 2 y y' = 0 \implies y' = -x/(2y)$<br> Orthogonal: $y' = 2y/x$<br> Separate: $\frac{dy}{y} = 2 \frac{dx}{x}$ → $\ln|y| = 2\ln|x| + \ln k$<br> $\boxed{y^2 = k x^2}$? Wait, correction in notes: actually $y^2 = c x$ (parabolas).</p>
 
 <hr>
 
 <h2>Summary of Lecture 3</h2>
+
 <ul>
 <li><strong>Linear 1st-order</strong>: Always solvable via integrating factor $\mu = e^{\int P\,dx}$.</li>
 <li><strong>Bernoulli</strong>: Reduce to linear via $u=y^{1-\beta}$.</li>
@@ -325,11 +352,12 @@ $\boxed{y^2 = k x^2}$? Wait, correction in notes: actually $y^2 = c x$ (parabola
 <li><strong>Linear case</strong>: Guaranteed unique solution when coefficients continuous.</li>
 <li><strong>Orthogonal Trajectories</strong>: Practical application of ODEs – replace slope by negative reciprocal.</li>
 </ul>
-<strong>Key Takeaway</strong>: These tools solve most first-order ODEs encountered in applications (growth, circuits, mixing, trajectories).
+
+<p><strong>Key Takeaway</strong>: These tools solve most first-order ODEs encountered in applications (growth, circuits, mixing, trajectories).</p>
 
 <hr>
 
-<strong>Backlink to next lecture</strong> → <a href="lecture-4.html">Lecture 4 - MA104</a>
+<p><strong>Backlink to next lecture</strong> → <a href="lecture-4.html">Lecture 4 - MA104</a></p>
             </article>
             <footer class="main-footer">
                 <div class="footer-nav">

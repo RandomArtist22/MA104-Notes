@@ -93,59 +93,69 @@
             <article class="content">
                 <h1>MA 104: Ordinary Differential Equations - Lecture 11</h1>
 
-<strong>Related:</strong> <a href="index.html">MA 104 Course Overview</a> | <a href="lecture-9-10-ma104.html">Lecture 9 & 10 - MA104</a> | <a href="lecture-12.html">Lecture 12 - MA104</a>
+<p><strong>Related:</strong> <a href="index.html">MA 104 Course Overview</a> | <a href="lecture-9-10-ma104.html">Lecture 9 & 10 - MA104</a> | <a href="lecture-12.html">Lecture 12 - MA104</a></p>
 
 <hr>
 
 <h2>Solving ODEs Using Laplace Transform</h2>
 
-<strong>Three-Step Process</strong>:
+<p><strong>Three-Step Process</strong>:</p>
+
 <ol>
 <li>Transform the ODE (and initial conditions) into an <strong>algebraic equation</strong> (subsidiary equation).</li>
 <li>Solve the algebraic equation by pure algebra.</li>
 <li>Invert the solution back to the time domain.</li>
 </ol>
-<strong>Key Advantages</strong>:
+
+<p><strong>Key Advantages</strong>:</p>
+
 <ul>
 <li>Solves IVPs directly without finding the general solution first.</li>
 <li>Handles non-homogeneous terms without solving the homogeneous equation separately.</li>
 </ul>
+
 <hr>
 
 <h2>Definition of Laplace Transform</h2>
 
-<p>Let $f(t)$ be defined for $t \geq 0$. The <strong>Laplace transform</strong> of $f$, denoted $\mathcal{L}\{f(t)\}$ or $F(s)$, is
+<p>Let $f(t)$ be defined for $t \geq 0$. The <strong>Laplace transform</strong> of $f$, denoted $\mathcal{L}\{f(t)\}$ or $F(s)$, is</p>
+
 $$
 \mathcal{L}\{f(t)\}(s) = \int_0^\infty e^{-st} f(t)\, dt
 $$
-whenever the improper integral converges.</p>
 
-<strong>Convergence</strong>:
+<p>whenever the improper integral converges.</p>
+
+<p><strong>Convergence</strong>:</p>
+
 <ul>
 <li>The integral converges for $s > \alpha$ if $f$ satisfies suitable growth conditions.</li>
 </ul>
+
 <hr>
 
 <h2>Existence Theorem</h2>
 
-<strong>Theorem</strong>:  
-If $f(t)$ is <strong>piecewise continuous</strong> on $[0,\infty)$ and of <strong>exponential order</strong> $\alpha$ (i.e., $\exists M>0$ such that $|f(t)| \leq M e^{\alpha t}$ for $t \geq t_0$), then $\mathcal{L}\{f(t)\}$ exists for all $s > \alpha$.
+<p><strong>Theorem</strong>:<br> If $f(t)$ is <strong>piecewise continuous</strong> on $[0,\infty)$ and of <strong>exponential order</strong> $\alpha$ (i.e., $\exists M>0$ such that $|f(t)| \leq M e^{\alpha t}$ for $t \geq t_0$), then $\mathcal{L}\{f(t)\}$ exists for all $s > \alpha$.</p>
 
-<strong>Proof sketch</strong> (using comparison test):
-Split integral at $t_0$. First part finite (piecewise continuous). Second part bounded by $\int e^{-(s-\alpha)t} M\, dt < \infty$ when $s > \alpha$.
+<p><strong>Proof sketch</strong> (using comparison test): Split integral at $t_0$. First part finite (piecewise continuous). Second part bounded by $\int e^{-(s-\alpha)t} M\, dt < \infty$ when $s > \alpha$.</p>
 
-<strong>Piecewise continuous</strong> on $[a,b]$:
+<p><strong>Piecewise continuous</strong> on $[a,b]$:</p>
+
 <ul>
 <li>Finite number of discontinuities.</li>
 <li>Left and right limits exist and are finite at each discontinuity.</li>
 </ul>
-<strong>Exponential order</strong> examples:
+
+<p><strong>Exponential order</strong> examples:</p>
+
 <ul>
 <li>Bounded functions ($\alpha=0$).</li>
 <li>$t^n$ ($\alpha>0$ arbitrary).</li>
 <li>$\sin \omega t$, $\cos \omega t$ ($\alpha>0$).</li>
 <li>Counterexample: $e^{t^2}$ (not of exponential order).</li>
 </ul>
+
 <hr>
 
 <h2>Elementary Laplace Transforms</h2>
@@ -171,39 +181,44 @@ Split integral at $t_0$. First part finite (piecewise continuous). Second part b
 
 <h2>First Shifting Theorem</h2>
 
-<p>If $\mathcal{L}\{f(t)\}(s) = F(s)$ for $s > \alpha$, then for any $a \in \mathbb{R}$,
+<p>If $\mathcal{L}\{f(t)\}(s) = F(s)$ for $s > \alpha$, then for any $a \in \mathbb{R}$,</p>
+
 $$
 \mathcal{L}\{e^{at} f(t)\}(s) = F(s - a) \quad (s > \alpha + a)
-$$</p>
+$$
 
-<strong>Proof</strong>:
+<p><strong>Proof</strong>:</p>
+
 $$
 \int_0^\infty e^{-st} e^{at} f(t)\, dt = \int_0^\infty e^{-(s-a)t} f(t)\, dt = F(s-a)
 $$
 
-<strong>Examples</strong>:
+<p><strong>Examples</strong>:</p>
+
 <ul>
 <li>$\mathcal{L}\{e^{at}\} = 1/(s-a)$</li>
 <li>$\mathcal{L}\{e^{at} \sin \omega t\} = \omega/[(s-a)^2 + \omega^2]$</li>
 </ul>
+
 <hr>
 
 <h2>Inverse Laplace Transform</h2>
 
 <p>$\mathcal{L}^{-1}\{F(s)\}(t) = f(t)$ where $\mathcal{L}\{f(t)\} = F(s)$.</p>
 
-<strong>Linearity</strong>:
+<p><strong>Linearity</strong>:</p>
+
 $$
 \mathcal{L}^{-1}\{c_1 F_1(s) + c_2 F_2(s)\} = c_1 \mathcal{L}^{-1}\{F_1(s)\} + c_2 \mathcal{L}^{-1}\{F_2(s)\}
 $$
 
-<strong>Shifting</strong>:
+<p><strong>Shifting</strong>:</p>
+
 $$
 \mathcal{L}^{-1}\{F(s-a)\}(t) = e^{at} \mathcal{L}^{-1}\{F(s)\}(t)
 $$
 
-<strong>Uniqueness</strong> (for continuous functions):
-If $f,g$ are continuous and $\mathcal{L}\{f\} = \mathcal{L}\{g\}$ for $s > \alpha$, then $f(t) = g(t)$ for all $t \geq 0$.
+<p><strong>Uniqueness</strong> (for continuous functions): If $f,g$ are continuous and $\mathcal{L}\{f\} = \mathcal{L}\{g\}$ for $s > \alpha$, then $f(t) = g(t)$ for all $t \geq 0$.</p>
 
 <hr>
 
@@ -211,15 +226,18 @@ If $f,g$ are continuous and $\mathcal{L}\{f\} = \mathcal{L}\{g\}$ for $s > \alph
 
 <p>When $F(s) = P(s)/Q(s)$ with $\deg P < \deg Q$, decompose into partial fractions.</p>
 
-<strong>Example</strong>:
+<p><strong>Example</strong>:</p>
+
 $$
 F(s) = \frac{6 + (s+1)(s^2 - 5s + 11)}{(s-1)(s-2)(s-3)}
 $$
-Partial fractions → inverse term-by-term.
+
+<p>Partial fractions → inverse term-by-term.</p>
 
 <hr>
 
 <h2>Summary of Lecture 11</h2>
+
 <ul>
 <li><strong>Laplace transform</strong> converts ODEs/IVPs into algebraic equations.</li>
 <li><strong>Existence</strong>: Piecewise continuous + exponential order → transform exists for large $s$.</li>
@@ -227,11 +245,12 @@ Partial fractions → inverse term-by-term.
 <li><strong>Inverse transform</strong>: Linear, shifting, partial fractions (Heaviside) for rationals.</li>
 <li><strong>Uniqueness</strong> for continuous functions.</li>
 </ul>
-<strong>Motivation</strong>: Transforms differential equations into algebra — ideal for linear constant-coefficient IVPs with discontinuous or exponential forcing.
+
+<p><strong>Motivation</strong>: Transforms differential equations into algebra — ideal for linear constant-coefficient IVPs with discontinuous or exponential forcing.</p>
 
 <hr>
 
-<strong>Backlink to next lecture</strong> → <a href="lecture-12.html">Lecture 12 - MA104</a>
+<p><strong>Backlink to next lecture</strong> → <a href="lecture-12.html">Lecture 12 - MA104</a></p>
             </article>
             <footer class="main-footer">
                 <div class="footer-nav">

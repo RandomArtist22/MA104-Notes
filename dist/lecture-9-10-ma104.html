@@ -92,72 +92,89 @@
             </button>
             <article class="content">
                 <h1>MA 104: Ordinary Differential Equations - Lectures 9 & 10 (Combined)</h1>
-<strong>Related:</strong> <a href="index.html">MA 104 Course Overview</a> | <a href="lecture-8.html">Lecture 8 - MA104</a> | <a href="lecture-11.html">Lecture 11 - MA104</a>
+
+<p><strong>Related:</strong> <a href="index.html">MA 104 Course Overview</a> | <a href="lecture-8.html">Lecture 8 - MA104</a> | <a href="lecture-11.html">Lecture 11 - MA104</a></p>
 
 <hr>
 
 <h2>Power Series Solutions about the Initial Point</h2>
 
-<p>If initial conditions are given at $x = x<em>0$ (where $P(x)$ and $Q(x)$ are analytic), seek solution  
+<p>If initial conditions are given at $x = x_0$ (where $P(x)$ and $Q(x)$ are analytic), seek solution</p>
+
 $$
-y(x) = \sum</em>{k=0}^\infty a<em>k (x - x</em>0)^k
+y(x) = \sum_{k=0}^\infty a_k (x - x_0)^k
 $$
+
 <ul>
 <li>Or shift variable $\tilde{x} = x - x_0$ and solve about $\tilde{x}=0$.</li>
 </ul>
-<hr></p>
+
+<hr>
 
 <h2>Legendre’s Equation & Legendre Polynomials</h2>
 
-<strong>Legendre’s equation</strong> (parameter $\alpha \in \mathbb{R}$):
+<p><strong>Legendre’s equation</strong> (parameter $\alpha \in \mathbb{R}$):</p>
+
 $$
 (1 - x^2)y'' - 2x y' + \alpha(\alpha + 1)y = 0 \tag{1}
 $$
-or equivalently  
+
+<p>or equivalently</p>
+
 $$
 [(1 - x^2)y']' = -\alpha(\alpha + 1)y
 $$
 
-<strong>Power series solution</strong> about $x=0$ (analytic coefficients):
-Assume $y(x) = \sum_{n=0}^\infty a_n x^n$.  
-Recurrence:
+<p><strong>Power series solution</strong> about $x=0$ (analytic coefficients): Assume $y(x) = \sum_{n=0}^\infty a_n x^n$.<br> Recurrence:</p>
+
 $$
 a_{n+2} = -\frac{(\alpha - n)(\alpha + n + 1)}{(n+1)(n+2)} a_n, \quad n=0,1,2,\dots
 $$
 
-<strong>Two independent solutions</strong>:
+<p><strong>Two independent solutions</strong>:</p>
+
 $$
 y_1(x) = 1 - \frac{\alpha(\alpha+1)}{2!}x^2 + \frac{(\alpha-2)\alpha(\alpha+1)(\alpha+3)}{4!}x^4 - \cdots
 $$
+
 $$
 y_2(x) = x - \frac{(\alpha-1)(\alpha+2)}{3!}x^3 + \frac{(\alpha-1)(\alpha-3)(\alpha+2)(\alpha+4)}{5!}x^5 - \cdots
 $$
-Both converge for $|x| < 1$.
 
-<strong>Legendre polynomials</strong> $P_\alpha(x)$:
+<p>Both converge for $|x| < 1$.</p>
+
+<p><strong>Legendre polynomials</strong> $P_\alpha(x)$:</p>
+
 <ul>
 <li>When $\alpha = n \in \mathbb{N}_0$, one solution terminates → polynomial of degree $n$.</li>
 <li>Normalize so $P_n(1) = 1$.</li>
 </ul>
-<strong>Rodrigues’ formula</strong>:
+
+<p><strong>Rodrigues’ formula</strong>:</p>
+
 $$
 P_n(x) = \frac{1}{2^n n!} \frac{d^n}{dx^n} (x^2 - 1)^n
 $$
 
-<strong>Explicit forms</strong>:
+<p><strong>Explicit forms</strong>:</p>
+
 <ul>
 <li>$P_0(x) = 1$</li>
 <li>$P_1(x) = x$</li>
 <li>$P_2(x) = \frac12(3x^2 - 1)$</li>
 <li>$P_3(x) = \frac12(5x^3 - 3x)$</li>
 </ul>
-<strong>Orthogonality</strong> on $[-1,1]$:
+
+<p><strong>Orthogonality</strong> on $[-1,1]$:</p>
+
 $$
 \int_{-1}^1 P_m(x) P_n(x)\, dx = 0 \quad (m \neq n), \quad \int_{-1}^1 [P_n(x)]^2\, dx = \frac{2}{2n+1}
 $$
-$\{P_n(x)\}_{n=0}^\infty$ forms an orthogonal basis for polynomials on $[-1,1]$.
 
-<strong>Expansion</strong>: Any polynomial $f(x)$ of degree $\leq n$:
+<p>$\{P_n(x)\}_{n=0}^\infty$ forms an orthogonal basis for polynomials on $[-1,1]$.</p>
+
+<p><strong>Expansion</strong>: Any polynomial $f(x)$ of degree $\leq n$:</p>
+
 $$
 f(x) = \sum_{k=0}^n a_k P_k(x), \quad a_k = \frac{2k+1}{2} \int_{-1}^1 f(x) P_k(x)\, dx
 $$
@@ -166,47 +183,56 @@ $$
 
 <h2>Frobenius Method (Extended Power Series)</h2>
 
-<p>For equations with regular singular point at $x=0$:
+<p>For equations with regular singular point at $x=0$:</p>
+
 $$
 x^2 y'' + x b(x) y' + c(x) y = 0 \tag{2}
 $$
-where $b(x), c(x)$ analytic at $x=0$ (i.e., $b(x) = \sum b<em>m x^m$, $c(x) = \sum c</em>m x^m$).</p>
 
-<strong>Indicial equation</strong> (from lowest power $x^r$):
+<p>where $b(x), c(x)$ analytic at $x=0$ (i.e., $b(x) = \sum b_m x^m$, $c(x) = \sum c_m x^m$).</p>
+
+<p><strong>Indicial equation</strong> (from lowest power $x^r$):</p>
+
 $$
 I(r) = r(r-1) + b_0 r + c_0 = 0
 $$
 
-<strong>Frobenius solution</strong>:
+<p><strong>Frobenius solution</strong>:</p>
+
 $$
 y(x) = x^r \sum_{m=0}^\infty a_m x^m \quad (a_0 \neq 0)
 $$
 
-<strong>Recurrence</strong> (for $n \geq 1$):
+<p><strong>Recurrence</strong> (for $n \geq 1$):</p>
+
 $$
 I(r+n) a_n + \sum_{k=0}^{n-1} [ (r+k) b_{n-k} + c_{n-k} ] a_k = 0
 $$
 
-<strong>Three cases</strong> (roots $r_1 \geq r_2$):
+<p><strong>Three cases</strong> (roots $r_1 \geq r_2$):</p>
 
-<strong>Case 1</strong>: $r_1 - r_2 \notin \mathbb{Z}$ (distinct, not differing by integer)  
-Two independent solutions:
+<p><strong>Case 1</strong>: $r_1 - r_2 \notin \mathbb{Z}$ (distinct, not differing by integer)<br> Two independent solutions:</p>
+
 $$
 y_1(x) = x^{r_1} \sum a_m(r_1) x^m, \quad y_2(x) = x^{r_2} \sum A_m(r_2) x^m
 $$
 
-<strong>Case 2</strong>: $r_1 = r_2 = r$ (repeated root)  
+<p><strong>Case 2</strong>: $r_1 = r_2 = r$ (repeated root)</p>
+
 $$
 y_1(x) = x^r \sum a_m x^m
 $$
+
 $$
 y_2(x) = y_1(x) \ln x + x^r \sum A_m x^m \quad (x>0)
 $$
 
-<strong>Case 3</strong>: $r_1 - r_2 = N \in \mathbb{N}$ (differ by positive integer)  
+<p><strong>Case 3</strong>: $r_1 - r_2 = N \in \mathbb{N}$ (differ by positive integer)</p>
+
 $$
 y_1(x) = x^{r_1} \sum a_m x^m
 $$
+
 $$
 y_2(x) = k y_1(x) \ln x + x^{r_2} \sum A_m x^m \quad (k \text{ may be } 0)
 $$
@@ -215,48 +241,58 @@ $$
 
 <h2>Bessel’s Equation & Bessel Functions</h2>
 
-<strong>Bessel’s equation</strong> (order $\nu \geq 0$):
+<p><strong>Bessel’s equation</strong> (order $\nu \geq 0$):</p>
+
 $$
 x^2 y'' + x y' + (x^2 - \nu^2) y = 0 \tag{3}
 $$
-or
+
+<p>or</p>
+
 $$
 y'' + \frac{1}{x} y' + \left(1 - \frac{\nu^2}{x^2}\right) y = 0
 $$
 
-<strong>Indicial equation</strong>: $r^2 - \nu^2 = 0 \implies r = \pm \nu$
+<p><strong>Indicial equation</strong>: $r^2 - \nu^2 = 0 \implies r = \pm \nu$</p>
 
-<strong>Bessel function of first kind</strong> (order $n$ integer):
+<p><strong>Bessel function of first kind</strong> (order $n$ integer):</p>
+
 $$
 J_n(x) = \sum_{m=0}^\infty \frac{(-1)^m}{m! (n+m)!} \left(\frac{x}{2}\right)^{n+2m}
 $$
 
-<strong>General solution</strong> (for integer $n$):
+<p><strong>General solution</strong> (for integer $n$):</p>
+
 $$
 y(x) = c_1 J_n(x) + c_2 Y_n(x)
 $$
-where $Y_n(x)$ is the Bessel function of the second kind (involves $\ln x$).
+
+<p>where $Y_n(x)$ is the Bessel function of the second kind (involves $\ln x$).</p>
 
 <hr>
 
 <h2>Summary of Lectures 9 & 10</h2>
+
 <ul>
 <li><strong>Power series about arbitrary point</strong>: Shift variable or expand directly in $(x-x_0)$.</li>
 <li><strong>Legendre equation</strong>: Power series → Legendre polynomials $P_n(x)$ via termination; Rodrigues formula; orthogonal on $[-1,1]$.</li>
 <li><strong>Frobenius method</strong>: Handles regular singular points; indicial equation determines leading exponent $r$; three cases for second solution.</li>
 <li><strong>Bessel equation</strong>: Classic singular-point ODE; solutions $J_\nu(x)$ (first kind) and $Y_\nu(x)$ (second kind).</li>
 </ul>
-<strong>Key Formulas</strong>:
+
+<p><strong>Key Formulas</strong>:</p>
+
 <ul>
 <li>Legendre: $P_n(x) = \frac{1}{2^n n!} \frac{d^n}{dx^n}(x^2-1)^n$</li>
 <li>Frobenius recurrence: $I(r+n)a_n + \sum \dots = 0$</li>
 <li>Bessel $J_n(x)$ series as above.</li>
 </ul>
-<strong>Next</strong>: Applications of special functions, Sturm-Liouville theory, or systems of ODEs.
+
+<p><strong>Next</strong>: Applications of special functions, Sturm-Liouville theory, or systems of ODEs.</p>
 
 <hr>
 
-<strong>Backlink to next lecture</strong> → <a href="lecture-11.html">Lecture 11 - MA104</a>
+<p><strong>Backlink to next lecture</strong> → <a href="lecture-11.html">Lecture 11 - MA104</a></p>
             </article>
             <footer class="main-footer">
                 <div class="footer-nav">

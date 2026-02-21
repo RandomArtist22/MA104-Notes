@@ -92,94 +92,118 @@
             </button>
             <article class="content">
                 <h1>MA 104: Ordinary Differential Equations - Lecture 8</h1>
-<strong>Related:</strong> <a href="index.html">MA 104 Course Overview</a> | <a href="lecture-7.html">Lecture 7 - MA104</a> | <a href="lecture-9-10-ma104.html">Lecture 9 & 10 - MA104</a>
+
+<p><strong>Related:</strong> <a href="index.html">MA 104 Course Overview</a> | <a href="lecture-7.html">Lecture 7 - MA104</a> | <a href="lecture-9-10-ma104.html">Lecture 9 & 10 - MA104</a></p>
 
 <hr>
 
 <h2>Review of Power Series</h2>
 
-<p>A <strong>power series</strong> centered at $x<em>0$ is  
-$$
-\sum</em>{m=0}^\infty a<em>m (x - x</em>0)^m = a<em>0 + a</em>1(x-x<em>0) + a</em>2(x-x<em>0)^2 + \cdots
-$$
-<ul>
-<li>$a</em>m$ are the <strong>coefficients</strong>.</li>
-<li>$x<em>0$ is the <strong>center</strong>.</li>
-</ul>
-The series <strong>converges</strong> at a point $x$ if the sequence of partial sums  
-$$
-S</em>N(x) = \sum<em>{m=0}^N a</em>m (x-x<em>0)^m
-$$
-converges (i.e., $\lim</em>{N\to\infty} S<em>N(x)$ exists).
-<ul>
-<li>Always converges at the center $x = x</em>0$.</li>
-</ul>
-<strong>Absolute convergence</strong> at $x$:  
-$$
-\sum<em>{m=0}^\infty |a</em>m| |x-x_0|^m \quad \text{converges}
-$$
-→ implies ordinary convergence.</p>
+<p>A <strong>power series</strong> centered at $x_0$ is</p>
 
-<strong>Radius of Convergence $R$</strong>:
+$$
+\sum_{m=0}^\infty a_m (x - x_0)^m = a_0 + a_1(x-x_0) + a_2(x-x_0)^2 + \cdots
+$$
+
+<ul>
+<li>$a_m$ are the <strong>coefficients</strong>.</li>
+<li>$x_0$ is the <strong>center</strong>.</li>
+</ul>
+
+<p>The series <strong>converges</strong> at a point $x$ if the sequence of partial sums</p>
+
+$$
+S_N(x) = \sum_{m=0}^N a_m (x-x_0)^m
+$$
+
+<p>converges (i.e., $\lim_{N\to\infty} S_N(x)$ exists).</p>
+
+<ul>
+<li>Always converges at the center $x = x_0$.</li>
+</ul>
+
+<p><strong>Absolute convergence</strong> at $x$:</p>
+
+$$
+\sum_{m=0}^\infty |a_m| |x-x_0|^m \quad \text{converges}
+$$
+
+<p>→ implies ordinary convergence.</p>
+
+<p><strong>Radius of Convergence $R$</strong>:</p>
+
 <ul>
 <li>If the series converges at $x_1 \neq x_0$, it converges <strong>absolutely</strong> for $|x-x_0| < |x_1-x_0|$.</li>
 <li>If it diverges at $x_1$, it diverges for $|x-x_0| > |x_1-x_0|$.</li>
 <li>There exists $R \geq 0$ (or $\infty$) such that the series converges for $|x-x_0| < R$ and diverges for $|x-x_0| > R$.</li>
 <li>The interval $|x-x_0| < R$ is the <strong>interval of convergence</strong> (endpoints must be checked separately).</li>
 </ul>
+
 <hr>
 
 <h2>Tests for Radius of Convergence</h2>
 
-<strong>Root Test</strong>:
+<p><strong>Root Test</strong>:</p>
+
 $$
 c = \limsup_{n\to\infty} \sqrt[n]{|a_n|} \quad \Rightarrow \quad R = \frac{1}{c}
 $$
+
 <ul>
 <li>Converges if $c |x-x_0| < 1$, diverges if $>1$.</li>
 </ul>
-<strong>Ratio Test</strong> (often easier):
+
+<p><strong>Ratio Test</strong> (often easier):</p>
+
 $$
 L = \lim_{n\to\infty} \left| \frac{a_{n+1}}{a_n} \right| \quad \Rightarrow \quad R = \frac{1}{L}
 $$
-(if limit exists).
 
-<strong>Examples</strong>:
+<p>(if limit exists).</p>
+
+<p><strong>Examples</strong>:</p>
+
 <ol>
-<li>$\sum (-1)^n (x-2)^n$</li>
-</ol>   $R=1$ → converges for $1 < x < 3$.
-<ol>
-<li>$\sum (-1)^n \frac{x^{2n}}{n^2 2^n}$</li>
-</ol>   $R=\sqrt{2}$ (use ratio or root).
+<li>$\sum (-1)^n (x-2)^n$ $R=1$ → converges for $1 < x < 3$.</li>
+<li>$\sum (-1)^n \frac{x^{2n}}{n^2 2^n}$ $R=\sqrt{2}$ (use ratio or root).</li>
+</ol>
 
 <hr>
 
 <h2>Differentiation & Integration of Power Series</h2>
 
-<p>If $\sum a<em>m (x-x</em>0)^m = f(x)$ for $|x-x<em>0| < R$ ($R>0$), then:
-<ul>
-<li>$f$ is <strong>continuous</strong> and <strong>infinitely differentiable</strong> on $|x-x</em>0| < R$.</li>
-<li>Term-by-term differentiation/integration is valid inside the radius:</li>
-</ul>  $$
-  f'(x) = \sum<em>{n=1}^\infty n a</em>n (x-x<em>0)^{n-1}
-  $$
-  $$
-  f''(x) = \sum</em>{n=2}^\infty n(n-1) a<em>n (x-x</em>0)^{n-2}
-  $$
-  (both converge absolutely for $|x-x_0| < R$).</p>
+<p>If $\sum a_m (x-x_0)^m = f(x)$ for $|x-x_0| < R$ ($R>0$), then:</p>
 
-<strong>Taylor Series</strong> of $f$ about $x_0$:
+<ul>
+<li>$f$ is <strong>continuous</strong> and <strong>infinitely differentiable</strong> on $|x-x_0| < R$.</li>
+<li>Term-by-term differentiation/integration is valid inside the radius:</li>
+</ul>
+
+$$
+  f'(x) = \sum_{n=1}^\infty n a_n (x-x_0)^{n-1}
+  $$
+
+$$
+  f''(x) = \sum_{n=2}^\infty n(n-1) a_n (x-x_0)^{n-2}
+  $$
+
+<p>(both converge absolutely for $|x-x_0| < R$).</p>
+
+<p><strong>Taylor Series</strong> of $f$ about $x_0$:</p>
+
 $$
 f(x) = \sum_{n=0}^\infty \frac{f^{(n)}(x_0)}{n!} (x-x_0)^n
 $$
+
 <ul>
 <li>$a_n = f^{(n)}(x_0)/n!$.</li>
 </ul>
-<strong>Analytic function</strong> at $x_0$: Can be represented by a power series (Taylor series) with positive radius of convergence around $x_0$.
 
-<strong>Examples of analytic functions</strong>: $e^x$, $\sin x$, $\cos x$, polynomials, rational functions (except at poles).
+<p><strong>Analytic function</strong> at $x_0$: Can be represented by a power series (Taylor series) with positive radius of convergence around $x_0$.</p>
 
-<strong>Vanishing coefficients</strong>: If $\sum a_m (x-x_0)^m = 0$ for all $x$ in some interval around $x_0$, then $a_m = 0$ for all $m$.
+<p><strong>Examples of analytic functions</strong>: $e^x$, $\sin x$, $\cos x$, polynomials, rational functions (except at poles).</p>
+
+<p><strong>Vanishing coefficients</strong>: If $\sum a_m (x-x_0)^m = 0$ for all $x$ in some interval around $x_0$, then $a_m = 0$ for all $m$.</p>
 
 <hr>
 
@@ -187,65 +211,85 @@ $$
 
 <p>It is often convenient to re-index sums so powers align.</p>
 
-<strong>Example</strong>:
+<p><strong>Example</strong>:</p>
+
 $$
 \sum_{n=2}^\infty a_n x^n = \sum_{m=0}^\infty a_{m+2} x^{m+2}
 $$
-(Both contain exactly the same terms.)
+
+<p>(Both contain exactly the same terms.)</p>
 
 <hr>
 
 <h2>Existence of Power Series Solutions</h2>
 
-<strong>Theorem</strong> (Existence of Power Series Solutions):  
-Consider  
+<p><strong>Theorem</strong> (Existence of Power Series Solutions):<br> Consider</p>
+
 $$
 y'' + P(x)y' + Q(x)y = R(x)
 $$
-If $P(x)$, $Q(x)$, $R(x)$ are <strong>analytic</strong> at $x=x_0$, then <strong>every</strong> solution is analytic at $x_0$ and can be represented by a power series in powers of $(x-x_0)$ with positive radius of convergence.
+
+<p>If $P(x)$, $Q(x)$, $R(x)$ are <strong>analytic</strong> at $x=x_0$, then <strong>every</strong> solution is analytic at $x_0$ and can be represented by a power series in powers of $(x-x_0)$ with positive radius of convergence.</p>
 
 <hr>
 
 <h2>Example: Power Series Solution of $y'' + y = 0$</h2>
 
-<p>Assume solution of form  
+<p>Assume solution of form</p>
+
 $$
-y(x) = \sum<em>{n=0}^\infty a</em>n x^n \quad (\text{centered at } 0)
+y(x) = \sum_{n=0}^\infty a_n x^n \quad (\text{centered at } 0)
 $$
-Differentiate:  
+
+<p>Differentiate:</p>
+
 $$
-y' = \sum<em>{n=1}^\infty n a</em>n x^{n-1}, \quad y'' = \sum<em>{n=2}^\infty n(n-1) a</em>n x^{n-2}
+y' = \sum_{n=1}^\infty n a_n x^{n-1}, \quad y'' = \sum_{n=2}^\infty n(n-1) a_n x^{n-2}
 $$
-Plug into ODE:  
+
+<p>Plug into ODE:</p>
+
 $$
-\sum<em>{n=2}^\infty n(n-1) a</em>n x^{n-2} + \sum<em>{n=0}^\infty a</em>n x^n = 0
+\sum_{n=2}^\infty n(n-1) a_n x^{n-2} + \sum_{n=0}^\infty a_n x^n = 0
 $$
-Shift index in first sum ($k=n-2$):  
+
+<p>Shift index in first sum ($k=n-2$):</p>
+
 $$
-\sum<em>{k=0}^\infty (k+2)(k+1) a</em>{k+2} x^k + \sum<em>{k=0}^\infty a</em>k x^k = 0
+\sum_{k=0}^\infty (k+2)(k+1) a_{k+2} x^k + \sum_{k=0}^\infty a_k x^k = 0
 $$
-Combine:  
+
+<p>Combine:</p>
+
 $$
-\sum<em>{k=0}^\infty \big[(k+2)(k+1) a</em>{k+2} + a<em>k\big] x^k = 0
+\sum_{k=0}^\infty \big[(k+2)(k+1) a_{k+2} + a_k\big] x^k = 0
 $$
-<strong>Recurrence</strong>:  
+
+<p><strong>Recurrence</strong>:</p>
+
 $$
-(k+2)(k+1) a</em>{k+2} + a<em>k = 0 \quad \Rightarrow \quad a</em>{k+2} = -\frac{a<em>k}{(k+2)(k+1)}
+(k+2)(k+1) a_{k+2} + a_k = 0 \quad \Rightarrow \quad a_{k+2} = -\frac{a_k}{(k+2)(k+1)}
 $$
-Even and odd coefficients separate:
+
+<p>Even and odd coefficients separate:</p>
+
 <ul>
-<li>Even: $a</em>{2k} = \frac{(-1)^k}{(2k)!} a<em>0$</li>
-<li>Odd: $a</em>{2k+1} = \frac{(-1)^k}{(2k+1)!} a<em>1$</li>
+<li>Even: $a_{2k} = \frac{(-1)^k}{(2k)!} a_0$</li>
+<li>Odd: $a_{2k+1} = \frac{(-1)^k}{(2k+1)!} a_1$</li>
 </ul>
-Thus  
+
+<p>Thus</p>
+
 $$
-y(x) = a</em>0 \sum<em>{k=0}^\infty \frac{(-1)^k}{(2k)!} x^{2k} + a</em>1 \sum<em>{k=0}^\infty \frac{(-1)^k}{(2k+1)!} x^{2k+1} = a</em>0 \cos x + a_1 \sin x
+y(x) = a_0 \sum_{k=0}^\infty \frac{(-1)^k}{(2k)!} x^{2k} + a_1 \sum_{k=0}^\infty \frac{(-1)^k}{(2k+1)!} x^{2k+1} = a_0 \cos x + a_1 \sin x
 $$
-(Ratio test confirms $R=\infty$).</p>
+
+<p>(Ratio test confirms $R=\infty$).</p>
 
 <hr>
 
 <h2>Summary of Lecture 8</h2>
+
 <ul>
 <li><strong>Power series</strong>: Definition, convergence, radius $R$, interval of convergence.</li>
 <li><strong>Tests</strong>: Root test, ratio test for $R$.</li>
@@ -254,13 +298,14 @@ $$
 <li><strong>Power series solutions</strong>: Exist (and are unique) when $P,Q,R$ analytic → solve via recurrence relation on coefficients.</li>
 <li><strong>Classic example</strong>: $y'' + y = 0$ recovers $\cos x$ and $\sin x$ series.</li>
 </ul>
-<strong>Key Takeaway</strong>: Analytic coefficients guarantee analytic solutions expandable as power series — the foundation for series solutions of ODEs with variable coefficients.
 
-<strong>Next</strong>: More applications of series solutions, Frobenius method for singular points.
+<p><strong>Key Takeaway</strong>: Analytic coefficients guarantee analytic solutions expandable as power series — the foundation for series solutions of ODEs with variable coefficients.</p>
+
+<p><strong>Next</strong>: More applications of series solutions, Frobenius method for singular points.</p>
 
 <hr>
 
-<strong>Backlink to next lecture</strong> → <a href="lecture-9-10-ma104.html">Lecture 9 & 10 - MA104</a>
+<p><strong>Backlink to next lecture</strong> → <a href="lecture-9-10-ma104.html">Lecture 9 & 10 - MA104</a></p>
             </article>
             <footer class="main-footer">
                 <div class="footer-nav">

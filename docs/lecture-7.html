@@ -92,201 +92,228 @@
             </button>
             <article class="content">
                 <h1>MA 104: Ordinary Differential Equations - Lecture 7</h1>
-<strong>Related:</strong> <a href="index.html">MA 104 Course Overview</a> | <a href="lecture-6.html">Lecture 6 - MA104</a> | <a href="lecture-8.html">Lecture 8 - MA104</a>
+
+<p><strong>Related:</strong> <a href="index.html">MA 104 Course Overview</a> | <a href="lecture-6.html">Lecture 6 - MA104</a> | <a href="lecture-8.html">Lecture 8 - MA104</a></p>
 
 <hr>
 
 <h2>Variation of Parameters (Lagrange)</h2>
 
-<strong>Limitation of Undetermined Coefficients</strong>:
+<p><strong>Limitation of Undetermined Coefficients</strong>:</p>
+
 <ul>
 <li>Requires constant coefficients $P,Q$.</li>
 <li>$R(x)$ must be exponential/polynomial/sin-cos (or products).</li>
 <li>Fails for variable coefficients, e.g., $y'' + y = \tan x$.</li>
 </ul>
-<strong>New method</strong> works for the general nonhomogeneous equation  
+
+<p><strong>New method</strong> works for the general nonhomogeneous equation</p>
+
 $$
 y'' + P(x)y' + Q(x)y = R(x) \tag{1}
 $$
-where $P,Q,R$ are continuous on open interval $I$.
 
-<strong>Assumption</strong>: Know two linearly independent solutions $y_1,y_2$ of the homogeneous equation  
+<p>where $P,Q,R$ are continuous on open interval $I$.</p>
+
+<p><strong>Assumption</strong>: Know two linearly independent solutions $y_1,y_2$ of the homogeneous equation</p>
+
 $$
 y'' + P(x)y' + Q(x)y = 0 \tag{2}
 $$
 
-<strong>Goal</strong>: Find particular solution of form  
+<p><strong>Goal</strong>: Find particular solution of form</p>
+
 $$
 y_p(x) = v_1(x) y_1(x) + v_2(x) y_2(x) \tag{3}
 $$
-(vary the constants $c_1,c_2$ into functions $v_1,v_2$).
+
+<p>(vary the constants $c_1,c_2$ into functions $v_1,v_2$).</p>
 
 <h3>Derivation</h3>
-Differentiate (3):  
+
+<p>Differentiate (3):</p>
+
 $$
 y_p' = v_1' y_1 + v_1 y_1' + v_2' y_2 + v_2 y_2'
 $$
-Impose condition (avoids second derivatives of $v_i$):  
+
+<p>Impose condition (avoids second derivatives of $v_i$):</p>
+
 $$
 v_1' y_1 + v_2' y_2 = 0 \tag{4}
 $$
-Then  
+
+<p>Then</p>
+
 $$
 y_p'' = v_1' y_1' + v_1 y_1'' + v_2' y_2' + v_2 y_2''
 $$
 
-<p>Substitute into (1). Homogeneous parts cancel, leaving  
-$$
-v<em>1' y</em>1' + v<em>2' y</em>2' = R(x) \tag{5}
-$$</p>
+<p>Substitute into (1). Homogeneous parts cancel, leaving</p>
 
-<p>Solve system (4)+(5) using Wronskian $W = y<em>1 y</em>2' - y<em>1' y</em>2 \neq 0$:  
 $$
-v<em>1' = -\frac{y</em>2 R}{W}, \quad v<em>2' = \frac{y</em>1 R}{W}
+v_1' y_1' + v_2' y_2' = R(x) \tag{5}
 $$
-Integrate:  
-$$
-v<em>1 = -\int \frac{y</em>2 R}{W}\, dx, \quad v<em>2 = \int \frac{y</em>1 R}{W}\, dx
-$$
-<strong>Particular solution</strong>:  
-$$
-y<em>p = y</em>2 \int \frac{y<em>1 R}{W}\, dx - y</em>1 \int \frac{y_2 R}{W}\, dx
-$$</p>
 
-<strong>General solution</strong> of (1):  
+<p>Solve system (4)+(5) using Wronskian $W = y_1 y_2' - y_1' y_2 \neq 0$:</p>
+
+$$
+v_1' = -\frac{y_2 R}{W}, \quad v_2' = \frac{y_1 R}{W}
+$$
+
+<p>Integrate:</p>
+
+$$
+v_1 = -\int \frac{y_2 R}{W}\, dx, \quad v_2 = \int \frac{y_1 R}{W}\, dx
+$$
+
+<p><strong>Particular solution</strong>:</p>
+
+$$
+y_p = y_2 \int \frac{y_1 R}{W}\, dx - y_1 \int \frac{y_2 R}{W}\, dx
+$$
+
+<p><strong>General solution</strong> of (1):</p>
+
 $$
 y = c_1 y_1 + c_2 y_2 + y_p
 $$
 
 <h3>Example</h3>
+
 $$
 y'' + y = \sec x
 $$
-Homogeneous: $y_1 = \cos x$, $y_2 = \sin x$, $W=1$
 
-<p>$$
-v<em>1' = -\sin x \sec x = -\tan x \implies v</em>1 = \ln|\cos x|
+<p>Homogeneous: $y_1 = \cos x$, $y_2 = \sin x$, $W=1$</p>
+
 $$
+v_1' = -\sin x \sec x = -\tan x \implies v_1 = \ln|\cos x|
 $$
-v<em>2' = 1 \implies v</em>2 = x
+
 $$
+v_2' = 1 \implies v_2 = x
 $$
-y<em>p = \cos x \ln|\cos x| + x \sin x
+
 $$
-<strong>General solution</strong>:  
+y_p = \cos x \ln|\cos x| + x \sin x
 $$
-y = c</em>1 \cos x + c_2 \sin x + \cos x \ln|\cos x| + x \sin x
-$$</p>
+
+<p><strong>General solution</strong>:</p>
+
+$$
+y = c_1 \cos x + c_2 \sin x + \cos x \ln|\cos x| + x \sin x
+$$
 
 <hr>
 
 <h2>Higher-Order Linear ODEs</h2>
 
-<strong>General form</strong>:  
+<p><strong>General form</strong>:</p>
+
 $$
 P_n(x) y^{(n)} + P_{n-1}(x) y^{(n-1)} + \cdots + P_0(x) y = R(x)
 $$
 
-<strong>Standard form</strong>:  
+<p><strong>Standard form</strong>:</p>
+
 $$
 y^{(n)} + p_{n-1}(x) y^{(n-1)} + \cdots + p_0(x) y = R(x)
 $$
+
 <ul>
 <li><strong>Homogeneous</strong> if $R\equiv 0$.</li>
 <li>A solution is an $n$-times differentiable function satisfying the equation identically.</li>
 </ul>
-<strong>Linearity Principle</strong>: Linear combinations of homogeneous solutions are solutions.
 
-<strong>Linear Independence</strong> (n functions on $I$):  
-$c_1 y_1 + \cdots + c_n y_n \equiv 0 \implies$ all $c_i=0$.
+<p><strong>Linearity Principle</strong>: Linear combinations of homogeneous solutions are solutions.</p>
 
-<strong>Basis (Fundamental set)</strong>: $n$ linearly independent solutions.
+<p><strong>Linear Independence</strong> (n functions on $I$):<br> $c_1 y_1 + \cdots + c_n y_n \equiv 0 \implies$ all $c_i=0$.</p>
 
-<strong>General solution</strong> (homogeneous): $y_h = c_1 y_1 + \cdots + c_n y_n$.  
-<strong>General solution</strong> (nonhomogeneous): $y = y_p + y_h$.
+<p><strong>Basis (Fundamental set)</strong>: $n$ linearly independent solutions.</p>
+
+<p><strong>General solution</strong> (homogeneous): $y_h = c_1 y_1 + \cdots + c_n y_n$.<br> <strong>General solution</strong> (nonhomogeneous): $y = y_p + y_h$.</p>
 
 <hr>
 
 <h2>Initial Value Problem (n-th Order)</h2>
 
-<p>$$
-y(x<em>0)=y</em>0,\ y'(x<em>0)=y</em>1,\ \dots,\ y^{(n-1)}(x<em>0)=y</em>{n-1}
-$$</p>
+$$
+y(x_0)=y_0,\ y'(x_0)=y_1,\ \dots,\ y^{(n-1)}(x_0)=y_{n-1}
+$$
 
-<strong>Existence & Uniqueness</strong>:  
-If coefficients $p_{n-1},\dots,p_0$ continuous on open $I\ni x_0$, then unique solution on entire $I$.
+<p><strong>Existence & Uniqueness</strong>:<br> If coefficients $p_{n-1},\dots,p_0$ continuous on open $I\ni x_0$, then unique solution on entire $I$.</p>
 
 <hr>
 
 <h2>Wronskian for n Functions</h2>
 
-<p>$$
-W(y<em>1,\dots,y</em>n)(x) = \det\begin{vmatrix}
-y<em>1 & \cdots & y</em>n \\
-y<em>1' & \cdots & y</em>n' \\
+$$
+W(y_1,\dots,y_n)(x) = \det\begin{vmatrix}
+y_1 & \cdots & y_n \\
+y_1' & \cdots & y_n' \\
 \vdots & \ddots & \vdots \\
-y<em>1^{(n-1)} & \cdots & y</em>n^{(n-1)}
+y_1^{(n-1)} & \cdots & y_n^{(n-1)}
 \end{vmatrix}
-$$</p>
+$$
 
-<strong>Theorem</strong> (solutions of linear homogeneous ODE with continuous coefficients):  
-The $n$ solutions are linearly dependent on $I$ ⇔ $W\equiv 0$ on $I$.  
-If $W(x_0)\neq 0$, they form a basis on $I$.
+<p><strong>Theorem</strong> (solutions of linear homogeneous ODE with continuous coefficients):<br> The $n$ solutions are linearly dependent on $I$ ⇔ $W\equiv 0$ on $I$.<br> If $W(x_0)\neq 0$, they form a basis on $I$.</p>
 
 <hr>
 
 <h2>Homogeneous Constant-Coefficient Equations</h2>
 
-<p>$$
-y^{(n)} + a<em>{n-1} y^{(n-1)} + \cdots + a</em>0 y = 0
-$$</p>
+$$
+y^{(n)} + a_{n-1} y^{(n-1)} + \cdots + a_0 y = 0
+$$
 
-<strong>Characteristic equation</strong>:  
+<p><strong>Characteristic equation</strong>:</p>
+
 $$
 r^n + a_{n-1} r^{n-1} + \cdots + a_0 = 0
 $$
 
-<strong>Basis</strong>:
+<p><strong>Basis</strong>:</p>
+
 <ul>
 <li>Distinct real roots $r_k$: $\{e^{r_k x}\}$</li>
 <li>Real root $r$ multiplicity $m$: $\{e^{rx}, x e^{rx}, \dots, x^{m-1} e^{rx}\}$</li>
 <li>Simple complex $\alpha\pm i\beta$: $\{e^{\alpha x}\cos\beta x, e^{\alpha x}\sin\beta x\}$</li>
 <li>Complex multiplicity $m$: Multiply by $x^k$ ($k=0,\dots,m-1$) for cos/sin terms.</li>
 </ul>
+
 <hr>
 
 <h2>Nonhomogeneous – Undetermined Coefficients (Higher Order)</h2>
 
 <p>Same <strong>Basic Rule</strong>, <strong>Sum Rule</strong>, <strong>Modification Rule</strong> as 2nd order.</p>
 
-<strong>Modification</strong>: Multiply guessed term by smallest power of $x$ so it is independent of homogeneous solution.
+<p><strong>Modification</strong>: Multiply guessed term by smallest power of $x$ so it is independent of homogeneous solution.</p>
 
-<strong>Example</strong>:
+<p><strong>Example</strong>:</p>
+
 $$
 y''' + 3y'' + 3y' + y = 30 e^{-x}
 $$
-with $y(0)=3$, $y'(0)=-3$, $y''(0)=-47$.  
-Characteristic: $(r+1)^3=0$ (triple root $-1$).  
-$y_h = (c_1 + c_2 x + c_3 x^2)e^{-x}$  
-Guess $y_p = C x^3 e^{-x}$ (×$x^3$).  
-Substitute into ODE → solve for $C$.
+
+<p>with $y(0)=3$, $y'(0)=-3$, $y''(0)=-47$.<br> Characteristic: $(r+1)^3=0$ (triple root $-1$).<br> $y_h = (c_1 + c_2 x + c_3 x^2)e^{-x}$<br> Guess $y_p = C x^3 e^{-x}$ (×$x^3$).<br> Substitute into ODE → solve for $C$.</p>
 
 <hr>
 
 <h2>Summary of Lecture 7</h2>
+
 <ul>
-<li><strong>Variation of Parameters</strong>: General method using two homogeneous solutions and Wronskian.</li>
-</ul>  Formula: $y_p = y_2\int\frac{y_1 R}{W}\,dx - y_1\int\frac{y_2 R}{W}\,dx$.
-<ul>
+<li><strong>Variation of Parameters</strong>: General method using two homogeneous solutions and Wronskian. Formula: $y_p = y_2\int\frac{y_1 R}{W}\,dx - y_1\int\frac{y_2 R}{W}\,dx$.</li>
 <li><strong>Higher-order theory</strong>: Wronskian detects independence; existence/uniqueness when coefficients continuous.</li>
 <li><strong>Constant coefficients</strong>: Characteristic polynomial → basis according to root type (real/complex, multiplicity).</li>
 <li><strong>Nonhomogeneous</strong>: $y = y_h + y_p$; undetermined coefficients with modification for higher multiplicity.</li>
 </ul>
-<strong>Next</strong>: More on higher-order (Cauchy-Euler, systems) and applications.
+
+<p><strong>Next</strong>: More on higher-order (Cauchy-Euler, systems) and applications.</p>
 
 <hr>
 
-<strong>Backlink to next lecture</strong> → <a href="lecture-8.html">Lecture 8 - MA104</a>
+<p><strong>Backlink to next lecture</strong> → <a href="lecture-8.html">Lecture 8 - MA104</a></p>
             </article>
             <footer class="main-footer">
                 <div class="footer-nav">
